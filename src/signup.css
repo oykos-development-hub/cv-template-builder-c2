@@ -1,0 +1,31 @@
+.signup{
+    display: flex;
+    color: rgba(0, 0, 0, 0.76);
+    flex-direction: column;
+    background-color: rgb(255, 246, 246);
+    width:40%;
+    height: 1000 px;
+
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    padding-left: 68px;
+    margin-bottom: 50px;
+}
+.grayText{
+    color: rgb(190, 178, 178);
+    font-weight: bold;
+}
+.login{
+    color: rgb(74, 130, 250);
+    padding-left: 10px;
+    cursor: pointer;
+}
+.signuptext{
+    padding-right:295px;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+}

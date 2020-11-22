@@ -1,5 +1,4 @@
 import React from "react";
-import logo from './logo.svg';
 import './App.css';
 import {
     BrowserRouter as Router,
@@ -11,7 +10,7 @@ import LoginScreen from "./login.screen";
 import SignupScreen from "./signup.screen";
 
 function App() {
-    return (<Router>
+    return (<div className = "App"><Router>
         <Switch>
             <Route path="/signup">
                 <SignupScreen />
@@ -23,7 +22,9 @@ function App() {
                 <LoginScreen />
             </Route>
         </Switch>
-    </Router>);
+    </Router>
+    <img className = "image" src = "/images/slika.png"/>
+    </div>);
 }
 
 export default App;
