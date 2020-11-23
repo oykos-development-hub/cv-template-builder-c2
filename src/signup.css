@@ -29,3 +29,29 @@
     display: flex;
     flex-direction: column;
 }
+@media(max-width: 650px){
+    .signup{
+        background-color: rgb(255, 246, 246);
+        width:100%;
+    }
+    .row{
+        padding-left: 0px;
+    }
+    .grayText{
+        padding-left: 55px;
+    }
+    .signuptext{
+        padding-right: 400px;
+    }
+}
+@media(min-width:650px) and (max-width:1050px){
+    .signup{
+        width:50%;
+    }
+    .row{
+        padding-left: 0px;
+    }
+    .grayText{
+        padding-left: 35px;
+    }
+}

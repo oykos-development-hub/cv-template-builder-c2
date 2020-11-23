@@ -9,3 +9,17 @@
   width:600px;
   height: 400px;
 }
+@media(max-width: 650px){
+  .image{
+    width:0px;
+    height: 0px;
+  }
+}
+@media(min-width:650px) and (max-width:1050px){
+  .image{
+    width:400px;
+    height:200px;
+    margin-left:50px;
+    margin-top: 150px;
+  }
+}
