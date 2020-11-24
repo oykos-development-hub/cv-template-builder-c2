@@ -7,6 +7,11 @@
     font-weight: bold;
     padding-left: 10px;
 }
+.errorMass{
+    color: red;
+    display: relative;
+    padding-right: 340x;
+}
 @media(max-width:650px){
     .input{
         width: 450px;

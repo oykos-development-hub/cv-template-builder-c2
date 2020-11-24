@@ -1,8 +1,7 @@
 import React from "react";
 import {Redirect} from "react-router-dom";
 import './signup.css';
-import Input from './Input.js';
-import Button from './Button.js';
+import Form from './Input.js';
 
 export default class SignupScreen extends React.Component {
     constructor(props) {
@@ -32,8 +31,7 @@ export default class SignupScreen extends React.Component {
                     </div>
                
             </div>
-            <Input/>
-            <Button/>
+            <Form/>
             </div>
         </div>);
     }
