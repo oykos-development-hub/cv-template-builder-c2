@@ -1,6 +1,7 @@
 import React from 'react';
 import './Input.css';
 import './Button.css';
+import {ApiService} from "./services/api.service";
 
 const emailRegex = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 const formValid = ({formErrors, ...rest}) =>{
@@ -32,6 +33,16 @@ export default class Form extends React.Component{
     }
     handleSubmit = e => {
         e.preventDefault();
+
+        if (this.state.email && this.state.password) {
+            return ApiService.endpoints.login(this.state.email, this.state.password).then((response) => {
+                if (response && response.errorMessage && response.info) {
+                    this.setState({
+                        errorMessage: response.info
+                    });
+                }
+            });
+        }
 
         if (this.state.password !== this.state.passwordR) {
             this.setState({
@@ -117,6 +128,10 @@ export default class Form extends React.Component{
 
                 <input className = "input" name = "passwordR"  type = "password" placeholder = "Repeat password" value = {this.state.passwordR} onChange = {(e) => {this.handleChange(e)}} noValidate/>
                 <button className = "button" type = "submit">Sign up</button>
+
+                {
+                    !!this.state.errorMessage && (<div style={{color: 'red'}}>{this.state.errorMessage}</div>)
+                }
             </form>
         </div>);
     }
