@@ -34,7 +34,7 @@ export default class Form extends React.Component{
     handleSubmit = e => {
         e.preventDefault();
 
-        if (this.state.email && this.state.password) {
+        /*if (this.state.email && this.state.password) {
             return ApiService.endpoints.login(this.state.email, this.state.password).then((response) => {
                 if (response && response.errorMessage && response.info) {
                     this.setState({
@@ -42,7 +42,7 @@ export default class Form extends React.Component{
                     });
                 }
             });
-        }
+        }*/
 
         if (this.state.password !== this.state.passwordR) {
             this.setState({
