@@ -16,22 +16,21 @@ export default class SignupScreen extends React.Component {
                 {
                     !!this.state.redirect && <Redirect to={this.state.redirect}/>
                 }
-
                 <h1 className = "signuptext"> Sign Up</h1>
-            <div className = "row">
-                <span className = "grayText">Already have an account?</span>
-                    <div className = "login"
+                <div className = "row">
+                    <span className = "grayText">Already have an account?</span>
+                    <div
+                        className = "login"
                         onClick={() => {
-                    this.setState({
-                        redirect: '/login'
-                    });
-                    }}
+                            this.setState({
+                                redirect: '/login'
+                            });
+                        }}
                     >
-                     Login
+                        Login
                     </div>
-               
-            </div>
-            <Form/>
+                </div>
+                <Form />
             </div>
         </div>);
     }

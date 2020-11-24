@@ -1,6 +1,7 @@
 import React from 'react';
 import './Input.css';
 import './Button.css';
+
 const emailRegex = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 const formValid = ({formErrors, ...rest}) =>{
     let valid = true;
@@ -10,9 +11,10 @@ const formValid = ({formErrors, ...rest}) =>{
     Object.values(rest).forEach(val =>{
         val === "" && (valid = false);
     });
-    
+
     return valid;
-}
+};
+
 export default class Form extends React.Component{
     constructor(props){
         super(props);
@@ -30,7 +32,19 @@ export default class Form extends React.Component{
     }
     handleSubmit = e => {
         e.preventDefault();
-        if (formValid(this.state)){
+
+        if (this.state.password !== this.state.passwordR) {
+            this.setState({
+                password: '',
+                passwordR: ''
+            });
+
+            return alert("Passwords don't match");
+        }
+
+        let formValid = formValid(this.state);
+
+        if (formValid){
             console.log(`
             --Submitting--
             Name: ${this.state.name}
@@ -38,7 +52,7 @@ export default class Form extends React.Component{
             Password:${this.state.password}
             PasswordR:${this.state.passwordR}
             `);
-        }else{
+        } else{
             alert("Please fill inputs")
         }
     };
@@ -47,7 +61,7 @@ export default class Form extends React.Component{
 
         const {name, value} = e.target;
         let formErrors = this.state.formErrors;
-        switch(name){ 
+        switch(name){
             case 'fullname':
                 formErrors.name = value.length > 0  ? "": "*required";
                 break;
@@ -60,21 +74,24 @@ export default class Form extends React.Component{
                 default:
                 break;
         }
-        this.setState({formErrors, [name]: value}, () => console.log(this.state));
+        this.setState({
+            formErrors,
+            [name]: value
+        }, () => console.log(this.state));
 
     }
     render(){
         const {formErrors} = this.state;
-        return(<div>
-            <form onSubmit = {this.handleSubmit} noValidate>
-                
-                <input className = "input" name = "fullname"type = "text" placeholder = "Full name" onChange = {this.handleChange} noValidate />
+        return(<div className="signup-form">
+            <form onSubmit = {(e) => { this.handleSubmit(e) }} noValidate>
+
+                <input className = "input" name = "fullname"type = "text" placeholder = "Full name" value={this.state.fullname} onChange = {(e) => {this.handleChange(e)}} noValidate />
                     {formErrors.name.length > 0 && (<span className = "errorMass">{formErrors.name}</span>)}
-                <input className = "input" name = "email" type = "email" placeholder = "Email" onChange = {this.handleChange} noValidate/>
-                    {formErrors.email.length > 0 && (<span className = "errorMass">{formErrors.email}</span>)} 
-                <input className = "input"  name = "password" type = "password" placeholder = "Password" value = {this.password} onChange = {this.handleChange} noValidate/>
+                <input className = "input" name = "email" type = "email" placeholder = "Email" value={this.state.email} onChange = {(e) => {this.handleChange(e)}} noValidate/>
+                    {formErrors.email.length > 0 && (<span className = "errorMass">{formErrors.email}</span>)}
+                <input className = "input"  name = "password" type = "password" placeholder = "Password" value={this.state.password} onChange = {(e) => {this.handleChange(e)}} noValidate/>
                     {formErrors.password.length > 0 && (<span className = "errorMass">{formErrors.password}</span>)}
-                <input className = "input" name = "passowrdR"  type = "password" placeholder = "Repeat password" value = {this.password} onChange = {this.handleChange} noValidate/>
+                <input className = "input" name = "passwordR"  type = "password" placeholder = "Repeat password" value = {this.state.passwordR} onChange = {(e) => {this.handleChange(e)}} noValidate/>
                 <button className = "button" type = "submit">Sign up</button>
             </form>
         </div>);
