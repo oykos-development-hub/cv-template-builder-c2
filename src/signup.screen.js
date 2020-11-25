@@ -1,6 +1,8 @@
 import React from "react";
 import {Redirect, Link} from "react-router-dom";
-import InputComponent from "./inputComponent";
+import InputComponent from "./components/inputComponent";
+import SubmitComponent from "./components/submitComponent";
+import './style/Signup.css';
 
 export default class SignupScreen extends React.Component {
     constructor(props) {
@@ -41,7 +43,7 @@ export default class SignupScreen extends React.Component {
                                 text={"Repeat password"}
                                 type={"password"}
                             />
-                            <InputComponent
+                            <SubmitComponent
                                 name={"submit"}
                                 type={"submit"}
                                 value={"Sign up"}
