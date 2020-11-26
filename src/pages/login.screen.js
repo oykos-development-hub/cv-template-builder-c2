@@ -45,7 +45,6 @@ function LoginScreen () {
             redirect !== '' && <Redirect to={redirect}/>
         }
 
-        <div className = 'login-screen'>
             <div className = 'left-side'>
                 <span id = 'login-text'> Login </span>
                 <span id = 'sign-up-text'> Need a CV builder account?&nbsp;
@@ -82,7 +81,6 @@ function LoginScreen () {
             <div className = 'right-side'>
                 <img src={background} alt="Background image" class = 'background-image'/>
             </div>
-        </div>
     </div>);
 }
 

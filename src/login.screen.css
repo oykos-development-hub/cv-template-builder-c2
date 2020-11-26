@@ -1,7 +1,6 @@
 .login-screen {
     display: flex;
     height: 100vh;
-    min-width: 1000px;
 }
 
 .left-side {
@@ -54,4 +53,10 @@
     .right-side {
         display: none ;
     }
+}
+
+@media(min-width:650px){
+    .login-screen {
+        min-width: 1000px;
+    }    
 }
