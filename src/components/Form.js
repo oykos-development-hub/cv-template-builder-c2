@@ -35,13 +35,13 @@ export default class Form extends React.Component {
     let errors = this.state.errors;
     switch (name) {
       case 'fullName':
-        errors.fullName = value.length < 1 ? 'Full name must be entered': '';
+        errors.fullName = value.length < 1 ? 'Full name must be filled in': '';
         break;
       case 'email':
         errors.email = Regex.test(value)? '': 'Email is not valid';
         break;
       case 'password':
-        errors.password = value.length < 1 ? 'Password must be entered': '';
+        errors.password = value.length < 1 ? 'Password must be filled in': '';
         break;
       case 'repPassword':
         errors.repPassword = value !== this.state.password ? 'Passwords do not match ': '';
