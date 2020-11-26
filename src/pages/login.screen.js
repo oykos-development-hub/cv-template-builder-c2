@@ -63,7 +63,7 @@ function LoginScreen () {
                     ref={inputRefs.current[0]}
                     name="email"
                     type="email"
-                    placeholder="email"
+                    placeholder="Email"
                     onChange={handleChange}
                     validation={"required|email"}
                     />
@@ -71,7 +71,7 @@ function LoginScreen () {
                     ref={inputRefs.current[1]}
                     name="password"
                     type="password"
-                    placeholder="password"
+                    placeholder="Password"
                     onChange={handleChange}
                     validation="required|min:6|max:12"
                     />
