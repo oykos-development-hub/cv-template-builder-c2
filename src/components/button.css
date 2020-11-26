@@ -1,0 +1,29 @@
+@media(max-width:650px){
+    .button{
+        margin-right: 55px;
+        width: 460px;
+    }
+}
+
+@media(min-width:650px){
+    .button{
+        width: 412px;
+    }
+}
+.button{
+    height: 60px;
+    margin-top: 10px;
+    border: 1px solid rgb(190, 178, 178);
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: rgb(74, 130, 250);
+    color: white;
+    font-size: large;
+    cursor:pointer;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #3f94e47c;
+  } 
+
