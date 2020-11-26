@@ -1,37 +1,13 @@
-@media(max-width:650px){
-    .background-image {
-        display: none;
-    }   
-    .left-side {
-        flex: 1 1 100%;
-        padding-left: 70px;
-    }
-    .right-side {
-        flex: 0 ;
-    }
-}
-
-@media(min-width:650px){
-    
-    .left-side {
-        flex: 1 1 50%;
-    }
-    .right-side {
-        flex: 1 1 50%;
-    }
-    .container {
-        min-width: 1000px;
-    }
-}
-
-.container {
+.login-screen {
     display: flex;
     height: 100vh;
+    min-width: 1000px;
 }
 
 .left-side {
     background-color: #f4f7f8;
     display: flex;
+    flex: 1 1 50%;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
@@ -41,6 +17,7 @@
 .right-side {
     background-color: white;
     display: flex;
+    flex: 1 1 50%;
  
 }
 
@@ -64,4 +41,17 @@
     font-size: 3em;
     font-weight: 600;
     margin-bottom: 15px;
+}
+
+@media(max-width:650px){
+    .background-image {
+        display: none;
+    }   
+    .left-side {
+        flex: 1 1 100%;
+        padding-left: 70px;
+    }
+    .right-side {
+        display: none ;
+    }
 }

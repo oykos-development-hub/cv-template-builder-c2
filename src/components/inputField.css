@@ -1,18 +1,6 @@
-@media(max-width:650px){
-    .input-wrapper{
-        margin-right: 55px;
-        width: 448px;
-    }
-}
-
-@media(min-width:650px){
-    .input-wrapper{
-        width:400px;
-    }
-}
-
   .input-wrapper {
     display: flex;
+    width:400px;
     flex-direction: column;
     margin-bottom: 20px;
     height:50px;
@@ -44,5 +32,9 @@
     font-size: 0.9em
   }
 
-  
-  
+@media(max-width:650px){
+    .input-wrapper{
+        margin-right: 55px;
+        width: 448px;
+    }
+}

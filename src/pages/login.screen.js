@@ -1,48 +1,89 @@
-import React from "react";
+import React, {useState} from "react";
 import {Redirect, Link} from "react-router-dom";
-import './login.screen.css';
-import background from './images/background.png';
-import Input from  './input'
+import '../login.screen.css';
+import background from '../images/login-picture.png';
+import InputField from  '../components/inputField';
+import Button from '../components/button';
 
-export default class LoginScreen extends React.Component {
-    constructor(props) {
-        super(props);
+function LoginScreen () {
+    
+    const [redirect,setRedirect] = useState('');
 
-        this.state = {};
-    }
+    const inputRefs = React.useRef([
+        React.createRef(), React.createRef()
+      ]);
+    
+      const [data, setData] = React.useState({});
+    
+      const handleChange = (name, value) => {
+        setData(prev => ({ ...prev, [name]: value }))
+      }
+    
+      const submitForm = (e) => {
+        e.preventDefault();
+    
+        let isValid = true;
+    
+        for (let i = 0; i < inputRefs.current.length; i++) {
+          const valid = inputRefs.current[i].current.validate()
+          console.log(valid)
+          if (!valid) {
+            isValid = false
+          }
+        }
+    
+        if (!isValid) {
+          return
+        }
+    
+        console.log("Logged In");
+        
+      }
 
-    render() {
-        return (<div className="login-screen">
-            {
-                !!this.state.redirect && <Redirect to={this.state.redirect}/>
-            }
-            <div className = 'container'>
-                <div className = 'left-side'>
-                    <span id = 'login-text'> Login </span>
-                    <span id = 'sign-up-text'> Need a CV builder account?&nbsp;
-                    <span
-                        id = 'sign-up-link'
-                        onClick={() => {
-                            this.setState({
-                                redirect: '/signup'
-                            });
-                        }}
-                    >
-                        Sign up
-                    </span>
-                    </span>
+    return (<div className="login-screen">
+        {
+            redirect !== '' && <Redirect to={redirect}/>
+        }
 
-                    {/* <div className = 'placeholder'> Email inputComponent placeholder</div>
-                    <div className = 'placeholder'> Password inputComponent placeholder</div> */}
+        <div className = 'login-screen'>
+            <div className = 'left-side'>
+                <span id = 'login-text'> Login </span>
+                <span id = 'sign-up-text'> Need a CV builder account?&nbsp;
+                <span
+                    id = 'sign-up-link'
+                    onClick={() => {
+                        setRedirect('/signup');
+                    }}
+                >
+                    Sign up
+                </span>
+                </span>
 
-                    <Input />
-                    <Input />
-                    <button id='login-button'> Login buttonComponent placeholder </button>
-                </div>
-                <div className = 'right-side'>
-                    <img src={background} alt="Background image" id = 'background-image'/>
-                </div>
+                <form onSubmit={submitForm} className="form">
+                    <InputField
+                    ref={inputRefs.current[0]}
+                    name="email"
+                    type="email"
+                    placeholder="email"
+                    onChange={handleChange}
+                    validation={"required|email"}
+                    />
+                    <InputField
+                    ref={inputRefs.current[1]}
+                    name="password"
+                    type="password"
+                    placeholder="password"
+                    onChange={handleChange}
+                    validation="required|min:6|max:12"
+                    />
+                    <Button />
+                </form>
             </div>
-        </div>);
-    }
+            <div className = 'right-side'>
+                <img src={background} alt="Background image" class = 'background-image'/>
+            </div>
+        </div>
+    </div>);
 }
+
+export default LoginScreen;

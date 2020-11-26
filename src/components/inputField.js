@@ -12,7 +12,7 @@ const InputField = forwardRef((props, ref) => {
   }
 
   const validate = () => {
-    //return true if is valid 
+    //return true if it's valid 
     //else return false
 
     if (props.validation) {
