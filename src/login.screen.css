@@ -1,38 +1,62 @@
-@media only screen and (max-width: 768px) {
+@media(max-width:650px){
+    #background-image {
+        display: none;
+    }
+    
+    .left-side {
+        flex: 1 1 100%;
+        padding-left: 70px;
+    }
+
     .right-side {
-      display:none;
+        flex: 0 ;
+    }
+
+}
+
+@media(min-width:650px){
+    
+    .left-side {
+        flex: 1 1 50%;
+    }
+
+    .right-side {
+        flex: 1 1 50%;
+    }
+
+    .container {
+        min-width: 1000px;
     }
 }
 
 .container {
     display: flex;
     height: 100vh;
+
 }
 
 .left-side {
     background-color: #f4f7f8;
-    flex: 1 1 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-left: 70px;
 }
 
 .right-side {
     background-color: white;
-    flex: 1 1 50%;
     display: flex;
  
 }
 
 #background-image {
     width: 100%;
-    height: 60%;
     align-self: center;
 }
 
 #sign-up-link {
-    color: blue;
+    color: #529ee6;
     font-weight: 600;
 }
 

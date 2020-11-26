@@ -1,7 +1,8 @@
 import React from "react";
 import {Redirect, Link} from "react-router-dom";
 import './login.screen.css';
-import background from './images/login-background.jpg';
+import background from './images/background.png';
+import Input from  './input'
 
 export default class LoginScreen extends React.Component {
     constructor(props) {
@@ -33,8 +34,11 @@ export default class LoginScreen extends React.Component {
                     </span>
                     </span>
 
-                    <div className = 'placeholder'> Email inputComponent placeholder</div>
-                    <div className = 'placeholder'> Password inputComponent placeholder</div>
+                    {/* <div className = 'placeholder'> Email inputComponent placeholder</div>
+                    <div className = 'placeholder'> Password inputComponent placeholder</div> */}
+
+                    <Input />
+                    <Input />
                     <button id='login-button'> Login buttonComponent placeholder </button>
                 </div>
                 
