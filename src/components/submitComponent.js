@@ -9,18 +9,11 @@ export default class SubmitComponent extends React.Component {
         else {
             this.state = {value: ''}
         };
-    
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-  
-    handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.value);
-      event.preventDefault();
     }
   
     render() {   
       return (
-        <input id={this.props.name} name={this.props.name} placeholder={this.props.text} type={this.props.type} value={this.state.value} onSubmit={this.handleSubmit} />
+        <input id={this.props.name} name={this.props.name} placeholder={this.props.text} type={this.props.type} value={this.state.value} />
       );
     }
   }

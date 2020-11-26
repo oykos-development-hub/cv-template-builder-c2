@@ -1,7 +1,6 @@
 import React from "react";
 import {Redirect, Link} from "react-router-dom";
-import InputComponent from "./components/inputComponent";
-import SubmitComponent from "./components/submitComponent";
+import Form from "./components/Form";
 import './style/Signup.css';
 
 export default class SignupScreen extends React.Component {
@@ -22,33 +21,7 @@ export default class SignupScreen extends React.Component {
                     <div className="text-content">
                         <h1>Sign up</h1>
                         <h2>Already have an account? <Link className="redirect" to="/login">Login</Link></h2>
-                        <form>
-                            <InputComponent
-                                name={"full-name"} 
-                                text={"Full name"}
-                                type={"text"}
-                            />
-                            <InputComponent
-                                name={"email"} 
-                                text={"Email"}
-                                type={"email"}
-                            />
-                            <InputComponent
-                                name={"password"} 
-                                text={"Password"}
-                                type={"password"}
-                            />
-                            <InputComponent
-                                name={"rep-password"} 
-                                text={"Repeat password"}
-                                type={"password"}
-                            />
-                            <SubmitComponent
-                                name={"submit"}
-                                type={"submit"}
-                                value={"Sign up"}
-                            />
-                        </form>     
+                        <Form/>   
                     </div>
                 </div>
                 <div className="right-side">
