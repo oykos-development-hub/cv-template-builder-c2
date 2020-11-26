@@ -1,4 +1,7 @@
 import React from "react";
+import InputComponent from "./inputComponent";
+import SubmitComponent from "./submitComponent";
+import {ApiService} from "../services/api.service";
 
 const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
 
@@ -35,7 +38,7 @@ export default class Form extends React.Component {
         errors.fullName = value.length < 1 ? 'Full name must be entered': '';
         break;
       case 'email':
-        errors.email = Regex.test(value)? '': 'Email is not valid!';
+        errors.email = Regex.test(value)? '': 'Email is not valid';
         break;
       case 'password':
         errors.password = value.length < 1 ? 'Password must be entered': '';
@@ -50,15 +53,41 @@ export default class Form extends React.Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
+
     let validity = true;
+    Object.values(this.state).forEach(
+      (val) => val.length < 1 && (validity = false)
+    );
     Object.values(this.state.errors).forEach(
       (val) => val.length > 0 && (validity = false)
     );
-    if(validity === true){
-       console.log("Registering can be done");
+    if (this.state.password !== this.state.repPassword) {
+      this.setState({
+          password: '',
+          repPassword: ''
+      });
+      alert("Passwords don't match");
+    }
+    else if(validity === true){
+       console.log(`
+       --Submitting--
+       Name: ${this.state.fullName}
+       Email:${this.state.email}
+       Password:${this.state.password}
+       PasswordR:${this.state.repPassword}
+       `);
+      if (this.state.email && this.state.password) {
+        return ApiService.endpoints.login(this.state.email, this.state.password).then((response) => {
+          if (response && response.errorMessage && response.info) {
+            this.setState({
+              errorMessage: response.info
+            });
+          }
+        });
+      }
     }else{
-       alert("Please check all fields")
+       alert("Please fill inputs")
     }
   }  
 
@@ -66,52 +95,44 @@ export default class Form extends React.Component {
     const {errors} = this.state  
     return ( 
       <form onSubmit={this.handleSubmit} noValidate>
-        <input 
-          id="fullName" 
-          name="fullName" 
-          placeholder="Full name" 
-          type="text"  
-          onChange={this.handleChange} 
-          onBlurCapture={this.handleBlur}
+        <InputComponent
+          name="fullName"
+          text="Full name"
+          type="text"
+          value={this.state.fullName}
+          change={this.handleChange}
+          blur={this.handleBlur}
+          error={errors.fullName}
         />
-        <p  className="error" >  <span className="holder">.</span>
-          {errors.fullName.length > 0 &&  <span>{errors.fullName}</span>}
-        </p>
-        <input 
-          id="email" 
-          name="email" 
-          placeholder="Email" 
-          type="email"  
-          onChange={this.handleChange} 
-          onBlurCapture={this.handleBlur}
+        <InputComponent
+          name="email"
+          text="Email"
+          type="email"
+          value={this.state.email}
+          change={this.handleChange}
+          blur={this.handleBlur}
+          error={errors.email}
         />
-        <p  className="error" >  <span className="holder">.</span>
-          {errors.email.length > 0 &&  <span>{errors.email}</span>}
-        </p>
-        <input 
-          id="password" 
-          name="password" 
-          placeholder="Password" 
-          type="password"  
-          onChange={this.handleChange} 
-          onBlurCapture={this.handleBlur}
+        <InputComponent
+          name="password"
+          text="Password"
+          type="password"
+          value={this.state.password}
+          change={this.handleChange}
+          blur={this.handleBlur}
+          error={errors.password}
         />
-        <p  className="error" >  <span className="holder">.</span>
-          {errors.password.length > 0 &&  <span>{errors.password}</span>}
-        </p>
-        <input 
-          id="repPassword" 
-          name="repPassword" 
-          placeholder="Repeat Password" 
-          type="password"  
-          onChange={this.handleBlur}
+        <InputComponent
+          name="repPassword"
+          text="Repeat Password"
+          type="password"
+          value={this.state.repPassword}
+          change={this.handleBlur}
+          blur={this.handleBlur}
+          error={errors.repPassword}
         />
-        <p  className="error" >  <span className="holder">.</span>
-          {errors.repPassword.length > 0 &&  <span>{errors.repPassword}</span>}
-        </p>
-        <input 
-          id="submit" 
-          name="submit"  
+        <SubmitComponent 
+          name="submit"   
           type="submit" 
           value="Sign up" 
         />
@@ -119,3 +140,4 @@ export default class Form extends React.Component {
     );
   }
 }
+
