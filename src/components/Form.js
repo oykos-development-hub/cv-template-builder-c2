@@ -15,9 +15,9 @@ export default class Form extends React.Component {
       repPassword: "",  
       errors : {
         fullName: "",
-      email: "",
-      password: "",
-      repPassword: "",
+        email: "",
+        password: "",
+        repPassword: "",
       } 
     }
   }
