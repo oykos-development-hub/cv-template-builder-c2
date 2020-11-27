@@ -1,20 +1,26 @@
-import React, {useState} from "react";
-import {Redirect, Link} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Redirect} from "react-router-dom";
 import '../login.screen.css';
 import background from '../images/login-picture.png';
 import InputField from  '../components/inputField';
 import Button from '../components/button';
+import {ApiService} from "../services/api.service";
 
 function LoginScreen () {
     
     const [redirect,setRedirect] = useState('');
+    const [serverResponse, setResponse] = useState('');
+    //printing message from server in console
+    useEffect(
+      () => console.log(serverResponse), [serverResponse]
+    )
 
     const inputRefs = React.useRef([
         React.createRef(), React.createRef()
       ]);
     
       const [data, setData] = React.useState({});
-    
+  
       const handleChange = (name, value) => {
         setData(prev => ({ ...prev, [name]: value }))
       }
@@ -35,9 +41,17 @@ function LoginScreen () {
         if (!isValid) {
           return
         }
-    
-        console.log("Logged In");
-        
+  
+        //sending a request to server via API
+        if (data) {
+          return ApiService.endpoints.login(data).then((response) => {
+            if (response && response.errorMessage && response.info) {
+              setResponse({
+                    errorMessage: response.info
+              });              
+            }
+          });
+        }      
       }
 
     return (<div className="login-screen">
@@ -79,7 +93,7 @@ function LoginScreen () {
                 </form>
             </div>
             <div className = 'right-side'>
-                <img src={background} alt="Background image" class = 'background-image'/>
+                <img src={background} alt= 'background' class = 'background-image'/>
             </div>
     </div>);
 }
