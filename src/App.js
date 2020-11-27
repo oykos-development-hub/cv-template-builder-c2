@@ -1,11 +1,12 @@
 import React from "react";
+import './App.css';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
 } from "react-router-dom";
-import LoginScreen from "./login.screen";
-import SignupScreen from "./signup.screen";
+import LoginScreen from "./pages/login.screen";
+import SignupScreen from "./pages/signup.screen";
 
 function App() {
     return (<Router>
