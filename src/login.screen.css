@@ -1,6 +1,7 @@
 .login-screen {
     display: flex;
     height: 100vh;
+    min-height: 500px;
 }
 
 .left-side {
