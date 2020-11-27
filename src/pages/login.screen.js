@@ -7,7 +7,7 @@ import Button from '../components/button';
 import {ApiService} from "../services/api.service";
 
 function LoginScreen () {
-    
+
     const [redirect,setRedirect] = useState('');
     const [serverResponse, setResponse] = useState('');
     //printing message from server in console
@@ -18,18 +18,18 @@ function LoginScreen () {
     const inputRefs = React.useRef([
         React.createRef(), React.createRef()
       ]);
-    
+
       const [data, setData] = React.useState({});
-  
+
       const handleChange = (name, value) => {
         setData(prev => ({ ...prev, [name]: value }))
       }
-    
+
       const submitForm = (e) => {
         e.preventDefault();
-    
+
         let isValid = true;
-    
+
         for (let i = 0; i < inputRefs.current.length; i++) {
           const valid = inputRefs.current[i].current.validate()
           console.log(valid)
@@ -37,21 +37,21 @@ function LoginScreen () {
             isValid = false
           }
         }
-    
+
         if (!isValid) {
           return
         }
-  
+
         //sending a request to server via API
         if (data) {
           return ApiService.endpoints.login(data.email,data.password).then((response) => {
             if (response && response.errorMessage && response.info) {
               setResponse({
                     errorMessage: response.info
-              });              
+              });
             }
           });
-        }      
+        }
       }
 
     return (<div className="login-screen">
