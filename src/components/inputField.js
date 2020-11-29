@@ -1,5 +1,4 @@
 import React, { forwardRef, useImperativeHandle } from "react";
-import './inputField.css'
 
 const InputField = forwardRef((props, ref) => {
   const [value, setValue] = React.useState("");
@@ -66,7 +65,7 @@ const InputField = forwardRef((props, ref) => {
   })
 
   return (
-    <div className="input-wrapper">
+    <div className="inputdiv">
       <input
         placeholder={props.placeholder}
         name={props.name}
@@ -75,9 +74,7 @@ const InputField = forwardRef((props, ref) => {
         value={props.value ? props.value : value}
         autoComplete={props.autoComplete}
       />
-      {error && (
-        <p className="error">{error}</p>
-      )}
+        <p className="error"> { error }</p>
     </div>
   )
 })

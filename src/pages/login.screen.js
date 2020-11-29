@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
-import {Redirect} from "react-router-dom";
-import '../login.screen.css';
-import background from '../images/login-picture.png';
+import {Redirect, Link} from "react-router-dom";
+import background from '../images/background.png';
 import InputField from  '../components/inputField';
 import Button from '../components/button';
 import {ApiService} from "../services/api.service";
@@ -60,7 +59,7 @@ function LoginScreen () {
         }
 
             <div className = 'left-side'>
-                <span id = 'login-text'> Login </span>
+                {/* <span id = 'login-text'> Login </span>
                 <span id = 'sign-up-text'> Need a CV builder account?&nbsp;
                 <span
                     id = 'sign-up-link'
@@ -70,7 +69,11 @@ function LoginScreen () {
                 >
                     Sign up
                 </span>
-                </span>
+                </span> */}
+                <div className="text-content">
+                        <h1>Login</h1>
+                        <h2>Need a CV builder account?&nbsp; <Link className="redirect" to="/signup">Signup</Link></h2>
+                    
 
                 <form onSubmit={submitForm} className="form">
                     <InputField
@@ -91,6 +94,7 @@ function LoginScreen () {
                     />
                     <Button />
                 </form>
+              </div>
             </div>
             <div className = 'right-side'>
                 <img src={background} alt= 'background' class = 'background-image'/>

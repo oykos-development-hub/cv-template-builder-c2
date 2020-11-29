@@ -133,7 +133,8 @@ export default class Form extends React.Component {
         />
         <SubmitComponent 
           name="submit"   
-          type="submit" 
+          type="submit"
+          classes="button" 
           value="Sign up" 
         />
       </form>  

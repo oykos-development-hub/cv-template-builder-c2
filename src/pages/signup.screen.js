@@ -1,7 +1,7 @@
 import React from "react";
 import {Redirect, Link} from "react-router-dom";
 import Form from "../components/Form";
-import '../style/Signup.css';
+import background from '../images/background.png';
 
 export default class SignupScreen extends React.Component {
     constructor(props) {
@@ -12,7 +12,7 @@ export default class SignupScreen extends React.Component {
 
     render() {
         return (
-            <div className="wrapper">
+            <div className="signup-screen">
                 {
                     !!this.state.redirect && <Redirect to={this.state.redirect}/>
                 }
@@ -24,6 +24,7 @@ export default class SignupScreen extends React.Component {
                     </div>
                 </div>
                 <div className="right-side">
+                    <img src={background} alt= 'background' class = 'background-image'/>
                 </div>
             </div>
         );

@@ -1,0 +1,147 @@
+body {
+    font-family: Avenir, Calibri, Segoe, “Segoe UI”, Optima, Arial, sans-serif;
+}
+  
+  .login-screen , .signup-screen {
+    display: flex;
+    height: 100vh;
+    min-height: 500px;
+}
+
+.left-side {
+    background-color: #f4f7f8;
+    display: flex;
+    flex: 1 1 50%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.right-side {
+    background-color: white;
+    display: flex;
+    flex: 1 1 50%;
+ 
+}
+
+.background-image {
+    width: 100%;
+    align-self: center;
+}
+
+input {
+    box-sizing: border-box;
+    appearance: none;
+    background-color:#fefefe;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    box-shadow: rgba(62, 148, 228, 0.15) 0px 2px 4px;
+    font-size: 16px;
+    font-family: Avenir, Calibri, Segoe, “Segoe UI”, Optima, Arial, sans-serif;
+    line-height: 1.4em;
+    padding: 13px 18px;
+    width: 100%;
+    color:  rgb(49, 49, 49);
+    font-weight: 500;
+  }
+  
+  ::placeholder { 
+    color: rgb(170, 170, 170);
+    opacity: 1; 
+  }
+  
+  input:hover {
+    border-color: rgb(159, 158, 158);
+  }
+  
+  .error {
+    color: rgb(160, 0, 0);
+    font-size: 12px;
+    margin: 0;
+    height: 22px;
+    padding-top: 3px;
+  }
+
+  .text-content {
+    padding: 0 10%;
+    min-width: 170px;
+    max-width: 470px;
+    color:  rgb(170, 170, 170);
+    font-size: 14px;
+    flex: 1 1 70%;
+  }
+  
+  h1 {
+    font-weight: 700;
+    color: #333;
+    font-size: 34px;
+    line-height: 35px;
+    margin: 0px 0px 15px;
+  }
+  
+  h2 {
+    font-weight: 500;
+    margin-bottom: 50px;
+  }
+  
+  a {
+    color: #3e94e4;
+    cursor: pointer;
+    transition: color 0.2s linear;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  a:hover {
+    color: #80b4e4;
+  }
+  
+  form {
+    width: 100%;
+  }
+
+.button {
+    margin-top: 20px;
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    background-color: rgb(62, 148, 228);
+    border: 1px solid rgb(62, 148, 228);
+    transition: all 0.3s ease 0s;
+    color: white;
+    box-sizing: border-box;
+    appearance: none;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    box-shadow: rgba(62, 148, 228, 0.15) 0px 2px 4px;
+    font-size: 16px;
+    font-family: Avenir, Calibri, Segoe, “Segoe UI”, Optima, Arial, sans-serif;
+    line-height: 1.4em;
+    padding: 13px 18px;
+    width: 100%;
+    font-weight: 500;
+  }
+  
+  .button:hover {
+    background-color: rgb(37, 134, 225);
+    border-color: rgb(37, 134, 225);
+  }
+
+  @media only screen and (max-width:650px){
+    .background-image {
+        display: none;
+    }   
+    .left-side {
+        flex: 1 1 100%;
+        padding: 0px 50px 0px 50px;
+    }
+    .right-side {
+        display: none ;
+    }
+}
+
+@media only screen and (min-width:650px){
+    .login-screen, .signup-screen {
+        min-width: 1000px;
+    }    
+}

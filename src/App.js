@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import LoginScreen from "./pages/login.screen";
 import SignupScreen from "./pages/signup.screen";
+import './style/login.signup.screen.css';
 
 function App() {
     return (<Router>
