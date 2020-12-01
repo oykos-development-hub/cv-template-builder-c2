@@ -42,7 +42,7 @@ export const ApiService = {
                 'Content-Type': 'application/json',
                 'Connection': 'keep-alive',
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({data: data})
         })
             .then(response => response.json())
             .then((data) => {
