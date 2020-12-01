@@ -2,7 +2,6 @@ import React from "react";
 import {Redirect, Link} from "react-router-dom";
 import Form from "../components/Form";
 import background from '../images/background.png';
-import '../style/Signup.css';
 import {StoreService} from "../services/store.service";
 
 export default class SignupScreen extends React.Component {

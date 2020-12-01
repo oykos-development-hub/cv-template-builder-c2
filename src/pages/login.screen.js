@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Redirect} from "react-router-dom";
-import '../login.screen.css';
-import background from '../images/login-picture.png';
+import background from '../images/background.png';
 import InputField from '../components/inputField';
 import Button from '../components/button';
 import {ApiService} from "../services/api.service";

@@ -79,22 +79,6 @@ const InputField = forwardRef((props, ref) => {
         <p className="error"> { error }</p>
     </div>
   )
-})
-    return (
-        <div className="input-wrapper">
-            <input
-                placeholder={props.placeholder}
-                name={props.name}
-                onChange={(event) => handleChange(event)}
-                type={props.type}
-                value={props.value ? props.value : value}
-                autoComplete={props.autoComplete}
-            />
-            {error && (
-                <p className="error">{error}</p>
-            )}
-        </div>
-    )
 });
 
 InputField.defaultProps = {
