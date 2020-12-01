@@ -27,6 +27,7 @@ export default class LoginScreen extends React.Component {
             </div>
 
             <Link to="/signup">Link to Signup</Link>
+            <Link to="/cvdata">Link to Data</Link>
         </div>);
     }
 }

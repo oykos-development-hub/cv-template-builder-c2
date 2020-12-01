@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import LoginScreen from "./login.screen";
 import SignupScreen from "./signup.screen";
+import CVdataScreen from "./personalCVdata.screen"
 
 function App() {
     return (<Router>
@@ -15,6 +16,9 @@ function App() {
             </Route>
             <Route path="/login">
                 <LoginScreen />
+            </Route>
+            <Route path="/cvdata">
+                <CVdataScreen />
             </Route>
             <Route path="/">
                 <LoginScreen />
