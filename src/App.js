@@ -7,6 +7,7 @@ import {
 import LoginScreen from "./pages/login.screen";
 import SignupScreen from "./pages/signup.screen";
 import {StoreService} from "./services/store.service";
+import './style/login.signup.screen.css';
 
 StoreService.initialize();
 
