@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import LoginScreen from "./pages/login.screen";
 import SignupScreen from "./pages/signup.screen";
+import PersonalInfo from "./pages/PersonalInfo";
 import {StoreService} from "./services/store.service";
 import './style/login.signup.screen.css';
 
@@ -20,8 +21,11 @@ function App() {
             <Route path="/login">
                 <LoginScreen />
             </Route>
+            <Route path="/personalinfo">
+                <PersonalInfo />
+            </Route>
             <Route path="/">
-                <LoginScreen />
+                <PersonalInfo/>
             </Route>
         </Switch>
     </Router>);

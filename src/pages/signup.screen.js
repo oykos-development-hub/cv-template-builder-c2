@@ -4,6 +4,7 @@ import Form from "../components/Form";
 import background from '../images/background.png';
 import {StoreService} from "../services/store.service";
 
+
 export default class SignupScreen extends React.Component {
     constructor(props) {
         super(props);
