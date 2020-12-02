@@ -2,29 +2,21 @@ import React, {useEffect, useState} from "react";
 import {Redirect,Link} from "react-router-dom";
 import InputField from '../components/inputField';
 import Button from '../components/button';
-import {ApiService} from "../services/api.service";
 import {StoreService} from "../services/store.service";
 import DatePicker from "react-datepicker";
 
 function CVDataScreen() {
 
     const [redirect, setRedirect] = useState('');
-    const [serverResponse, setResponse] = useState('');
     let userData = StoreService.getStoreProperty('user');
-    const [data, setData] = React.useState({
-        email: userData.email,
-        password: userData.password
-    });
+    // const [data, setData] = React.useState({
+    //     email: userData.email,
+    //     password: userData.password
+    // });
     const [startDate, setStartDate] = useState();
     const [rangeStartDate, setRangeStartDate] = useState();
     const [rangeEndDate, setRangeEndDate] = useState();
 
-    // useEffect(
-    //     () => {
-    //         console.log(serverResponse);
-    //         console.log(' data ', data);
-    //     }
-    // );
 
     useEffect(
         () => handleChange('dateOfBirth', startDate), [startDate]
@@ -36,10 +28,6 @@ function CVDataScreen() {
         () => handleChange('workEndDate', rangeEndDate), [rangeEndDate]
     )    
 
-    const inputRefs = React.useRef([
-        React.createRef(), React.createRef()
-    ]);
-
     const handleChange = (name, value) => {
         let cachedUserData = StoreService.getStoreProperty('user');
 
@@ -47,37 +35,14 @@ function CVDataScreen() {
 
         StoreService.updateStoreProperty('user', cachedUserData);
 
-        setData(prev => ({...prev, [name]: value}));
+        // setData(prev => ({...prev, [name]: value}));
     };
 
-    const submitForm = (e) => {
-        e.preventDefault();
-
-        let isValid = true;
-
-        for (let i = 0; i < inputRefs.current.length; i++) {
-            const valid = inputRefs.current[i].current.validate()
-            console.log(valid)
-            if (!valid) {
-                isValid = false
-            }
-        }
-
-        if (!isValid) {
-            return
-        }
-
-        // sending a request to server via API
-        //  if (data) {
-        //      return ApiService.endpoints.login(data.email, data.password).then((response) => {
-        //          if (response && response.errorMessage && response.info) {
-        //              setResponse({
-        //                  errorMessage: response.info
-        //              });
-        //          }
-        //      });
-        //  }
-    }
+     const submitForm = (e) => {
+         e.preventDefault();
+         console.log('Submitted.')
+     }
+    
 
 
     return (<div className="cv-data-screen">
@@ -91,7 +56,6 @@ function CVDataScreen() {
 
             <form onSubmit={submitForm} className="form">
                 <InputField
-                    // ref={inputRefs.current[0]}
                     name="tel"
                     type="tel"
                     value={userData.tel}
@@ -99,7 +63,6 @@ function CVDataScreen() {
                     onChange={handleChange}
                 />
                 <InputField
-                    // ref={inputRefs.current[1]}
                     name="address"
                     type="text"
                     value={userData.address}
