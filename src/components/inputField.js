@@ -68,6 +68,7 @@ const InputField = forwardRef((props, ref) => {
 
   return (
     <div className="inputdiv">
+        <p className="label"> {props.label} </p>
       <input
         placeholder={props.placeholder}
         name={props.name}

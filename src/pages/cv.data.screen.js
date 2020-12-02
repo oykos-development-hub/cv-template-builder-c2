@@ -59,6 +59,7 @@ function CVDataScreen() {
                     name="tel"
                     type="tel"
                     value={userData.tel}
+                    label="Telephone number"
                     placeholder="Telephone number"
                     onChange={handleChange}
                 />
@@ -66,11 +67,14 @@ function CVDataScreen() {
                     name="address"
                     type="text"
                     value={userData.address}
+                    label="Address"
                     placeholder="Address"
                     onChange={handleChange}
                 />
+                <p className='label'>Date of birth</p>
                 <DatePicker
                     placeholderText="Date of birth"
+                    label="Date of birth"
                     dateFormat="dd/MM/yyyy"
                     name='dateOfBirth'
                     type='date'
@@ -82,6 +86,7 @@ function CVDataScreen() {
                     name="fbURL"
                     type="text"
                     value={userData.fbURL}
+                    label="Facebook URL"
                     placeholder="Facebook URL"
                     onChange={handleChange}
                 />
@@ -89,6 +94,7 @@ function CVDataScreen() {
                     name="instagramURL"
                     type="text"
                     value={userData.instagramURL}
+                    label="Instagram URL"
                     placeholder="Instagram URL"
                     onChange={handleChange}
                 />
@@ -96,6 +102,7 @@ function CVDataScreen() {
                     name="githubURL"
                     type="text"
                     value={userData.githubURL}
+                    label="Github URL"
                     placeholder="Github URL"
                     onChange={handleChange}
                 />
@@ -103,6 +110,7 @@ function CVDataScreen() {
                     name="linkedinURL"
                     type="text"
                     value={userData.linkedinURL}
+                    label="Linkedin URL"
                     placeholder="Linkedin URL"
                     onChange={handleChange}
                 />
@@ -110,6 +118,7 @@ function CVDataScreen() {
                     name="skypeURL"
                     type="text"
                     value={userData.skypeURL}
+                    label="Skype ID"
                     placeholder="Skype ID"
                     onChange={handleChange}
                 />
@@ -117,6 +126,7 @@ function CVDataScreen() {
                     name="twitterURL"
                     type="text"
                     value={userData.twitterURL}
+                    label="Twitter URL"
                     placeholder="Twitter URL"
                     onChange={handleChange}
                 />
@@ -126,6 +136,7 @@ function CVDataScreen() {
                     name="company"
                     type="text"
                     value={userData.company}
+                    label="Company"
                     placeholder="Company"
                     onChange={handleChange}
                     />
@@ -133,6 +144,7 @@ function CVDataScreen() {
                     name="jobTitle"
                     type="text"
                     value={userData.jobTitle}
+                    label="Job Title"
                     placeholder="Job Title"
                     onChange={handleChange}
                     />
@@ -140,10 +152,12 @@ function CVDataScreen() {
                     name="jobDescription"
                     type="text"
                     value={userData.jobDescription}
+                    label="Job Description"
                     placeholder="Job Description"
                     onChange={handleChange}
                     />
-                    <>
+                    <>  
+                        <p className='label'>Work start</p>
                         <DatePicker
                         placeholderText="Work start"
                         name='workStartDate'
@@ -156,6 +170,7 @@ function CVDataScreen() {
                         showMonthYearPicker
                         />
                         <p className='error'></p>
+                        <p className='label'>Work end</p>
                         <DatePicker
                         placeholderText="Work end"
                         name='workEndDate'
