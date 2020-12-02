@@ -1,0 +1,101 @@
+.acc-page-wrapper {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  background-color: #eee;
+  display: flex;
+  justify-content: space-around;
+}
+
+.acc-page-wrapper form {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  margin-top: 50px;
+  background-color: white;
+  padding: 40px 95px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 8px 1px #cacaca;
+}
+
+.acc-page-wrapper form input {
+  height: 45px;
+  background-color: #ebf4fc;
+  border: 1px solid #bfdaf6;
+  border-radius: 8px;
+}
+
+.acc-page-wrapper form p {
+  color: #a5a5a5;
+  font-size: 0.8rem;
+  margin: 0;
+  margin-bottom: 6px;
+}
+
+.acc-top-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.acc-top-section input {
+  width: 100%;
+}
+
+.acc-top-section .left-col {
+  display: flex;
+  flex: 1 1 50%;
+  flex-direction: column;
+}
+
+.acc-top-section h2 {
+  font-size: 1.8rem;
+  color: #595959;
+}
+
+.acc-top-section .right-col {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: 1 1 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.acc-top-section .right-col .acc-avatar {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 30px;
+  border-radius: 50%;
+  background-image: url("../images/thumbnail.jpg");
+  background-size: cover;
+}
+
+.avatar-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.acc-bottom-section .inputdiv input {
+  width: 100%;
+}
+
+.acc-bottom-section button {
+  width: 150px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-wrapper input {
+  width: 15px;
+}
+
+.checkbox-wrapper label {
+  font-size: 1rem;
+  margin-left: 5px;
+}
