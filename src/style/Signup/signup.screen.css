@@ -1,5 +1,6 @@
 body {
   font-family: Avenir, Calibri, Segoe, “Segoe UI”, Optima, Arial, sans-serif;
+  margin: 0;
 }
 
 .wrapper {
@@ -17,13 +18,14 @@ body {
 .right-side {
   width: 55%;
   background-color: white;
-  background-image: url("../images/background.png"); 
+  background-image: url("../../images/background.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 600px;
 }
 
 .text-content {
+  width: 350px;
   padding: 130px 65px;
   min-width: 170px;
   max-width: 470px;
@@ -111,7 +113,7 @@ input:hover {
 }
 
 .holder {
-  color:  rgb(160, 0, 0, 0);
+  color:  rgb(160, 0, 0,0);
 }
 
 @media screen and (max-width: 600px) {

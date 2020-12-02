@@ -4,20 +4,20 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-import LoginScreen from "./pages/login.screen";
-import SignupScreen from "./pages/signup.screen";
+import LogInScreen from "./pages/LoginScreen/LogInScreen";
+import SignUpScreen from "./pages/SignUpScreen/SignUpScreen";
 
 function App() {
     return (<Router>
         <Switch>
             <Route path="/signup">
-                <SignupScreen />
+                <SignUpScreen />
             </Route>
             <Route path="/login">
-                <LoginScreen />
+                <LogInScreen />
             </Route>
             <Route path="/">
-                <LoginScreen />
+                <LogInScreen />
             </Route>
         </Switch>
     </Router>);

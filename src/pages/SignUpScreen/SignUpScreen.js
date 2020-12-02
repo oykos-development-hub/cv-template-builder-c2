@@ -1,9 +1,10 @@
 import React from "react";
 import {Redirect, Link} from "react-router-dom";
-import Form from "../components/Form";
-import '../style/Signup.css';
+import Form from "../../components/Form/Form";
+import '../../style/Signup/signup.screen.css';
 
-export default class SignupScreen extends React.Component {
+
+export default class SignUpScreen extends React.Component {
     constructor(props) {
         super(props);
 
@@ -12,7 +13,7 @@ export default class SignupScreen extends React.Component {
 
     render() {
         return (
-            <div className="wrapper">
+            <div id="sign-up-screen" className="wrapper ">
                 {
                     !!this.state.redirect && <Redirect to={this.state.redirect}/>
                 }

@@ -1,5 +1,5 @@
 import React, { forwardRef, useImperativeHandle } from "react";
-import './inputField.css'
+import '../../style/InputField/inputField.css'
 
 const InputField = forwardRef((props, ref) => {
   const [value, setValue] = React.useState("");
