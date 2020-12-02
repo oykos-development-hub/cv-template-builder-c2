@@ -10,7 +10,7 @@ export default class Button extends React.Component {
             <button 
             className = "button"
             type="submit">
-            Login 
+            {this.props.content}
             </button>
         )
     }

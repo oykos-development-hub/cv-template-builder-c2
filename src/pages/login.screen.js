@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Redirect} from "react-router-dom";
+import {Redirect,Link} from "react-router-dom";
 import background from '../images/background.png';
 import InputField from '../components/inputField';
 import Button from '../components/button';
@@ -70,18 +70,9 @@ function LoginScreen() {
         }
 
         <div className='left-side'>
-            <span id='login-text'> Login </span>
-            <span id='sign-up-text'> Need a CV builder account?&nbsp;
-                <span
-                    id='sign-up-link'
-                    onClick={() => {
-                        console.log(' Data before switching to SignUp - ', data);
-                        setRedirect('/signup');
-                    }}
-                >
-                    Sign up
-                </span>
-            </span>
+            <div className="text-content">
+            <h1>Login</h1>
+            <h2>Need a CV builder account?&nbsp; <Link className="redirect" to="/signup">Signup</Link></h2>
 
             <form onSubmit={submitForm} className="form">
                 <InputField
@@ -102,8 +93,11 @@ function LoginScreen() {
                     onChange={handleChange}
                     validation="required|min:4|max:12"
                 />
-                <Button/>
-            </form>
+                <Button
+                    content="Login"
+                />
+                </form>
+            </div>
         </div>
         <div className='right-side'>
             <img src={background} alt='background' class='background-image'/>

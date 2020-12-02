@@ -6,8 +6,10 @@ import {
 } from "react-router-dom";
 import LoginScreen from "./pages/login.screen";
 import SignupScreen from "./pages/signup.screen";
+import CVDataScreen from "./pages/cv.data.screen";
 import {StoreService} from "./services/store.service";
 import './style/login.signup.screen.css';
+import './style/react-datepicker.css';
 
 StoreService.initialize();
 
@@ -20,8 +22,8 @@ function App() {
             <Route path="/login">
                 <LoginScreen />
             </Route>
-            <Route path="/">
-                <LoginScreen />
+            <Route path="/cvdatascreen">
+                <CVDataScreen />
             </Route>
         </Switch>
     </Router>);

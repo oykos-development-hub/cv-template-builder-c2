@@ -9,6 +9,14 @@ body {
   min-height: 500px;
 }
 
+.cv-data-screen{
+  display: flex;
+}
+
+.cv-data-screen .left-side .text-content{
+  margin: 40px 0px;
+}
+
 .left-side {
   background-color: #f4f7f8;
   display: flex;
