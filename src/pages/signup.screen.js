@@ -29,6 +29,7 @@ export default class SignupScreen extends React.Component {
                         <h1>{signupHeader}</h1>
                         <h2>Already have an account? <Link className="redirect" to="/login">Login</Link></h2>
                         <Form/>
+                        <Link to="/cvdata">Link to Data</Link>
                     </div>
                 </div>
                 <div className="right-side">
