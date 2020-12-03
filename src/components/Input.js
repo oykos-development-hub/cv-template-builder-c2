@@ -5,10 +5,10 @@ export default class Input extends React.Component{
     }
     render(){
         return (
-            <div className="inputdiv">
+            <div >
               <input 
+                className = "input2" 
                 name={this.props.name}
-                placeholder={this.props.text} 
                 type={this.props.type}
               />
             </div>

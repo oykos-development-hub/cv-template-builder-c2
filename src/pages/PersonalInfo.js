@@ -1,5 +1,5 @@
 import React  from 'react';
-import Input from '../components/Input'
+import Form2 from '../components/Form2'
 export default class PersonalInfo extends React.Component{
     constructor(props){
         super(props)
@@ -10,21 +10,7 @@ render(){
     <div className = "personalInfo bcg">
         <div className = "info">
             <p className = "textPadd">Profile Info</p>
-            <Input
-                name = "fullname"
-                type = "text"
-                text = "Full name"
-            />
-            <Input
-                name = "email"
-                type = "email"
-                text = "Email"
-            />
-            <Input
-                name = "password"
-                type = "password"
-                text = "Password"
-            />
+            <Form2/>
         </div>  
     </div>)
 }

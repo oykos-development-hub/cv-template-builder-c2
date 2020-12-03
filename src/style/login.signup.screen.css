@@ -9,6 +9,14 @@ body {
   height: 100vh;
   min-height: 500px;
 }
+.row{
+  display: flex;
+  flex-direction: row;
+}
+.column{
+  display: flex;
+  flex-direction: column;
+}
 .bcg{
   background-color: #e7e5e5b4;
   justify-content: center;
@@ -20,14 +28,56 @@ body {
   border: 1px solid   #e7e5e5b4;
   border-radius: 10px;
   width: 60%;
-  height: 80%;
-  margin-top: 120px;
+  height: 85%;
+  margin-top: 90px;
+}
+.input2{
+  width: 350px;
+  height: 50px;
+  margin: 10px 0 10px 60px;
+  background-color: rgb(229, 243, 248);
+  border-radius: 10px;
+}
+label{
+  margin-left: 60px;
+  font-size: smaller;
+  color: rgb(119, 115, 115);
 }
 .textPadd{
   color: rgb(95, 91, 91);
-  padding: 40px 0 100px 60px;
+  padding: 40px 0 30px 60px;
   font-size: 20px;
   font-weight: bold;
+}
+.profile-image{
+  width:60px;
+  height: 60px;
+  margin-left: 150px;
+  object-fit: cover;
+}
+.label-image{
+  margin: 0 0 10px 135px;
+}
+#profileimg[type = "file"]{
+  display: none;
+}
+#reset[type = "submit"]{
+  display: none;
+}
+.change-image{
+  color: #3e94e4;
+  font-size: 17px;
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 8px 0 0 135px;
+}
+.change-image2{
+  margin-left: 160px;
+}
+.button2{
+  width: 100px;
+  height: 50px;
+  margin-left: 60px;
 }
 .left-side {
   background-color: #f4f7f8;
@@ -36,7 +86,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .right-side {
   background-color: white;
   display: flex;
@@ -44,12 +93,10 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .background-image {
   width: 90%;
   margin: 20px;
 }
-
 input {
   box-sizing: border-box;
   appearance: none;
@@ -118,7 +165,6 @@ h2 {
 .text-content form {
   width: 100%;
 }
-
 .button {
   margin-top: 20px;
   width: 100%;
@@ -129,7 +175,7 @@ h2 {
   color: white;
   box-sizing: border-box;
   border: 1px solid rgb(204, 204, 204);
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: rgba(62, 148, 228, 0.15) 0px 2px 4px;
   font-size: 16px;
   line-height: 1.4em;
