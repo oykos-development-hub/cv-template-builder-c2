@@ -3,27 +3,74 @@ import InputComponent from '../components/inputComponent';
 import Button from '../components/button';
 import Avatar from '../components/avatar';
 import '../style/account-page.css';
-// import {StoreService} from "../services/store.service";
+import {StoreService} from "../services/store.service";
 
 const AccountInfo = () => {
-  const [data, setAccData] = useState({
+  const userData = StoreService.getStoreProperty('user');
+  const [data, setData] = useState({
+    name: userData.name,
+    email: userData.email,
+    password: userData.password
+  });
+  const [message, setMessage] = useState('');
+  const [errors, setError] = useState({
     name: '',
     email: '',
     password: ''
   });
 
-  const inputChange = () => {
-
+  const showMessage = () => {
+    const message = document.getElementById('message');
+    if(message.style.visibility = 'hidden') {
+      message.style.visibility = 'visible';
+    setTimeout(() => {
+      message.style.visibility = 'hidden'
+    }, 3000);
+    }
+    
   }
 
-  const formSubmit = () => {
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setData(prev => ({...prev, [name]: value}));
+  };
 
-  }
+  const formSubmit = (e) => {
+    e.preventDefault();
+    
+    let validity = true;
+        Object.values(data).forEach(
+            (val) => val.length < 1 && (validity = false)
+        );
+        Object.values(errors).forEach(
+            (val) => val.length > 0 && (validity = false)
+        );
+        if (validity === true) {
+            console.log(`
+              --Submitting--
+              Name: ${data.fullName}
+              Email:${data.email}
+              Password:${data.password}
+              `);
+
+          setMessage('Changes saved successfully!');
+          showMessage();
+          
+       
+          let cachedUserData = StoreService.getStoreProperty('user');
+          cachedUserData = {...cachedUserData, ...data};
+          StoreService.updateStoreProperty('user', cachedUserData);
+        }
+
+
+
+  };
 
   
 
   return ( 
       <div className='acc-page-wrapper'>
+        <p id='message' className='action-message'>{message}</p>
         <form onSubmit={formSubmit}>
 
           <section className='acc-top-section'>
@@ -31,16 +78,16 @@ const AccountInfo = () => {
                 <h2>Profile Info</h2>
 
                 <InputComponent 
-                  name={data.name}
+                  name='name'
                   value={data.name}
-                  onChange={inputChange}>
+                  change={handleChange}>
                   <p>NAME</p>
                 </InputComponent>
 
                 <InputComponent
-                  name={data.email}
+                  name='email'
                   value={data.email}
-                  onChange={inputChange}>
+                  change={handleChange}>
                   <p>EMAIL</p>
                 </InputComponent>
               </div>
@@ -51,9 +98,9 @@ const AccountInfo = () => {
 
           <section className='acc-bottom-section'>
               <InputComponent
-                name={data.password}
+                name='password'
                 value={data.password}
-                onChange={inputChange}>
+                change={handleChange}>
                 <p>PASSWORD</p>
               </InputComponent>
 

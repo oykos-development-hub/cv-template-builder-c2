@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300;1,700&display=swap");
+
 .acc-page-wrapper {
   height: 100vh;
   width: 100%;
@@ -5,32 +7,66 @@
   background-color: #eee;
   display: flex;
   justify-content: space-around;
+  font-family: "Lato", sans-serif;
+  position: relative;
+}
+
+.action-message {
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
+  color: white;
+  height: 40px;
+  visibility: hidden;
+  font-size: 1.1rem;
 }
 
 .acc-page-wrapper form {
-  width: 45%;
+  width: 40%;
+  max-width: 930px;
+  min-width: 500px;
+  margin: 50px auto 0 auto;
   display: flex;
   flex-direction: column;
   height: 600px;
-  margin-top: 50px;
   background-color: white;
-  padding: 40px 95px;
-  border-radius: 12px;
-  box-shadow: 0px 0px 8px 1px #cacaca;
+  padding: 30px 80px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 15px 0px;
 }
 
 .acc-page-wrapper form input {
-  height: 45px;
+  height: 50px;
   background-color: #ebf4fc;
   border: 1px solid #bfdaf6;
   border-radius: 8px;
+  padding-left: 15px;
+  font-size: 1rem;
+  color: #333333;
+  box-sizing: border-box;
+}
+
+.acc-page-wrapper form input:hover {
+  border: 1px solid #333;
+}
+
+.acc-page-wrapper form input:focus {
+  outline: none;
+  border: 2px solid #333;
 }
 
 .acc-page-wrapper form p {
   color: #a5a5a5;
-  font-size: 0.8rem;
+  font-size: 10px;
   margin: 0;
-  margin-bottom: 6px;
+  margin-bottom: 7px;
+  line-height: 14px;
 }
 
 .acc-top-section {
@@ -49,8 +85,8 @@
 }
 
 .acc-top-section h2 {
-  font-size: 1.8rem;
-  color: #595959;
+  font-size: 1.5rem;
+  color: #444444;
 }
 
 .acc-top-section .right-col {
@@ -63,9 +99,9 @@
 }
 
 .acc-top-section .right-col .acc-avatar {
-  width: 130px;
-  height: 130px;
-  margin-bottom: 30px;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 15px;
   border-radius: 50%;
   background-image: url("../images/thumbnail.jpg");
   background-size: cover;
@@ -74,8 +110,19 @@
 .avatar-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+}
+
+.avatar-wrapper > button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #4d99e0;
+  text-decoration: underline;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-weight: 700;
 }
 
 .acc-bottom-section .inputdiv input {
@@ -83,12 +130,20 @@
 }
 
 .acc-bottom-section button {
-  width: 150px;
+  width: auto;
+  height: 42px;
+  padding: 5px 30px;
+}
+
+.acc-bottom-section button:focus {
+  outline: none;
 }
 
 .checkbox-wrapper {
   display: flex;
   align-items: center;
+  height: 25px;
+  margin-bottom: 20px;
 }
 
 .checkbox-wrapper input {
@@ -96,6 +151,6 @@
 }
 
 .checkbox-wrapper label {
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-left: 5px;
 }

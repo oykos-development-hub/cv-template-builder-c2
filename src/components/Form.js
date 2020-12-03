@@ -1,6 +1,6 @@
 import React from "react";
 import InputComponent from "./inputComponent";
-import SubmitComponent from "./submitComponent";
+import Button from "./button";
 import {ApiService} from "../services/api.service";
 import {StoreService} from "../services/store.service";
 
@@ -142,11 +142,12 @@ export default class Form extends React.Component {
                     blur={this.handleBlur}
                     error={errors.repPassword}
                 />
-                <SubmitComponent
+                <Button
                     name="submit"
                     type="submit"
                     classes="button"
                     value="Sign up"
+                    content="Sign up"
                 />
             </form>
         );
