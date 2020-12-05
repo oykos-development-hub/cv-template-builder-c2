@@ -8,6 +8,7 @@ export default class Reset extends React.Component{
             <input 
             id = {this.props.id}
             type = {this.props.type}
+            onClick = {this.props.click}
             />
         )
     }

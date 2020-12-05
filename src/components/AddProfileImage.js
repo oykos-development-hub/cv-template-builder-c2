@@ -9,6 +9,7 @@ export default class AddProfileImage extends React.Component{
             id = {this.props.id}
             type = {this.props.type}
             className = {this.props.classses}
+            onChange = {this.props.onChange}
             />
         );
     }

@@ -7,7 +7,11 @@ export default class SaveButton extends React.Component{
     render(){
         return(
             <div className = "button2">
-                <input type = {this.props.type} value = {this.props.value} className = {this.props.classes}/>
+                <input 
+                type = {this.props.type} 
+                value = {this.props.value} 
+                className = {this.props.classes}
+                />
             </div>
         )
     }

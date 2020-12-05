@@ -54,6 +54,8 @@ label{
   height: 60px;
   margin-left: 150px;
   object-fit: cover;
+  border: 1px solid black;
+  border-radius: 30px;
 }
 .label-image{
   margin: 0 0 10px 135px;
@@ -78,6 +80,11 @@ label{
   width: 100px;
   height: 50px;
   margin-left: 60px;
+}
+.file-input{
+  border: 1px solid black;
+  border-radius: 10px;
+
 }
 .left-side {
   background-color: #f4f7f8;
