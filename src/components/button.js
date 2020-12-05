@@ -8,9 +8,10 @@ export default class Button extends React.Component {
     render(){
         return(
             <button 
-            className = "button"
-            type="submit">
-            {this.props.content} 
+                className = "button"
+                id={this.props.id}
+                type={this.props.type}>
+                {this.props.content} 
             </button>
         )
     }

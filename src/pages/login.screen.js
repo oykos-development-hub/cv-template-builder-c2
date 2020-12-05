@@ -93,7 +93,9 @@ function LoginScreen() {
                     onChange={handleChange}
                     validation="required|min:4|max:12"
                 />
-                <Button content="Login"/>
+                <Button 
+                type='submit'
+                content="Login"/>
                 </form>
             </div>
         </div>

@@ -27,7 +27,7 @@
   font-size: 1.1rem;
 }
 
-.acc-page-wrapper form {
+.acc-page-wrapper > form {
   width: 40%;
   max-width: 930px;
   min-width: 500px;
@@ -102,8 +102,7 @@
   width: 70px;
   height: 70px;
   margin-bottom: 15px;
-  border-radius: 50%;
-  background-image: url("../images/thumbnail.jpg");
+  border-radius: 10px;
   background-size: cover;
 }
 

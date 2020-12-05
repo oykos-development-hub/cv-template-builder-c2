@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const Avatar = (props) => {
+const Avatar = ({openImgChangeModal, resetImg, content, avatarSrc}) => {
+ 
 
   return (
     <div className='avatar-wrapper'>
-      <p>PROFILE IMAGE</p>
-      <div className='acc-avatar'></div>
-      <button>Change Image</button>
-      <button>Reset</button>
+      <p>{content}</p>
+      <img 
+        className='acc-avatar'
+        src={avatarSrc}
+      ></img>
+      <button type='button' onClick={openImgChangeModal}>Change Image</button>
+      <button type='button' onClick={resetImg}>Reset</button>
     </div>
   )
 } 
