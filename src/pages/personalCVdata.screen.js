@@ -1,26 +1,34 @@
 import React from "react";
-import {Redirect, Link} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import '../style/personalCVdata.css';
 import DatePickerComponent from "../components/DatePickerComponent";
 import CVdataSubmit from "../components/CVdataSubmit";
 import CVdataInput from "../components/CVdataInput";
+import {StoreService} from "../services/store.service";
+
+const MobileVal = RegExp(/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/i);
+const FacebookVal = RegExp(/^(https?:\/\/)?((w{3}\.)?)facebook.com\/.*/i);
+const InstagramVal = RegExp(/^(https?:\/\/)?((w{3}\.)?)instagram.com\/.*/i);
+const LinkedInVal = RegExp(/^(https?:\/\/)?((w{3}\.)?)linekedin.com\/.*/i);
 
 export default class CVdataScreen extends React.Component {
     constructor(props) {
         super(props);  
+        let userData = StoreService.getStoreProperty('user');
+
         this.state = {
-          Mobile: "",
-          Address: "",
-          City: "",
-          Country: "",  
-          DOB: "", 
-          JobPosition: "", 
-          Company: "",
-          StartingDate: "", 
-          Description: "",  
-          Facebook: "", 
-          Instagram: "", 
-          LinkedIn: "", 
+          Mobile: userData.Mobile,
+          Address: userData.Address,
+          City: userData.City,
+          Country: userData.Country, 
+          DOB: userData.DOB, 
+          JobPosition: userData.JobPosition, 
+          Company: userData.Company,
+          StartingDate: userData.StartingDate, 
+          Description: userData.Description,  
+          Facebook: userData.Facebook, 
+          Instagram: userData.Instagram, 
+          LinkedIn: userData.LinkedIn, 
           errors : {
             Mobile: "",
             Address: "",
@@ -41,20 +49,24 @@ export default class CVdataScreen extends React.Component {
       handleChange = e => {
         e.preventDefault();
         const { name, value } = e.target;
+        let cachedUserData = StoreService.getStoreProperty('user');
+        cachedUserData[name] = value;
+        StoreService.updateStoreProperty('user', cachedUserData);
         this.setState({[name]: value});
-        this.setState(prevState => ({
-            errors: {                   // object that we want to update
-                ...prevState.errors,    // keep all other key-value pairs
-                [name]: ""       // update the value of specific key
-            }
-        }))
+        console.log(StoreService.getStoreProperty('user'));
       }
     
       handleDateChange(value) {
-        this.setState({DOB: value});
+        let cachedUserData = StoreService.getStoreProperty('user');
+        cachedUserData.DOB = value;
+        StoreService.updateStoreProperty('user', cachedUserData);
+        this.setState({DOB: value}); 
       }
 
       handleStartDateChange(value) {
+        let cachedUserData = StoreService.getStoreProperty('user');
+        cachedUserData.StartingDate = value;
+        StoreService.updateStoreProperty('user', cachedUserData);
         this.setState({StartingDate: value});
       }
 
@@ -64,31 +76,52 @@ export default class CVdataScreen extends React.Component {
         this.setState({[name]: value});
         let errors = this.state.errors;
         switch (name) {
-        //   case 'fullName':
-        //     errors.fullName = value.length < 1 ? 'Full name must be filled in': '';
-        //     break;
-          default:
-            errors.[name] = value.length < 1 ? 'Field must be filled in': '';
-            break;
+            case 'Mobile':
+                errors.Mobile = MobileVal.test(value) ? '' : 'Number is not valid';
+                break; 
+            case 'Facebook':
+                errors.Facebook = FacebookVal.test(value) ? '' : 'URL is not valid';
+                break;
+            case 'Instagram':
+                errors.Instagram = InstagramVal.test(value) ? '' : 'URL is not valid';
+                break;
+            case 'LinkedIn':
+                errors.LinkedIn = LinkedInVal.test(value) ? '' : 'URL is not valid';
+                break;
+            default:
+                errors.[name] = value.length < 1 ? [name]  + ' must be filled in': '';
+                break;
         }
         this.setState(Object.assign(this.state, { errors,[name]: value }));
+      }
+
+      handleFocus = e => {
+        e.preventDefault();
+        const { name, value } = e.target;
+        this.setState(prevState => ({
+            errors: {                   
+                ...prevState.errors,    
+                [name]: ""       
+            }
+        }));
       }
     
       handleSubmit = (e) => {
         e.preventDefault(); 
-    
+
         let validity = true;
+
         Object.values(this.state).forEach(
-          (val) => val.length < 1 && (validity = false)
-        );
-        console.log(this.state.errors);
+          (val) => val != null ? (val.length < 1 && (validity = false))
+        : (validity = false));
         Object.values(this.state.errors).forEach(
           (val) => val.length > 0 && (validity = false)
         );
+
         if(validity === true){
            console.log(`Data was submitted`);
         }else{
-           alert("Please check that all the inputs are filled")
+            alert("Please check that all the inputs are filled");
         }
       }  
 
@@ -103,7 +136,9 @@ export default class CVdataScreen extends React.Component {
                 }
                 <div className="cvd-content">
                     <div className="cvd-section cvd-contact">
+
                         <h1 className="cvd-h1">Contact Info</h1>
+
                         <form onSubmit={this.handleSubmit} noValidate>
                             <CVdataInput
                                 label="Mobile"
@@ -113,6 +148,7 @@ export default class CVdataScreen extends React.Component {
                                 value={this.state.Mobile}
                                 change={this.handleChange}
                                 blur={this.handleBlur}
+                                focus={this.handleFocus}
                                 error={errors.Mobile}
                             />
 
@@ -124,6 +160,7 @@ export default class CVdataScreen extends React.Component {
                                 value={this.state.Address}
                                 change={this.handleChange}
                                 blur={this.handleBlur}
+                                focus={this.handleFocus}
                                 error={errors.Address}
                             />
 
@@ -135,6 +172,7 @@ export default class CVdataScreen extends React.Component {
                                 value={this.state.City}
                                 change={this.handleChange}
                                 blur={this.handleBlur}
+                                focus={this.handleFocus}
                                 error={errors.City}
                             />
 
@@ -146,6 +184,7 @@ export default class CVdataScreen extends React.Component {
                                 value={this.state.Country}
                                 change={this.handleChange}
                                 blur={this.handleBlur}
+                                focus={this.handleFocus}
                                 error={errors.Country}
                             />              
                             
@@ -172,6 +211,7 @@ export default class CVdataScreen extends React.Component {
                                 value={this.state.JobPosition}
                                 change={this.handleChange}
                                 blur={this.handleBlur}
+                                focus={this.handleFocus}
                                 error={errors.JobPosition}
                             /> 
 
@@ -183,6 +223,7 @@ export default class CVdataScreen extends React.Component {
                                 value={this.state.Company}
                                 change={this.handleChange}
                                 blur={this.handleBlur}
+                                focus={this.handleFocus}
                                 error={errors.Company}
                             /> 
 
@@ -203,6 +244,7 @@ export default class CVdataScreen extends React.Component {
                                 value={this.state.Description}
                                 change={this.handleChange}
                                 blur={this.handleBlur}
+                                focus={this.handleFocus}
                                 error={errors.Description}
                             />
                             
@@ -220,6 +262,7 @@ export default class CVdataScreen extends React.Component {
                                 value={this.state.Facebook}
                                 change={this.handleChange}
                                 blur={this.handleBlur}
+                                focus={this.handleFocus}
                                 error={errors.Facebook}
                             />
 
@@ -231,6 +274,7 @@ export default class CVdataScreen extends React.Component {
                                 value={this.state.Instagram}
                                 change={this.handleChange}
                                 blur={this.handleBlur}
+                                focus={this.handleFocus}
                                 error={errors.Instagram}
                             />
 
@@ -242,6 +286,7 @@ export default class CVdataScreen extends React.Component {
                                 value={this.state.LinkedIn}
                                 change={this.handleChange}
                                 blur={this.handleBlur}
+                                focus={this.handleFocus}
                                 error={errors.LinkedIn}
                             />
 
@@ -253,10 +298,7 @@ export default class CVdataScreen extends React.Component {
                             
                         </form>
                     </div>  
-                </div>
-                
-                
-                
+                </div>  
             </div>
         );
     }

@@ -7,6 +7,7 @@ import {
 import LoginScreen from "./pages/login.screen";
 import SignupScreen from "./pages/signup.screen";
 import CVdataScreen from "./pages/personalCVdata.screen";
+import PersonalAccountScreen from "./pages/personalAccount.screen";
 import {StoreService} from "./services/store.service";
 import './style/login.signup.screen.css';
 
@@ -23,6 +24,9 @@ function App() {
             </Route>
             <Route path="/cvdata">
                 <CVdataScreen />
+            </Route>
+            <Route path="/personalaccount">
+                <PersonalAccountScreen />
             </Route>
             <Route path="/">
                 <LoginScreen />
