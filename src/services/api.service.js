@@ -1,4 +1,5 @@
 import {ConstantsService} from "./constants.service";
+import {StoreService} from "./store.service";
 
 const urlBase = ConstantsService.URL_BASE;
 const endpointUrls = {
@@ -67,5 +68,31 @@ export const ApiService = {
                 return response;
             });
         },
+        signUp: (email, password, name) => {
+            return ApiService.postRequest(
+                endpointUrls.registration,
+                {
+                    signUp: true,
+                    email,
+                    password,
+                    name
+                }
+            ).then((response) => {
+                return response;
+            });
+        },
+        validateToken: () => {
+            const user = StoreService.getStoreProperty('user');
+            const token = user ? user.token : '';
+
+            let data = {
+                token: token,
+                validate: true
+            };
+
+            return ApiService.postRequest(endpointUrls.registration, data).then((response) => {
+                return response;
+            });
+        }
     }
 };

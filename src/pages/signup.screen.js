@@ -15,7 +15,7 @@ export default class SignupScreen extends React.Component {
         const userData = StoreService.getStoreProperty('user');
         let signupHeader = 'Sign up';
 
-        if (userData.fullName) {
+        if (userData && userData.fullName) {
             signupHeader = 'Hello, ' + userData.fullName;
         }
 

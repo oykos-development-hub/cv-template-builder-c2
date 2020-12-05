@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Redirect} from "react-router-dom";
+import {Redirect, Link} from "react-router-dom";
 import background from '../images/background.png';
 import InputField from '../components/inputField';
 import Button from '../components/button';
@@ -11,24 +11,24 @@ function LoginScreen() {
     const [serverResponse, setResponse] = useState('');
     let userData = StoreService.getStoreProperty('user');
     const [data, setData] = React.useState({
-        email: userData.email,
-        password: userData.password
+        email: userData && userData.email ? userData.email : '',
+        password: userData && userData.password ? userData.password : ''
     });
 
+    //printing message from server in console
     useEffect(
-        () => {
-            console.log(serverResponse);
-            console.log(' data ', data);
-        }
-    );
+        () => console.log(serverResponse), [serverResponse]
+    )
 
     const inputRefs = React.useRef([
         React.createRef(), React.createRef()
     ]);
 
+
     const handleChange = (name, value) => {
         let cachedUserData = StoreService.getStoreProperty('user');
 
+        cachedUserData = cachedUserData ? cachedUserData : {};
         cachedUserData[name] = value;
 
         StoreService.updateStoreProperty('user', cachedUserData);
@@ -60,6 +60,21 @@ function LoginScreen() {
                         errorMessage: response.info
                     });
                 }
+                if (response && response.successMessage) {
+                    let newData = response.user ? response.user : null;
+
+                    if (newData) {
+                        newData.fullName = newData.name;
+
+                        StoreService.updateStoreProperty('user', newData);
+
+                        alert('Successfully Logged In. Enjoy our application!');
+                    } else {
+                        alert('There was a problem Logging you into our application. Please try again!');
+                    }
+                } else {
+                    alert('There was a problem Logging you into our application. Please try again!');
+                }
             });
         }
     }
@@ -70,40 +85,33 @@ function LoginScreen() {
         }
 
         <div className='left-side'>
-            <span id='login-text'> Login </span>
-            <span id='sign-up-text'> Need a CV builder account?&nbsp;
-                <span
-                    id='sign-up-link'
-                    onClick={() => {
-                        console.log(' Data before switching to SignUp - ', data);
-                        setRedirect('/signup');
-                    }}
-                >
-                    Sign up
-                </span>
-            </span>
+            <div className="text-content">
+                <h1>Login</h1>
+                <h2>Need a CV builder account?&nbsp; <Link className="redirect" to="/signup">Signup</Link></h2>
 
-            <form onSubmit={submitForm} className="form">
-                <InputField
-                    ref={inputRefs.current[0]}
-                    name="email"
-                    type="email"
-                    value={data.email}
-                    placeholder="Email"
-                    onChange={handleChange}
-                    validation={"required|email"}
-                />
-                <InputField
-                    ref={inputRefs.current[1]}
-                    name="password"
-                    type="password"
-                    value={data.password}
-                    placeholder="Password"
-                    onChange={handleChange}
-                    validation="required|min:4|max:12"
-                />
-                <Button/>
-            </form>
+
+                <form onSubmit={submitForm} className="form">
+                    <InputField
+                        ref={inputRefs.current[0]}
+                        name="email"
+                        type="email"
+                        value={data.email}
+                        placeholder="Email"
+                        onChange={handleChange}
+                        validation={"required|email"}
+                    />
+                    <InputField
+                        ref={inputRefs.current[1]}
+                        name="password"
+                        type="password"
+                        value={data.password}
+                        placeholder="Password"
+                        onChange={handleChange}
+                        validation="required|min:6|max:12"
+                    />
+                    <Button/>
+                </form>
+            </div>
         </div>
         <div className='right-side'>
             <img src={background} alt='background' class='background-image'/>

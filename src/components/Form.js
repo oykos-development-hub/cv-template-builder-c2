@@ -12,9 +12,9 @@ export default class Form extends React.Component {
         let userData = StoreService.getStoreProperty('user');
 
         this.state = {
-            fullName: userData.fullName,
-            email: userData.email,
-            password: userData.password,
+            fullName: userData && userData.fullName ? userData.fullName : '',
+            email: userData && userData.email ? userData.email : '',
+            password: userData && userData.password ? userData.password : '',
             repPassword: "",
             errors: {
                 fullName: "",
@@ -31,6 +31,7 @@ export default class Form extends React.Component {
         const {name, value} = e.target;
         let cachedUserData = StoreService.getStoreProperty('user');
 
+        cachedUserData = cachedUserData ? cachedUserData : {};
         cachedUserData[name] = value;
 
         StoreService.updateStoreProperty('user', cachedUserData);
@@ -66,6 +67,7 @@ export default class Form extends React.Component {
         e.preventDefault();
 
         let validity = true;
+
         Object.values(this.state).forEach(
             (val) => val.length < 1 && (validity = false)
         );
@@ -77,26 +79,36 @@ export default class Form extends React.Component {
                 password: '',
                 repPassword: ''
             });
-            alert("Passwords don't match");
-        } else if (validity === true) {
-            console.log(`
-       --Submitting--
-       Name: ${this.state.fullName}
-       Email:${this.state.email}
-       Password:${this.state.password}
-       PasswordR:${this.state.repPassword}
-       `);
-            if (this.state.email && this.state.password) {
-                return ApiService.endpoints.login(this.state.email, this.state.password).then((response) => {
-                    if (response && response.errorMessage && response.info) {
-                        this.setState({
-                            errorMessage: response.info
-                        });
+            alert("Passwords don't match.");
+        } else if (!validity || !this.state.email || !this.state.fullName) {
+            alert('Please fill mandatory inputs - name, email and password.');
+        } else  {
+            return ApiService.endpoints.signUp(
+                this.state.email,
+                this.state.password,
+                this.state.fullName
+            ).then((response) => {
+                if (response && response.errorMessage && response.info) {
+                    this.setState({
+                        errorMessage: response.info
+                    });
+                }
+                if (response && response.successMessage) {
+                    const newData = response.user ? response.user : null;
+
+                    if (newData) {
+                        newData.fullName = newData.name;
+
+                        StoreService.updateStoreProperty('user', newData);
+
+                        alert('Successfully Signed Up. Enjoy our application!');
+                    } else {
+                        alert('There was a problem Signing you up into our application. Please try again!');
                     }
-                });
-            }
-        } else {
-            alert("Please fill inputs")
+                } else {
+                    alert('There was a problem Signing you up into our application. Please try again!');
+                }
+            });
         }
     }
 
@@ -113,7 +125,6 @@ export default class Form extends React.Component {
                     blur={this.handleBlur}
                     error={errors.fullName}
                 />
-
                 <InputComponent
                     name="email"
                     text="Email"
@@ -123,7 +134,6 @@ export default class Form extends React.Component {
                     blur={this.handleBlur}
                     error={errors.email}
                 />
-
                 <InputComponent
                     name="password"
                     text="Password"
