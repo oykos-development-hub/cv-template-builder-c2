@@ -118,7 +118,7 @@ h2 {
   box-shadow: rgba(62, 148, 228, 0.15) 0px 2px 4px;
   font-size: 16px;
   line-height: 1.4em;
-  
+
 }
 
 .button:hover {
@@ -179,7 +179,7 @@ h2 {
   color: white;
   height: 24px;
   visibility: hidden;
-  font-size: 1.1rem;  
+  font-size: 1.1rem;
   margin-top: 20px;
   margin-left: 40px;
   padding: 13px 18px;
@@ -219,4 +219,90 @@ h2 {
   .signup-screen {
     min-width: 1000px;
   }
+}
+
+
+.flex, .row {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.align-stretch {
+  align-items: stretch;
+}
+
+.self-stretch {
+  align-self: stretch;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.w-100-perc {
+  width: 100%;
+}
+
+.h-100-perc {
+  height: 100%;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
+
+.grow-2 {
+  flex-grow: 2;
+}
+
+.grow-3 {
+  flex-grow: 3;
+}
+
+.grow-4 {
+  flex-grow: 4;
+}
+
+.margin-t-20 {
+  margin-top: 20px;
+}
+.margin-t-50 {
+  margin-top: 50px;
+}
+
+.margin-v-15 {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

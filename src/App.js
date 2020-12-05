@@ -41,7 +41,7 @@ export default class App extends React.Component {
                         redirect: '/cv-data'
                     });
 
-                    alert('Successfully Logged In. Enjoy our application!');
+                    //alert('Successfully Logged In. Enjoy our application!');
                 } else {
                     alert('There was a problem Logging you into our application. Please try again!');
                 }
