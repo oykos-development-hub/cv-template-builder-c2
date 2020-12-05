@@ -13,37 +13,6 @@ body {
   display: none;
 }
 
-/* CV DATA SCREEN start */
-.cv-data-screen .label {
-  color: rgb(100, 100, 100);
-  font-size: 15px;
-  margin: 0;
-  height: 22px;
-  padding-top: 6px;
-  padding-left: 5px;
-}
-
-.cv-data-screen{
-  display: flex;
-}
-
-.cv-data-screen .left-side .text-content{
-  margin: 40px 0px;
-}
-
-.cv-data-screen h1 {
-  color: rgb(100, 100, 100);
-}
-
-.cv-data-screen .text-content {
-  max-width: 90%;
-}
-
-.cv-data-screen .error{
-  display: none;
-}
-/* CV DATA SCREEN end */
-
 .left-side {
   background-color: #f4f7f8;
   display: flex;
@@ -136,6 +105,7 @@ h2 {
 
 .button {
   margin-top: 20px;
+  padding: 13px 18px;
   width: 100%;
   cursor: pointer;
   text-align: center;
@@ -148,13 +118,84 @@ h2 {
   box-shadow: rgba(62, 148, 228, 0.15) 0px 2px 4px;
   font-size: 16px;
   line-height: 1.4em;
-  padding: 13px 18px;
+  
 }
 
 .button:hover {
   background-color: rgb(37, 134, 225);
   border-color: rgb(37, 134, 225);
 }
+
+/* CV DATA SCREEN start */
+.cv-data-screen .left-side {
+  background-color: white;
+}
+
+.cv-data-screen .label {
+  color: rgb(100, 100, 100);
+  font-size: 15px;
+  margin: 0;
+  height: 22px;
+  padding-top: 6px;
+  padding-left: 5px;
+}
+
+.cv-data-screen{
+  display: flex;
+}
+
+.cv-data-screen .left-side .text-content{
+  margin: 40px 0px;
+}
+
+.cv-data-screen h1 {
+  color: rgb(100, 100, 100);
+}
+
+.cv-data-screen .text-content {
+  max-width: 90%;
+}
+
+.cv-data-screen .error{
+  display: none;
+}
+
+.cv-data-screen .button {
+  width: 150px;
+}
+
+.cv-data-screen input {
+  background-color: #ebf4fc;
+  border: 1px solid #cee2f7;
+}
+
+.cv-data-screen h2 {
+  margin-bottom: 10px;
+}
+
+.cv-data-screen .action-message {
+  text-align: center;
+  background-color: green;
+  color: white;
+  height: 24px;
+  visibility: hidden;
+  font-size: 1.1rem;  
+  margin-top: 20px;
+  margin-left: 40px;
+  padding: 13px 18px;
+  width: 80%;
+  border-radius: 4px;
+
+}
+
+.cv-data-screen .buttonMessageContainer {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+
+
+}
+/* CV DATA SCREEN end */
 
 @media only screen and (max-width: 650px) {
   .background-image {
@@ -166,6 +207,10 @@ h2 {
   }
   .right-side {
     display: none;
+  }
+  .cv-data-screen .left-side {
+    padding: 0px 0px 0px 0px;
+    min-width: 500px;
   }
 }
 

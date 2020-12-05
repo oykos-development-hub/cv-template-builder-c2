@@ -5,17 +5,15 @@ import Button from '../components/button';
 import {StoreService} from "../services/store.service";
 import DatePicker from "react-datepicker";
 
+
+
 function CVDataScreen() {
 
     const [redirect, setRedirect] = useState('');
-    let userData = StoreService.getStoreProperty('user');
-    // const [data, setData] = React.useState({
-    //     email: userData.email,
-    //     password: userData.password
-    // });
-    const [startDate, setStartDate] = useState();
-    const [rangeStartDate, setRangeStartDate] = useState();
-    const [rangeEndDate, setRangeEndDate] = useState();
+    const [userData, setUserData] = useState(StoreService.getStoreProperty('user'));
+    const [startDate, setStartDate] = useState(userData.dateOfBirth ? new Date(userData.dateOfBirth) : '' );
+    const [rangeStartDate, setRangeStartDate] = useState(userData.workStartDate ? new Date(userData.workStartDate) : '' );
+    const [rangeEndDate, setRangeEndDate] = useState(userData.workEndDate ? new Date(userData.workEndDate) : '' );
 
 
     useEffect(
@@ -30,20 +28,27 @@ function CVDataScreen() {
 
     const handleChange = (name, value) => {
         let cachedUserData = StoreService.getStoreProperty('user');
-
-        cachedUserData[name] = value;
-
+        //if input is a date, convert it to string
+        cachedUserData[name] = typeof value === 'object' ? value.toISOString() : value
         StoreService.updateStoreProperty('user', cachedUserData);
-
-        // setData(prev => ({...prev, [name]: value}));
+        setUserData(cachedUserData);
     };
 
-     const submitForm = (e) => {
-         e.preventDefault();
-         console.log('Submitted.')
-     }
-    
+    const submitForm = (e) => {
+        e.preventDefault();
+        showMessage();
+        console.log('Submitted.')
+    }
 
+    const showMessage = () => {
+        const message = document.getElementById('message');
+      if(message.style.visibility = 'hidden') {
+        message.style.visibility = 'visible';
+        setTimeout(() => {
+        message.style.visibility = 'hidden';
+        }, 3000);
+      }
+    }
 
     return (<div className="cv-data-screen">
         {
@@ -78,8 +83,13 @@ function CVDataScreen() {
                     dateFormat="dd/MM/yyyy"
                     name='dateOfBirth'
                     type='date'
+                    showMonthDropdown
+                    showYearDropdown
+                    dropdownMode="select"
                     selected={startDate}
                     onChange={date => setStartDate(date)}
+                    showPopperArrow={false}
+                    closeOnScroll={true}
                 />
                 <p className="error"> </p>
                 <InputField
@@ -131,7 +141,7 @@ function CVDataScreen() {
                     onChange={handleChange}
                 />
                 <div className="experience-div">
-                    <p>Work experience</p>
+                    <h2>Work experience</h2>
                     <InputField
                     name="company"
                     type="text"
@@ -156,38 +166,45 @@ function CVDataScreen() {
                     placeholder="Job Description"
                     onChange={handleChange}
                     />
-                    <>  
-                        <p className='label'>Work start</p>
-                        <DatePicker
-                        placeholderText="Work start"
-                        name='workStartDate'
-                        selected={rangeStartDate}
-                        onChange={date => setRangeStartDate(date)}
-                        selectsStart
-                        rangeStartDate={rangeStartDate}
-                        rangeEndDate={rangeEndDate}
-                        dateFormat="MM/yyyy"
-                        showMonthYearPicker
-                        />
-                        <p className='error'></p>
-                        <p className='label'>Work end</p>
-                        <DatePicker
-                        placeholderText="Work end"
-                        name='workEndDate'
-                        selected={rangeEndDate}
-                        onChange={date => setRangeEndDate(date)}
-                        selectsEnd
-                        rangeStartDate={rangeStartDate}
-                        rangeEndDate={rangeEndDate}
-                        dateFormat="MM/yyyy"
-                        showMonthYearPicker
-                        />
-                    </>
+                    <p className='label'>Work start</p>
+                    <DatePicker
+                    placeholderText="Work start"
+                    label="Work start"
+                    dateFormat="MM/yyyy"
+                    name='workStartDate'
+                    type='date'
+                    showMonthDropdown
+                    showYearDropdown
+                    dropdownMode="select"
+                    selected={rangeStartDate}
+                    onChange={date => setRangeStartDate(date)}
+                    showPopperArrow={false}
+                    closeOnScroll={true}
+                    />
+                    <p className='label'>Work end</p>    
+                    <DatePicker
+                    placeholderText="Work end"
+                    label="Work end"
+                    dateFormat="MM/yyyy"
+                    name='workEndDate'
+                    type='date'
+                    showMonthDropdown
+                    showYearDropdown
+                    dropdownMode="select"
+                    selected={rangeEndDate}
+                    onChange={date => setRangeEndDate(date)}
+                    showPopperArrow={false}
+                    closeOnScroll={true}
+                    />
                 </div>
-                <Button
-                    content="Submit"
-                />
+                <div className="buttonMessageContainer">
+                    <Button
+                        content="Save"
+                    />
+                    <p id='message' className='action-message'>Changes saved successfully!</p>
+                </div>
                 </form>
+                
             </div>
         </div>
     </div>);
