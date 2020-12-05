@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="460f4c1e-a7a6-417b-9b53-93ffbb56c7ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/services/store.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/trigger.callback.only.once.per.period.helper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/util.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/inputField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/inputField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login.screen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login.screen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/signup.screen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/signup.screen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/api.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/constants.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/constants.service.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,28 +22,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/login.screen.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="57" />
+            <state relative-caret-position="264">
+              <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
               <folding>
-                <element signature="e#0#49#0" expanded="true" />
-                <element signature="e#530#623#0" />
-                <element signature="e#667#719#0" />
-                <element signature="e#906#1654#0" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/signup.screen.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="37" />
+            <state relative-caret-position="1155">
+              <caret line="89" column="12" lean-forward="true" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="12" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#397#933#0" />
+                <element signature="e#959#1313#0" />
+                <element signature="e#1339#2211#0" />
               </folding>
             </state>
           </provider>
@@ -64,48 +55,55 @@
       <find>UtilService</find>
       <find>DisplayParser</find>
       <find>data</find>
-      <find>handleChange</find>
       <find>$UserService</find>
       <find>initialize</find>
       <find>updateStoreData</find>
       <find>console.log('data</find>
+      <find>tok</find>
+      <find>handleChange</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="filipv-additional-pages" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/signup.screen.js" />
         <option value="$PROJECT_DIR$/src/login.screen.js" />
-        <option value="$PROJECT_DIR$/src/services/api.service.js" />
         <option value="$PROJECT_DIR$/src/services/constants.service.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/api/constants-service.php" />
-        <option value="$PROJECT_DIR$/api/user-service.php" />
-        <option value="$PROJECT_DIR$/api/registration-api.php" />
         <option value="$PROJECT_DIR$/src/services/util.service.js" />
         <option value="$PROJECT_DIR$/src/services/store.service.js" />
         <option value="$PROJECT_DIR$/src/components/inputField.js" />
-        <option value="$PROJECT_DIR$/src/pages/login.screen.js" />
-        <option value="$PROJECT_DIR$/src/components/Form.js" />
         <option value="$PROJECT_DIR$/src/pages/signup.screen.js" />
+        <option value="$PROJECT_DIR$/api/constants-service.php" />
+        <option value="$PROJECT_DIR$/src/components/Form.js" />
+        <option value="$PROJECT_DIR$/api/user-service.php" />
+        <option value="$PROJECT_DIR$/api/registration-api.php" />
+        <option value="$PROJECT_DIR$/src/pages/login.screen.js" />
+        <option value="$PROJECT_DIR$/src/services/api.service.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="505" />
-    <option name="y" value="30" />
-    <option name="width" value="1400" />
-    <option name="height" value="965" />
+    <option name="x" value="395" />
+    <option name="y" value="126" />
+    <option name="width" value="1440" />
+    <option name="height" value="810" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -114,18 +112,23 @@
               <item name="cv-template-builder-c2" type="b2602c69:ProjectViewProjectNode" />
               <item name="cv-template-builder-c2" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="cv-template-builder-c2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cv-template-builder-c2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -133,10 +136,12 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Development\Oykos\cv-template-builder-c2\src" />
       <recent name="C:\Development\Oykos\cv-template-builder-c2" />
       <recent name="C:\Development\Oykos\cv-template-builder-c2\src\services" />
     </key>
@@ -166,11 +171,20 @@
       <workItem from="1605815036082" duration="1039000" />
       <workItem from="1606665002884" duration="47000" />
       <workItem from="1606845031219" duration="6350000" />
+      <workItem from="1607191417980" duration="3351000" />
     </task>
+    <task id="LOCAL-00001" summary="Login logic completed">
+      <created>1607175261824</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607175261824</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12172000" />
+    <option name="totallyTimeSpent" value="18765000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -209,6 +223,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Login logic completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login logic completed" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="735" height="625" key="Git.Branch.Popup" />
+    <state width="735" height="625" key="Git.Branch.Popup/1920.1080" />
+    <state width="735" height="625" key="Git.Branch.Popup@1920.1080@120dpi" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -226,46 +251,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/api.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="44" column="45" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/constants-service.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/user-service.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/registration-api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1116">
-          <caret line="187" column="36" selection-start-line="187" selection-start-column="36" selection-end-line="187" selection-end-column="36" />
-          <folding>
-            <element signature="n#validate#0;n#RegistrationApi#0;n#!!top" />
-            <element signature="n#sendEmail#0;n#RegistrationApi#0;n#!!top" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#strong#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#resetPassword#0;n#RegistrationApi#0;n#!!top" />
-            <element signature="n#logOut#0;n#RegistrationApi#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/services/constants.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        <state relative-caret-position="132">
+          <caret line="6" column="20" selection-end-line="9" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -300,33 +289,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/inputField.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        <state relative-caret-position="1760">
+          <caret line="80" column="3" selection-start-line="80" selection-start-column="3" selection-end-line="80" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/login.screen.js">
+    <entry file="file://$PROJECT_DIR$/api/database-service.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-            <element signature="e#530#623#0" />
-            <element signature="e#667#719#0" />
-            <element signature="e#906#1654#0" />
-          </folding>
+        <state relative-caret-position="66">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -339,33 +312,109 @@
             <element signature="e#208#606#0" />
             <element signature="e#232#486#0" />
             <element signature="e#683#953#0" />
-            <element signature="e#1061#1114#0" />
             <element signature="e#1152#1296#0" />
             <element signature="e#1329#1593#0" />
             <element signature="e#1536#1585#0" />
             <element signature="e#1641#1953#0" />
             <element signature="e#1981#2119#0" />
-            <element signature="e#2006#2066#0" />
-            <element signature="e#2111#2163#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/constants-service.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/signup.screen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/cv.data.screen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="82" column="19" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/login.screen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1848">
+          <caret line="77" column="15" selection-start-line="77" selection-start-column="15" selection-end-line="77" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/user-service.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1221">
+          <caret line="75" column="34" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
+          <folding>
+            <element signature="n#initDBconnection#0;n#UserService#0;n#!!top" />
+            <element signature="n#fetchAllEntries#0;n#UserService#0;n#!!top" />
+            <element signature="n#fetchEntriesById#0;n#UserService#0;n#!!top" />
+            <element signature="n#updateEntry#0;n#UserService#0;n#!!top" />
+            <element signature="n#getAdminByEmail#0;n#UserService#0;n#!!top" />
+            <element signature="n#updateEntriesByAdmin#0;n#UserService#0;n#!!top" />
+            <element signature="n#deleteEntry#0;n#UserService#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/util-service.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6402">
+          <caret line="194" column="23" selection-start-line="194" selection-start-column="20" selection-end-line="194" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/registration-api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="n#sendEmail#0;n#RegistrationApi#0;n#!!top" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#strong#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#resetPassword#0;n#RegistrationApi#0;n#!!top" />
+            <element signature="n#logOut#0;n#RegistrationApi#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Form.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+        <state relative-caret-position="1155">
+          <caret line="89" column="12" lean-forward="true" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="12" />
           <folding>
-            <element signature="e#738#1476#0" />
-            <element signature="e#1502#2575#0" />
+            <element signature="e#397#933#0" />
+            <element signature="e#959#1313#0" />
+            <element signature="e#1339#2211#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/signup.screen.js">
+    <entry file="file://$PROJECT_DIR$/src/services/api.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="37" />
+        <state relative-caret-position="257">
+          <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

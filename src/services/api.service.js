@@ -85,12 +85,10 @@ export const ApiService = {
             const user = StoreService.getStoreProperty('user');
             const token = user ? user.token : '';
 
-            let data = {
+            return ApiService.postRequest(endpointUrls.registration, {
                 token: token,
                 validate: true
-            };
-
-            return ApiService.postRequest(endpointUrls.registration, data).then((response) => {
+            }).then((response) => {
                 return response;
             });
         }
