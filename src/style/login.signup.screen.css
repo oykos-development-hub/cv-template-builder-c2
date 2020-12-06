@@ -132,6 +132,9 @@ h2 {
   .right-side {
     display: none;
   }
+  .pa-box {
+    display: block;
+  }
 }
 
 @media only screen and (min-width: 650px) {
