@@ -27,13 +27,10 @@ const AccountInfo = () => {
   const root = document.getElementById('root');
   const modal = document.getElementById('modal-root');
 
-  const onModalClose = () => {
-    toggleModal(false);
-    console.log('ee')
-  };
-
   const submitImgForm = (url) => {
-    setData(prev => ({...prev, imgUrl: url}));
+    if(url !== defaultAvatar) {
+      setData(prev => ({...prev, imgUrl: url}));
+    }
     toggleModal(false);
     didMountRef.current = false;
     root.classList.toggle('active');
@@ -105,7 +102,9 @@ const AccountInfo = () => {
             defaultAvatar={defaultAvatar}
             modalStatus={modalStatus}
             submitImgForm={submitImgForm}
-            onClose={onModalClose}
+            onClose={() => {
+              toggleModal(false);
+            }}
           ></ImageModal>
           )
         }

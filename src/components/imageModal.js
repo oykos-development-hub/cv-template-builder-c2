@@ -4,12 +4,11 @@ import Button from './button';
 
 const ImageModal = (props) => {
   const [imgUrl, setImgUrl] = useState(props.defaultAvatar);
-  const [imgFile, setImgFile] = useState({});
+  
 
   const onChosenImg = () => {
     const img = document.getElementById('img-input').files[0];
     const reader  = new FileReader();
-    setImgFile(img);
     if (img) {
       reader.readAsDataURL(img);
     }
@@ -53,9 +52,10 @@ const ImageModal = (props) => {
               type='submit'
             ></Button>
             <Button
+              type='reset'
               content='Cancel'
               id='cancelBtn'
-              onClick={() => props.onClose}
+              onClick={props.onClose}
             ></Button>
           </div>
         </form>  
