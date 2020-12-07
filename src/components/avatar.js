@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Button from './button';
 
 const Avatar = ({openImgChangeModal, resetImg, content, avatarSrc}) => {
  
@@ -10,8 +11,17 @@ const Avatar = ({openImgChangeModal, resetImg, content, avatarSrc}) => {
         className='acc-avatar'
         src={avatarSrc}
       ></img>
-      <button type='button' onClick={openImgChangeModal}>Change Image</button>
-      <button type='button' onClick={resetImg}>Reset</button>
+      <Button 
+      type='button' 
+      onClick={openImgChangeModal}
+      content='Change Image'
+      ></Button>
+
+      <Button 
+      type='button' 
+      onClick={resetImg}
+      content='Reset'
+      ></Button>
     </div>
   )
 } 

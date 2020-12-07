@@ -10,7 +10,8 @@ export default class Button extends React.Component {
             <button 
                 className = "button"
                 id={this.props.id}
-                type={this.props.type}>
+                type={this.props.type}
+                onClick={this.props.onClick}>
                 {this.props.content} 
             </button>
         )

@@ -112,9 +112,9 @@
   align-items: center;
 }
 
-.avatar-wrapper > button {
+.avatar-wrapper > .button {
+  all: none;
   border: none;
-  outline: none;
   background-color: transparent;
   color: #4d99e0;
   text-decoration: underline;
@@ -122,6 +122,20 @@
   letter-spacing: 1px;
   cursor: pointer;
   font-weight: 700;
+  box-shadow: none;
+  margin: 0 0 5px 0;
+  padding: 0;
+  line-height: 1rem;
+}
+
+.avatar-wrapper > .button:focus {
+  outline: none;
+}
+
+.avatar-wrapper > .button:hover {
+  background-color: inherit;
+  color: #0c82f0;
+  font-size: 0.9rem;
 }
 
 .acc-bottom-section .inputdiv input {

@@ -15,7 +15,8 @@ const AccountInfo = () => {
     name: userData.name,
     email: userData.email,
     password: userData.password,
-    imgUrl: defaultAvatar,
+    imgUrl: userData.imgUrl,
+    showOnStarting: userData.showOnStarting,
     errors: {
       name: '',
       email: '',
@@ -27,10 +28,14 @@ const AccountInfo = () => {
   const root = document.getElementById('root');
   const modal = document.getElementById('modal-root');
 
+  const onClose = () => {
+    toggleModal(false);
+    didMountRef.current = false;
+    root.classList.toggle('active');
+  }
+
   const submitImgForm = (url) => {
-    if(url !== defaultAvatar) {
-      setData(prev => ({...prev, imgUrl: url}));
-    }
+    setData(prev => ({...prev, imgUrl: url}));
     toggleModal(false);
     didMountRef.current = false;
     root.classList.toggle('active');
@@ -47,7 +52,6 @@ const AccountInfo = () => {
       window.addEventListener('keydown', onEscKeyDown)
     }
     else didMountRef.current = true
-
     return () => {
       window.removeEventListener('keydown', onEscKeyDown);
     }
@@ -65,13 +69,15 @@ const AccountInfo = () => {
   }
 
   const handleChange = (e) => {
-    const {name, value} = e.target;
+    const {name, value, checked, type} = e.target;
+    if(type === 'checkbox') {
+      setData(prev => ({...prev, showOnStarting: checked}));
+    }
     setData(prev => ({...prev, [name]: value}));
   };
 
   const formSubmit = (e) => {
     e.preventDefault();
-    
     let validity = true;
         Object.values(data).forEach(
             (val) => val.length < 1 && (validity = false)
@@ -95,16 +101,13 @@ const AccountInfo = () => {
         }
   };
 
-
   return ( <>
         {modalStatus && (
           <ImageModal
             defaultAvatar={defaultAvatar}
             modalStatus={modalStatus}
             submitImgForm={submitImgForm}
-            onClose={() => {
-              toggleModal(false);
-            }}
+            onClose={onClose}
           ></ImageModal>
           )
         }
@@ -139,7 +142,13 @@ const AccountInfo = () => {
                       toggleModal(true)
                       }
                     }
-                    // resetImg={resetImg}
+                    resetImg={() => {
+                      const confirmation = window.confirm('Reseting will remove your current profile picture and replace it with an empty avatar. Are you sure you want to proceed?');
+
+                      if(confirmation) {
+                        setData(prev => ({...prev, imgUrl: defaultAvatar}))
+                      }
+                    }}
                   ></Avatar>
                 </div>
             </section>
@@ -153,7 +162,11 @@ const AccountInfo = () => {
                 </InputComponent>
 
                 <div className='checkbox-wrapper'>
-                  <input type='checkbox'></input>
+                  <input 
+                  type='checkbox'
+                  onChange={handleChange}
+                  checked={data.showOnStarting}
+                  ></input>
                   <label>Show Getting Started</label>
                 </div>
 

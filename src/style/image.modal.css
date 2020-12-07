@@ -84,7 +84,7 @@ hr {
   justify-content: space-between;
 }
 
-#cancelBtn.button {
+#cancel-btn.button {
   background-color: white;
   color: black;
 }

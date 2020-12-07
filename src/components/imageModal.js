@@ -52,10 +52,12 @@ const ImageModal = (props) => {
               type='submit'
             ></Button>
             <Button
-              type='reset'
+              type='button'
               content='Cancel'
-              id='cancelBtn'
-              onClick={props.onClose}
+              id='cancel-btn'
+              onClick={(e) => {
+                props.onClose()
+              }}
             ></Button>
           </div>
         </form>  
