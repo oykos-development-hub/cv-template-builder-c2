@@ -23,6 +23,8 @@ const AccountInfo = () => {
       password: ''
     }
   });
+
+
   const [modalStatus, toggleModal] = useState(false);
   const didMountRef = useRef(false);
   const root = document.getElementById('root');
@@ -78,6 +80,8 @@ const AccountInfo = () => {
 
   const formSubmit = (e) => {
     e.preventDefault();
+    const emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     let validity = true;
         Object.values(data).forEach(
             (val) => val.length < 1 && (validity = false)
@@ -85,6 +89,10 @@ const AccountInfo = () => {
         Object.values(data.errors).forEach(
             (val) => val.length > 0 && (validity = false)
         );
+        if (!emailReg.test(String(data.email).toLowerCase())) {
+          setData(prev => ({...prev, errors: {...prev.errors, email: 'Please enter a valid email adress.'}}));
+          validity = false;
+        }
         if (validity === true) {
             console.log(`
               --Submitting--
@@ -124,14 +132,15 @@ const AccountInfo = () => {
                     name='name'
                     value={data.name}
                     change={handleChange}>
-                    <p>NAME</p>
+                    <p className='input-heading'>NAME</p>
                   </InputComponent>
 
                   <InputComponent
                     name='email'
                     value={data.email}
-                    change={handleChange}>
-                    <p>EMAIL</p>
+                    change={handleChange}
+                    error={data.errors.email}>
+                    <p className='input-heading'>EMAIL</p>
                   </InputComponent>
                 </div>
                 <div className='right-col'>
@@ -158,7 +167,7 @@ const AccountInfo = () => {
                   name='password'
                   value={data.password}
                   change={handleChange}>
-                  <p>PASSWORD</p>
+                  <p className='input-heading'>PASSWORD</p>
                 </InputComponent>
 
                 <div className='checkbox-wrapper'>

@@ -3,10 +3,9 @@ import Button from './button';
 
 const Avatar = ({openImgChangeModal, resetImg, content, avatarSrc}) => {
  
-
   return (
     <div className='avatar-wrapper'>
-      <p>{content}</p>
+      <p className='input-heading'>{content}</p>
       <img 
         className='acc-avatar'
         src={avatarSrc}
