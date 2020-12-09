@@ -181,3 +181,14 @@
 .pa-box2 .error {
   color: rgb(160, 0, 0, 0);
 }
+
+.experience {
+  padding-top: 10px;
+  border-bottom: 1px solid rgb(175, 203, 216);
+}
+
+.date-flex{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
