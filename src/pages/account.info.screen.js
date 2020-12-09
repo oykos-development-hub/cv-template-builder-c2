@@ -7,6 +7,7 @@ import '../style/account-page.css';
 import '../style/image.modal.css';
 import defaultAvatar from '../images/default-profile.png';
 import {StoreService} from "../services/store.service";
+import {fadeOut, fadeIn} from '../components/appearAnimation';
 
 
 const AccountInfo = () => {
@@ -59,17 +60,6 @@ const AccountInfo = () => {
     }
   }, [modalStatus])
 
-  
-  const showMessage = () => {
-      const message = document.getElementById('message');
-    if(message.style.visibility = 'hidden') {
-      message.style.visibility = 'visible';
-      setTimeout(() => {
-      message.style.visibility = 'hidden';
-      }, 3000);
-    }
-  }
-
   const handleChange = (e) => {
     const {name, value, checked, type} = e.target;
     if(type === 'checkbox') {
@@ -101,7 +91,7 @@ const AccountInfo = () => {
               Password:${data.password}
               `);
 
-          showMessage();
+          fadeIn('message')
 
           let cachedUserData = StoreService.getStoreProperty('user');
           cachedUserData = {...cachedUserData, ...data};
@@ -123,11 +113,10 @@ const AccountInfo = () => {
           
           <p id='message' className='action-message'>Account info changes saved successfully!</p>
           <form onSubmit={formSubmit}>
-
+          <h2>Profile Info</h2>
             <section className='acc-top-section'>
                 <div className='left-col'>
-                  <h2>Profile Info</h2>
-
+                  
                   <InputComponent 
                     name='name'
                     value={data.name}
