@@ -98,6 +98,7 @@ export default class Form extends React.Component {
 
                     if (newData) {
                         newData.fullName = newData.name;
+                        newData.cv_data = typeof newData.cv_data === 'object' ? newData.cv_data : JSON.parse(newData.cv_data);
 
                         StoreService.updateStoreProperty('user', newData);
 

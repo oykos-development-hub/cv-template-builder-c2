@@ -21,11 +21,16 @@ function CVDataScreen() {
     };
     const [redirect, setRedirect] = useState('');
     const [forceRefresh, setForceRefresh] = useState(false);
-    const [workExperiences, setWorkExperiences] = useState([
-        getWorkExperienceEmptyState()
-    ]);
-    const [userData, setUserData] = useState(StoreService.getStoreProperty('user'));
-    const [startDate, setStartDate] = useState(userData.dateOfBirth ? new Date(userData.dateOfBirth) : '');
+    const [workExperiences, setWorkExperiences] = useState(
+        StoreService.getStoreProperty('user').cv_data.experience ?
+            StoreService.getStoreProperty('user').cv_data.experience :
+            [getWorkExperienceEmptyState()]
+    );
+    const [userData, setUserData] = useState(StoreService.getStoreProperty('user').cv_data);
+    const [startDate, setStartDate] = useState(
+        userData && typeof userData === 'object' &&
+        userData.dateOfBirth ? new Date(userData.dateOfBirth) : new Date()
+    );
 
     useEffect(
         () => handleChange('dateOfBirth', startDate), [startDate]
@@ -42,8 +47,10 @@ function CVDataScreen() {
         setForceRefresh(!forceRefresh);
     };
     const handleChange = (name, value) => {
-        let cachedUserData = StoreService.getStoreProperty('user');
-        //if input is a date, convert it to string
+        let cachedUserData = userData;
+
+        cachedUserData = typeof cachedUserData === 'object' ? cachedUserData : {};
+
         cachedUserData[name] = typeof value === 'object' ? value.toISOString() : value;
 
         setUserData(cachedUserData);
@@ -51,8 +58,15 @@ function CVDataScreen() {
     const submitForm = (e) => {
         e.preventDefault();
         showMessage();
-        console.log('Submitted.')
-    }
+        let storedUser = StoreService.getStoreProperty('user');
+
+        storedUser.cv_data = userData;
+        storedUser.cv_data.experience = workExperiences && (
+            workExperiences.length > 1 || workExperiences[0] !== getWorkExperienceEmptyState()
+        ) ? workExperiences : [];
+
+        StoreService.updateStoreProperty('user', storedUser);
+    };
     const showMessage = () => {
         const message = document.getElementById('message');
         if (message.style.visibility = 'hidden') {
@@ -137,7 +151,7 @@ function CVDataScreen() {
     };
 
     return (<div className="cv-data-screen column">
-        <TopHeader />
+        <TopHeader/>
 
         {
             redirect !== '' && <Redirect to={redirect}/>
@@ -302,8 +316,8 @@ function CVDataScreen() {
                 <div className="buttonMessageContainer">
                     <Button
                         content="Save"
-                        onclick={() => {
-                            console.log(workExperiences);
+                        onclick={(e) => {
+                            submitForm(e);
                         }}
                     />
                     <p id='message' className='action-message'>Changes saved successfully!</p>
