@@ -5,6 +5,7 @@ import InputField from '../components/inputField';
 import Button from '../components/button';
 import {ApiService} from "../services/api.service";
 import {StoreService} from "../services/store.service";
+import TopHeader from "../components/topHeader";
 
 function LoginScreen() {
     const [redirect, setRedirect] = useState('');
@@ -79,7 +80,7 @@ function LoginScreen() {
         }
     }
 
-    return (<div className="login-screen">
+    return (<div className="login-screen column">
         {
             redirect !== '' && <Redirect to={redirect}/>
         }
@@ -107,7 +108,7 @@ function LoginScreen() {
                         value={data.password}
                         placeholder="Password"
                         onChange={handleChange}
-                        validation="required|min:6|max:12"
+                        validation="required|min:6|max:20"
                     />
                     <Button
                         content="Login"

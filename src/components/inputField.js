@@ -64,11 +64,11 @@ const InputField = forwardRef((props, ref) => {
         }
     })
 
-    let allowPattern = "";
+    /*let allowPattern = "";
 
     if (props.type === 'tel') {
         allowPattern = "[0-9]{3}-[0-9]{3}-[0-9]{3}";
-    }
+    }*/
 
     return (
         <div className="inputdiv">
@@ -80,7 +80,6 @@ const InputField = forwardRef((props, ref) => {
                 type={props.type}
                 value={props.value ? props.value : value}
                 autoComplete={props.autoComplete}
-                pattern={allowPattern}
             />
             <p className="error"> {error}</p>
         </div>

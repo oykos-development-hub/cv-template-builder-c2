@@ -17,46 +17,75 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            initialValidation: false,
+            loggedIn: false
+        };
 
         StoreService.initialize();
     }
 
     componentDidMount() {
+        const component = this;
+
         this.validateToken();
+
+        StoreService.hookOnStoreUpdate('App', (newStoreData) => {
+            if (
+                newStoreData && newStoreData.user && newStoreData.user.token
+                && !component.state.loggedIn
+            ) {
+                component.setState({
+                    loggedIn: true,
+                    redirect: '/cv-data'
+                });
+            }
+            if (
+                (!newStoreData || !newStoreData.user || !newStoreData.user.token)
+                && component.state.loggedIn
+            ) {
+                component.setState({
+                    loggedIn: false
+                });
+            }
+        });
     }
 
     validateToken() {
         if (this.state.initialValidation) return;
 
-        this.setState({
-            initialValidation: true
-        }, () => {
-            ApiService.endpoints.validateToken().then((response) => {
-                if (response && response.errorMessage && response.info) {
-                    return alert('There was a problem Logging you into our application. Please try again!');
-                }
-                if (response && response.successMessage) {
-                    let newData = response.user ? response.user : null;
+        const user = StoreService.getStoreProperty('user');
+        const token = user ? user.token : '';
 
-                    if (newData) {
-                        newData.fullName = newData.name;
+        if (token) {
+            this.setState({
+                initialValidation: true
+            }, () => {
+                ApiService.endpoints.validateToken(token).then((response) => {
+                    if (response && response.errorMessage && response.info) {
+                        return alert('There was a problem Logging you into our application. Please try again!');
+                    }
+                    if (response && response.successMessage) {
+                        let newData = response.user ? response.user : null;
 
-                        StoreService.updateStoreProperty('user', newData);
+                        if (newData) {
+                            newData.fullName = newData.name;
 
-                        this.setState({
-                            redirect: '/cv-data'
-                        });
+                            StoreService.updateStoreProperty('user', newData);
 
-                        //alert('Successfully Logged In. Enjoy our application!');
+                            this.setState({
+                                loggedIn: true,
+                                redirect: '/cv-data'
+                            });
+                        } else {
+                            alert('There was a problem Logging you into our application. Please try again!');
+                        }
                     } else {
                         alert('There was a problem Logging you into our application. Please try again!');
                     }
-                } else {
-                    alert('There was a problem Logging you into our application. Please try again!');
-                }
+                });
             });
-        });
+        }
     }
 
     render() {
@@ -66,14 +95,18 @@ export default class App extends React.Component {
             }
 
             <Switch>
+                {
+                    !!this.state.loggedIn && [
+                        <Route path="/cv-data">
+                            <CVDataScreen/>
+                        </Route>
+                    ]
+                }
                 <Route path="/signup">
-                    <SignupScreen/>
+                    <SignupScreen />
                 </Route>
                 <Route path="/login">
                     <LoginScreen/>
-                </Route>
-                <Route path="/cv-data">
-                    <CVDataScreen/>
                 </Route>
                 <Route path="/">
                     <LoginScreen/>

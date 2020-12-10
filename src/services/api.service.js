@@ -81,10 +81,7 @@ export const ApiService = {
                 return response;
             });
         },
-        validateToken: () => {
-            const user = StoreService.getStoreProperty('user');
-            const token = user ? user.token : '';
-
+        validateToken: (token) => {
             return ApiService.postRequest(endpointUrls.registration, {
                 token: token,
                 validate: true

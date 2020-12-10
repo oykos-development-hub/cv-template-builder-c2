@@ -74,7 +74,7 @@ export const StoreService = {
         const clonedData = StoreService.getStoreData();
 
         UtilService.loopThroughItems(StoreService.hooks, (hookCallback) => {
-            hookCallback(clonedData);
+            hookCallback(UtilService.clone(clonedData));
         });
     },
     clearStoreData: () => {

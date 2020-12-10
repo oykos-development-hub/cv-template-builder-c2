@@ -89,7 +89,7 @@ export default class Form extends React.Component {
                 this.state.fullName
             ).then((response) => {
                 if (response && response.errorMessage && response.info) {
-                    this.setState({
+                    return this.setState({
                         errorMessage: response.info
                     });
                 }

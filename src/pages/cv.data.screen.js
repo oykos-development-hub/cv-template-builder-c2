@@ -4,6 +4,7 @@ import InputField from '../components/inputField';
 import Button from '../components/button';
 import {StoreService} from "../services/store.service";
 import DatePicker from "react-datepicker";
+import TopHeader from "../components/topHeader";
 
 function CVDataScreen() {
     const getWorkExperienceEmptyState = () => {
@@ -135,7 +136,9 @@ function CVDataScreen() {
         ];
     };
 
-    return (<div className="cv-data-screen">
+    return (<div className="cv-data-screen column">
+        <TopHeader />
+
         {
             redirect !== '' && <Redirect to={redirect}/>
         }

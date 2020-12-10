@@ -3,6 +3,7 @@ import {Redirect, Link} from "react-router-dom";
 import Form from "../components/Form";
 import background from '../images/background.png';
 import {StoreService} from "../services/store.service";
+import TopHeader from "../components/topHeader";
 
 export default class SignupScreen extends React.Component {
     constructor(props) {
@@ -20,7 +21,7 @@ export default class SignupScreen extends React.Component {
         }
 
         return (
-            <div className="signup-screen">
+            <div className="signup-screen column">
                 {
                     !!this.state.redirect && <Redirect to={this.state.redirect}/>
                 }
@@ -28,7 +29,7 @@ export default class SignupScreen extends React.Component {
                     <div className="text-content">
                         <h1>{signupHeader}</h1>
                         <h2>Already have an account? <Link className="redirect" to="/login">Login</Link></h2>
-                        <Form/>
+                        <Form />
                     </div>
                 </div>
                 <div className="right-side">
