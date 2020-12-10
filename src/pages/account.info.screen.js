@@ -7,7 +7,7 @@ import '../style/account-page.css';
 import '../style/image.modal.css';
 import defaultAvatar from '../images/default-profile.png';
 import {StoreService} from "../services/store.service";
-import {fadeOut, fadeIn} from '../components/appearAnimation';
+import {appearAnimation} from '../components/appearAnimation';
 
 
 const AccountInfo = () => {
@@ -24,18 +24,17 @@ const AccountInfo = () => {
       password: ''
     }
   });
-
-
   const [modalStatus, toggleModal] = useState(false);
   const didMountRef = useRef(false);
   const root = document.getElementById('root');
   const modal = document.getElementById('modal-root');
 
+
   const onClose = () => {
     toggleModal(false);
     didMountRef.current = false;
     root.classList.toggle('active');
-  }
+  };
 
   const submitImgForm = (url) => {
     setData(prev => ({...prev, imgUrl: url}));
@@ -91,7 +90,7 @@ const AccountInfo = () => {
               Password:${data.password}
               `);
 
-          fadeIn('message')
+          appearAnimation('message')
 
           let cachedUserData = StoreService.getStoreProperty('user');
           cachedUserData = {...cachedUserData, ...data};
@@ -99,6 +98,8 @@ const AccountInfo = () => {
         }
   };
 
+
+  
   return ( <>
         {modalStatus && (
           <ImageModal

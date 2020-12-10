@@ -14,7 +14,7 @@ export const fadeOut = (id) => {
   }, 3000)
 };
 
-export const fadeIn = (id) => {
+export const appearAnimation = (id) => {
   let opacity = 0;
   const intevalID = setInterval(() => {
       const element = document.getElementById(id);
