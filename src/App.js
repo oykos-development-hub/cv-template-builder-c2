@@ -20,34 +20,42 @@ export default class App extends React.Component {
         this.state = {};
 
         StoreService.initialize();
+    }
 
+    componentDidMount() {
         this.validateToken();
     }
 
     validateToken() {
-        ApiService.endpoints.validateToken().then((response) => {
-            if (response && response.errorMessage && response.info) {
-                alert('There was a problem Logging you into our application. Please try again!');
-            }
-            if (response && response.successMessage) {
-                let newData = response.user ? response.user : null;
+        if (this.state.initialValidation) return;
 
-                if (newData) {
-                    newData.fullName = newData.name;
+        this.setState({
+            initialValidation: true
+        }, () => {
+            ApiService.endpoints.validateToken().then((response) => {
+                if (response && response.errorMessage && response.info) {
+                    return alert('There was a problem Logging you into our application. Please try again!');
+                }
+                if (response && response.successMessage) {
+                    let newData = response.user ? response.user : null;
 
-                    StoreService.updateStoreProperty('user', newData);
+                    if (newData) {
+                        newData.fullName = newData.name;
 
-                    this.setState({
-                        redirect: '/cv-data'
-                    });
+                        StoreService.updateStoreProperty('user', newData);
 
-                    //alert('Successfully Logged In. Enjoy our application!');
+                        this.setState({
+                            redirect: '/cv-data'
+                        });
+
+                        //alert('Successfully Logged In. Enjoy our application!');
+                    } else {
+                        alert('There was a problem Logging you into our application. Please try again!');
+                    }
                 } else {
                     alert('There was a problem Logging you into our application. Please try again!');
                 }
-            } else {
-                alert('There was a problem Logging you into our application. Please try again!');
-            }
+            });
         });
     }
 

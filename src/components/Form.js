@@ -103,10 +103,10 @@ export default class Form extends React.Component {
 
                         alert('Successfully Signed Up. Enjoy our application!');
                     } else {
-                        alert('There was a problem Signing you up into our application. Please try again!');
+                        alert('There was a problem Signing you up into our application. Maybe email you provided already exists in our database? Please try again!');
                     }
                 } else {
-                    alert('There was a problem Signing you up into our application. Please try again!');
+                    alert('There was a problem Signing you up into our application. Maybe email you provided already exists in our database? Please try again!');
                 }
             });
         }

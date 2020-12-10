@@ -56,7 +56,7 @@ function LoginScreen() {
         if (data) {
             return ApiService.endpoints.login(data.email, data.password).then((response) => {
                 if (response && response.errorMessage && response.info) {
-                    setResponse({
+                    return setResponse({
                         errorMessage: response.info
                     });
                 }
