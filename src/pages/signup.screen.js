@@ -21,7 +21,7 @@ export default class SignupScreen extends React.Component {
         }
 
         return (
-            <div className="signup-screen column">
+            <div className="signup-screen">
                 {
                     !!this.state.redirect && <Redirect to={this.state.redirect}/>
                 }

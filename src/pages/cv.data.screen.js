@@ -168,6 +168,7 @@ function CVDataScreen() {
                     label="Telephone number"
                     placeholder="Telephone number"
                     onChange={handleChange}
+                    pattern={"[0-9]{3}-[0-9]{3}-[0-9]{3}"}
                 />
                 <InputField
                     name="address"
@@ -245,36 +246,12 @@ function CVDataScreen() {
                 <div className="experience-div">
                     <h2 className="flex justify-between align-center margin-t-50">
                         <span>Work experience</span>
-
-                        <Button
-                            content="Add new"
-                            onclick={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-
-                                const lastItemInArray = workExperiences[workExperiences.length - 1];
-
-                                if (
-                                    lastItemInArray && lastItemInArray.company &&
-                                    lastItemInArray.jobTitle && lastItemInArray.jobDescription
-                                ) {
-                                    let newWorkExperiences = workExperiences;
-
-                                    newWorkExperiences.push(getWorkExperienceEmptyState());
-
-                                    setWorkExperiences(newWorkExperiences);
-                                    setForceRefresh(!forceRefresh);
-                                } else {
-                                    alert('Please fill your previous work experience before adding new one!');
-                                }
-                            }}
-                        />
                     </h2>
 
                     {
                         !!workExperiences && !!workExperiences.length && workExperiences.map((workExperience, index) => {
                             return (<div className="margin-v-15" style={{
-                                borderBottom: '1px solid #e3e3e3',
+                                borderBottom: '2px dotted rgb(62 148 228)',
                                 paddingBottom: '15px',
                                 position: 'relative',
                                 paddingTop: "30px"
@@ -299,9 +276,9 @@ function CVDataScreen() {
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         e.preventDefault();
-
-                                        workExperiences.splice(index, 1);
-
+                                        if (workExperiences.length != 1){
+                                            workExperiences.splice(index, 1);
+                                        }
                                         setWorkExperiences(workExperiences);
                                         setForceRefresh(!forceRefresh);
                                     }}
@@ -311,6 +288,31 @@ function CVDataScreen() {
                             </div>);
                         })
                     }
+                    <div className="row justify-end">
+                        <Button
+                            content="Add new experience"
+                            onclick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+
+                                const lastItemInArray = workExperiences[workExperiences.length - 1];
+
+                                if (
+                                    lastItemInArray && lastItemInArray.company &&
+                                    lastItemInArray.jobTitle && lastItemInArray.jobDescription
+                                ) {
+                                    let newWorkExperiences = workExperiences;
+
+                                    newWorkExperiences.push(getWorkExperienceEmptyState());
+
+                                    setWorkExperiences(newWorkExperiences);
+                                    setForceRefresh(!forceRefresh);
+                                } else {
+                                    alert('Please fill your previous work experience before adding new one!');
+                                }
+                            }}
+                        />
+                    </div>    
                 </div>
 
                 <div className="buttonMessageContainer">

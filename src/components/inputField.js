@@ -80,6 +80,7 @@ const InputField = forwardRef((props, ref) => {
                 type={props.type}
                 value={props.value ? props.value : value}
                 autoComplete={props.autoComplete}
+                pattern={props.pattern}
             />
             <p className="error"> {error}</p>
         </div>

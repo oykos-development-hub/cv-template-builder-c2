@@ -81,7 +81,7 @@ function LoginScreen() {
         }
     }
 
-    return (<div className="login-screen column">
+    return (<div className="login-screen">
         {
             redirect !== '' && <Redirect to={redirect}/>
         }
