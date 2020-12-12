@@ -7,10 +7,16 @@ import DatePicker from "react-datepicker";
 import TopHeader from "../components/topHeader";
 
 function CVDataScreen() {
+    const convertStringToDate = (dateString) => {
+        let dateParts = dateString.split("/");
+        let dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
+        return dateObject;
+    }
     const getWorkExperienceEmptyState = () => {
         const date = new Date();
-        let dateString = date.getUTCDate() + '/' + date.getUTCMonth() + '/' + date.getUTCFullYear();
-
+        let dateString = ('0' + date.getDate()).slice(-2) + '/'
+                        +('0' + (date.getMonth()+1)).slice(-2) + '/'
+                        +date.getFullYear();
         return {
             company: "",
             jobTitle: "",
@@ -27,15 +33,10 @@ function CVDataScreen() {
             [getWorkExperienceEmptyState()]
     );
     const [userData, setUserData] = useState(StoreService.getStoreProperty('user').cv_data);
-    const [startDate, setStartDate] = useState(
+    const [birthDate, setBirthDate] = useState(
         userData && typeof userData === 'object' &&
-        userData.dateOfBirth ? new Date(userData.dateOfBirth) : new Date()
+        userData.dateOfBirth ? convertStringToDate(userData.dateOfBirth) : new Date()
     );
-
-    useEffect(
-        () => handleChange('dateOfBirth', startDate), [startDate]
-    );
-
     const handleExperienceChange = (name, value, index) => {
         let currentWorkExperience = workExperiences[index];
 
@@ -51,7 +52,7 @@ function CVDataScreen() {
 
         cachedUserData = typeof cachedUserData === 'object' ? cachedUserData : {};
 
-        cachedUserData[name] = typeof value === 'object' ? value.toISOString() : value;
+        cachedUserData[name] = value;
 
         setUserData(cachedUserData);
     };
@@ -118,11 +119,14 @@ function CVDataScreen() {
                 showMonthDropdown
                 showYearDropdown
                 dropdownMode="select"
-                selected={new Date(workExperience.workStartDate)}
+                selected={convertStringToDate(workExperience.workStartDate)}
                 onChange={(date) => {
-                    let dateString = date.getUTCDate() + '/' + date.getUTCMonth() + '/' + date.getUTCFullYear();
-
-                    handleExperienceChange('workStartDate', dateString, index);
+                    if(date){
+                        let dateString = ('0' + date.getDate()).slice(-2) + '/'
+                                        +('0' + (date.getMonth()+1)).slice(-2) + '/'
+                                        +date.getFullYear();
+                        handleExperienceChange('workStartDate', dateString, index);
+                    }
                 }}
                 showPopperArrow={false}
                 closeOnScroll={true}
@@ -138,11 +142,14 @@ function CVDataScreen() {
                 showYearDropdown
                 dropdownMode="select"
 
-                selected={new Date(workExperience.workEndDate)}
+                selected={convertStringToDate(workExperience.workEndDate)}
                 onChange={(date) => {
-                    let dateString = date.getUTCDate() + '/' + date.getUTCMonth() + '/' + date.getUTCFullYear();
-
-                    handleExperienceChange('workEndDate', dateString, index);
+                    if(date){
+                        let dateString = ('0' + date.getDate()).slice(-2) + '/'
+                                        +('0' + (date.getMonth()+1)).slice(-2) + '/'
+                                        +date.getFullYear();
+                        handleExperienceChange('workEndDate', dateString, index);
+                    }
                 }}
                 showPopperArrow={false}
                 closeOnScroll={true}
@@ -185,11 +192,20 @@ function CVDataScreen() {
                     dateFormat="dd/MM/yyyy"
                     name='dateOfBirth'
                     type='date'
+                    required
                     showMonthDropdown
                     showYearDropdown
                     dropdownMode="select"
-                    selected={startDate}
-                    onChange={date => setStartDate(date)}
+                    selected={birthDate}
+                    onChange={(date) => {
+                        if(date){
+                            let dateString = ('0' + date.getDate()).slice(-2) + '/'
+                                            +('0' + (date.getMonth()+1)).slice(-2) + '/'
+                                            +date.getFullYear();
+                            setBirthDate(convertStringToDate(dateString));
+                            handleChange('dateOfBirth', dateString)
+                        }    
+                }}
                     showPopperArrow={false}
                     closeOnScroll={true}
                 />
