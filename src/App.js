@@ -12,6 +12,7 @@ import {StoreService} from "./services/store.service";
 import {ApiService} from "./services/api.service";
 import './style/login.signup.screen.css';
 import './style/react-datepicker.css';
+import MV_Template from "./templates/mv-template";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -97,18 +98,24 @@ export default class App extends React.Component {
             }
 
             <Switch>
-                {
+                {/* {
                     !!this.state.loggedIn && [
                         <Route path="/cv-data">
                             <CVDataScreen/>
                         </Route>
                     ]
-                }
+                } */}
+                <Route path="/cv-data">
+                    <CVDataScreen/>
+                </Route>
                 <Route path="/signup">
                     <SignupScreen />
                 </Route>
                 <Route path="/login">
                     <LoginScreen/>
+                </Route>
+                <Route path="/mv-template">
+                    <MV_Template/>
                 </Route>
                 <Route path="/">
                     <LoginScreen/>

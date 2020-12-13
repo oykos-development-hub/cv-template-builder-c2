@@ -22,11 +22,13 @@ function CVDataScreen() {
     const [redirect, setRedirect] = useState('');
     const [forceRefresh, setForceRefresh] = useState(false);
     const [workExperiences, setWorkExperiences] = useState(
-        StoreService.getStoreProperty('user').cv_data.experience ?
-            StoreService.getStoreProperty('user').cv_data.experience :
+        StoreService.getStoreProperty('user').cv_data ?
+            StoreService.getStoreProperty('user').cv_data.experience ?
+                StoreService.getStoreProperty('user').cv_data.experience :
+                [getWorkExperienceEmptyState()]:
             [getWorkExperienceEmptyState()]
     );
-    const [userData, setUserData] = useState(StoreService.getStoreProperty('user').cv_data);
+    const [userData, setUserData] = useState(StoreService.getStoreProperty('user').cv_data ? StoreService.getStoreProperty('user').cv_data : {} );
     const [startDate, setStartDate] = useState(
         userData && typeof userData === 'object' &&
         userData.dateOfBirth ? new Date(userData.dateOfBirth) : new Date()
@@ -66,6 +68,7 @@ function CVDataScreen() {
         ) ? workExperiences : [];
 
         StoreService.updateStoreProperty('user', storedUser);
+      
     };
     const showMessage = () => {
         const message = document.getElementById('message');
