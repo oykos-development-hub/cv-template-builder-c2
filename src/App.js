@@ -12,6 +12,7 @@ import {StoreService} from "./services/store.service";
 import {ApiService} from "./services/api.service";
 import './style/login.signup.screen.css';
 import './style/react-datepicker.css';
+import PersonalCVDataScreen from "./pages/PersonalCVDataScreen/PersonalCVDataScreen";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -66,6 +67,9 @@ export default class App extends React.Component {
                 </Route>
                 <Route path="/cv-data">
                     <CVDataScreen/>
+                </Route>
+                <Route path="/personal-cv-data">
+                    <PersonalCVDataScreen/>
                 </Route>
                 <Route path="/">
                     <LoginScreen/>

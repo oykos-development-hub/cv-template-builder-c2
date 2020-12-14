@@ -1,0 +1,194 @@
+/**************  FLEX ********************/
+.d-flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
+.justify-content-around {
+    justify-content: space-around;
+}
+
+/**************  BORDERS ********************/
+.border-1 {
+    border: 1px solid black;
+}
+
+.border-1-grey {
+    border: 1px solid rgb(204, 204, 204);
+}
+
+.border-1-light-blue {
+    border: 1px solid rgb(176 186 255);
+}
+
+.border-radius-10 {
+    border-radius: 10px;
+}
+
+.border-radius-4 {
+    border-radius: 4px;
+}
+
+/************* BACKGROUND *********************/
+.bg-dark-1 {
+    background-color: #eeeeee;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.bg-light-blue {
+    background-color: #e1edff;
+}
+
+/**************  MIN HEIGHT ********************/
+.min-h-100-vh {
+    min-height: 100vh;
+}
+
+.min-h-95-vh {
+    min-height: 95vh;
+}
+
+.min-h-80-vh {
+    min-height: 80vh;
+}
+
+/**************  WIDTH ********************/
+.width-63-perc {
+    width: 63%;
+}
+
+.width-85-perc {
+    width: 85%;
+}
+
+.width-100-perc {
+    width: 100%;
+}
+
+.width-45-perc {
+    width: 45%;
+}
+
+.width-25-perc {
+    width: 25%;
+}
+
+/**************  BOX SHADOW ********************/
+.box-shadow-l-b-5 {
+    box-shadow: #e9e7e7 -5px 5px;
+}
+
+.box-shadow-grey {
+    box-shadow: rgba(62, 148, 228, 0.15) 0px 2px 4px;
+}
+
+/**************  BOX SHADOW ********************/
+.box-sizing {
+    box-sizing: border-box;
+}
+
+/**************  MARGINS ********************/
+.m-t-5-perc {
+    margin-top: 5%;
+}
+
+.margin-top-10px {
+    margin-top: 10px;
+}
+
+/**************  COLORS ********************/
+.color-light {
+    color: #404040;
+}
+
+.color-black {
+    color: black;
+}
+
+/**************  FONTS ********************/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Roboto:wght@300&display=swap');
+.default-font {
+    font-family: 'Roboto', sans-serif;
+}
+
+/**************  FONTS SIZE ********************/
+.font-20px {
+    font-size: 20px;
+}
+
+.font-16px {
+    font-size: 16px;
+}
+
+.font-13-px {
+    font-size: 13px;
+}
+
+/**************  PADDING ********************/
+.padding-13-18 {
+    padding: 13px 18px;
+}
+
+.padding-top-1-perc {
+    padding-top: 2%;
+}
+
+.padding-bottom-5-perc {
+    padding-bottom: 5%;
+}
+
+/**************  LINE HEIGHT ********************/
+.line-height-1-4-em {
+    line-height: 1.4em;
+}
+
+/**************  PLACEHOLDER ********************/
+::placeholder {
+    color: black;
+}
+
+/**************  FOCUS ********************/
+*:focus {
+    outline: none;
+}
+
+/**************  SPAN ********************/
+span {
+    padding-bottom: 10px;
+}
+
+/**************  DATE PICKER ********************/
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+/**************  MEDIA QUERIES ********************/
+@media (max-width: 820px) {
+    .max-width-820 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    span {
+
+        padding-top: 10px;
+    }
+}
