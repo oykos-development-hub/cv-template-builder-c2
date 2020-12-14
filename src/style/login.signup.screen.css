@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap');
 body {
   font-family: Avenir, Calibri, Segoe, “Segoe UI”, Optima, Arial, sans-serif;
 }
@@ -197,6 +198,8 @@ h2 {
 }
 /* CV DATA SCREEN end */
 
+
+
 @media only screen and (max-width: 650px) {
   .background-image {
     display: none;
@@ -320,3 +323,7 @@ h2 {
 .border-box {
   box-sizing: border-box;
 }
+
+
+
+

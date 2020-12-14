@@ -8,6 +8,7 @@ import {
 import LoginScreen from "./pages/login.screen";
 import SignupScreen from "./pages/signup.screen";
 import CVDataScreen from "./pages/cv.data.screen";
+import CvTemplate from "./components/CvTemplate";
 import {StoreService} from "./services/store.service";
 import {ApiService} from "./services/api.service";
 import './style/login.signup.screen.css';
@@ -111,7 +112,10 @@ export default class App extends React.Component {
                     <LoginScreen/>
                 </Route>
                 <Route path="/">
-                    <LoginScreen/>
+                    <CvTemplate/>
+                </Route>
+                <Route path="/">
+                    <CvTemplate/>
                 </Route>
             </Switch>
         </Router>);
