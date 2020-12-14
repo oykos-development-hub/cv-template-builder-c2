@@ -12,7 +12,7 @@ import {StoreService} from "./services/store.service";
 import {ApiService} from "./services/api.service";
 import './style/login.signup.screen.css';
 import './style/react-datepicker.css';
-import MV_Template from "./templates/mv-template";
+import MVTemplate from "./templates/mv-template";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -115,7 +115,7 @@ export default class App extends React.Component {
                     <LoginScreen/>
                 </Route>
                 <Route path="/mv-template">
-                    <MV_Template/>
+                    <MVTemplate/>
                 </Route>
                 <Route path="/">
                     <LoginScreen/>

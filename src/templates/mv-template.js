@@ -5,7 +5,7 @@ import '../../node_modules/font-awesome/css/font-awesome.min.css';
 
 
 
-export default class MV_Template extends React.Component {
+export default class MVTemplate extends React.Component {
     constructor(props) {
         super(props);
         let userData = StoreService.getStoreProperty('user');
