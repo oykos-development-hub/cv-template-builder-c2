@@ -16,11 +16,37 @@ export default class TopHeader extends React.Component {
                 !!this.state.redirect && (<Redirect to={this.state.redirect}/>)
             }
 
-            <div style={{
-                fontSize: '20px',
-                fontWeight: 'bold'
-            }}>
+            <div
+                style={{
+                    fontSize: '24px',
+                    fontWeight: 'bold',
+                    letterSpacing: '1px'
+                }}
+            >
                 CV builder
+            </div>
+
+            <div className="grow-1 flex align-center justify-start margin-h-15">
+                <div
+                    className="padding-10 pointer"
+                    onClick={() => {
+                        this.setState({
+                            redirect: '/templates'
+                        });
+                    }}
+                >
+                    My templates
+                </div>
+                <div
+                    className="padding-10 pointer"
+                    onClick={() => {
+                        this.setState({
+                            redirect: '/cv-data'
+                        });
+                    }}
+                >
+                    CV data
+                </div>
             </div>
 
             <div className="flex justify-between">

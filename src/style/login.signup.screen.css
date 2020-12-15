@@ -102,7 +102,9 @@ h2 {
 .text-content form {
   width: 100%;
 }
-
+.pointer {
+  cursor: pointer;
+}
 .button {
   margin-top: 20px;
   padding: 13px 18px;
@@ -285,6 +287,10 @@ h2 {
 .margin-h-15 {
   margin-left: 15px;
   margin-right: 15px;
+}
+
+.padding-10 {
+  padding: 10px;
 }
 
 .padding-h-15 {

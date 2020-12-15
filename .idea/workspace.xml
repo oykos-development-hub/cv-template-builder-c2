@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="460f4c1e-a7a6-417b-9b53-93ffbb56c7ed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/templates.screen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/topHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/topHeader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/cv.data.screen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cv.data.screen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/login.signup.screen.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/login.signup.screen.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,32 +25,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/templates.screen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="16" column="15" lean-forward="true" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/cv.data.screen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="28" column="72" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="72" />
+            <state relative-caret-position="303">
+              <caret line="276" column="14" selection-start-line="276" selection-start-column="14" selection-end-line="276" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+        <entry file="file://$PROJECT_DIR$/src/components/topHeader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/api.service.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="99" column="9" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="9" />
+            <state relative-caret-position="-681">
+              <caret line="15" column="51" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="51" />
               <folding>
-                <element signature="e#0#53#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/style/login.signup.screen.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="58">
+              <caret line="104" column="8" selection-start-line="104" selection-start-column="1" selection-end-line="104" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -77,6 +104,8 @@
       <find>validateToken</find>
       <find>updateEntriesByAdmin</find>
       <find>adminse</find>
+      <find>.padding-</find>
+      <find>point</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -97,18 +126,19 @@
         <option value="$PROJECT_DIR$/api/constants-service.php" />
         <option value="$PROJECT_DIR$/api/registration-api.php" />
         <option value="$PROJECT_DIR$/src/components/button.js" />
-        <option value="$PROJECT_DIR$/src/style/login.signup.screen.css" />
         <option value="$PROJECT_DIR$/src/services/store.service.js" />
-        <option value="$PROJECT_DIR$/src/components/topHeader.js" />
         <option value="$PROJECT_DIR$/src/pages/signup.screen.js" />
         <option value="$PROJECT_DIR$/src/components/inputField.js" />
         <option value="$PROJECT_DIR$/src/pages/login.screen.js" />
         <option value="$PROJECT_DIR$/src/components/Form.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/services/util.service.js" />
         <option value="$PROJECT_DIR$/src/services/api.service.js" />
         <option value="$PROJECT_DIR$/api/update-api.php" />
         <option value="$PROJECT_DIR$/api/user-service.php" />
+        <option value="$PROJECT_DIR$/src/style/login.signup.screen.css" />
+        <option value="$PROJECT_DIR$/src/components/topHeader.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/pages/templates.screen.js" />
         <option value="$PROJECT_DIR$/src/pages/cv.data.screen.js" />
       </list>
     </option>
@@ -123,7 +153,62 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="cv-template-builder-c2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cv-template-builder-c2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cv-template-builder-c2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cv-template-builder-c2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cv-template-builder-c2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cv-template-builder-c2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="cv-template-builder-c2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cv-template-builder-c2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cv-template-builder-c2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cv-template-builder-c2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cv-template-builder-c2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cv-template-builder-c2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cv-template-builder-c2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cv-template-builder-c2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
@@ -225,13 +310,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38951000" />
+    <option name="totallyTimeSpent" value="39893000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.15348525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15348525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -276,9 +361,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added API support for saving CV data" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="748" height="638" key="Git.Branch.Popup" />
-    <state width="748" height="638" key="Git.Branch.Popup/1920.1080" />
-    <state width="748" height="638" key="Git.Branch.Popup@1920.1080@120dpi" />
+    <state width="772" height="662" key="Git.Branch.Popup" />
+    <state width="772" height="662" key="Git.Branch.Popup/1920.1080" />
+    <state width="772" height="662" key="Git.Branch.Popup@1920.1080@120dpi" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/signup.screen.js" />
@@ -336,13 +421,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/style/login.signup.screen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="320" column="25" selection-start-line="320" selection-start-column="25" selection-end-line="320" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/services/store.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="438">
@@ -365,16 +443,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/topHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-396">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -404,19 +472,6 @@
           <caret line="68" column="126" selection-start-line="68" selection-start-column="126" selection-end-line="68" selection-end-column="126" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="110" column="34" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#540#706#0" />
-            <element signature="e#732#1450#0" />
-            <element signature="e#1472#3104#0" />
           </folding>
         </state>
       </provider>
@@ -474,8 +529,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/api.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="99" column="9" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="9" />
+        <state relative-caret-position="2805">
+          <caret line="86" column="18" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="18" />
           <folding>
             <element signature="e#0#53#0" expanded="true" />
           </folding>
@@ -489,10 +544,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/style/login.signup.screen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="104" column="8" selection-start-line="104" selection-start-column="1" selection-end-line="104" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/topHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-681">
+          <caret line="15" column="51" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/templates.screen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="16" column="15" lean-forward="true" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/cv.data.screen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="28" column="72" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="72" />
+        <state relative-caret-position="303">
+          <caret line="276" column="14" selection-start-line="276" selection-start-column="14" selection-end-line="276" selection-end-column="14" />
         </state>
       </provider>
     </entry>

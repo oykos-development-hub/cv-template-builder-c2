@@ -13,6 +13,7 @@ import {ApiService} from "./services/api.service";
 import './style/login.signup.screen.css';
 import './style/react-datepicker.css';
 import MVTemplate from "./templates/mv-template";
+import TemplatesScreen from "./pages/templates.screen";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -101,6 +102,9 @@ export default class App extends React.Component {
             <Switch>
                 {
                     !!this.state.loggedIn && [
+                        <Route path="/templates">
+                            <TemplatesScreen/>
+                        </Route>,
                         <Route path="/cv-data">
                             <CVDataScreen/>
                         </Route>,

@@ -274,7 +274,7 @@ function CVDataScreen() {
         <TopHeader/>
 
         {
-            redirect !== '' && <Redirect to={redirect}/>
+            !!redirect && <Redirect to={redirect}/>
         }
 
         <div className='left-side'>
