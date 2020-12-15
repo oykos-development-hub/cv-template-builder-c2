@@ -24,12 +24,7 @@ export const ApiService = {
     getRequest: (url) => {
         return fetch(url).then((response) => response.json())
             .then((data) => {
-                //console.log('GET RESPONSE SUCCESS -> ', data);
-                if (!data) {
-                    return false;
-                }
-
-                return ApiService.prettifyResponse(data);
+                return data;
             })
             .catch((error) => {
                 console.error('GET request failed! Error -> ', error);
@@ -88,6 +83,20 @@ export const ApiService = {
             }).then((response) => {
                 return response;
             });
+        },
+        updateUser: (data, id, createNew) => {
+            const user = StoreService.getStoreProperty('user');
+            const token = user ? user.token : '';
+
+            let params = {
+                token: token,
+                data: data,
+                id: id ? id : "-1",
+                createNew: !!createNew,
+                entryType: "user"
+            };
+
+            return ApiService.postRequest(endpointUrls.update, params);
         }
     }
 };

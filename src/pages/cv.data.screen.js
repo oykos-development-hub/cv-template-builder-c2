@@ -5,6 +5,7 @@ import Button from '../components/button';
 import {StoreService} from "../services/store.service";
 import DatePicker from "react-datepicker";
 import TopHeader from "../components/topHeader";
+import {ApiService} from "../services/api.service";
 
 function CVDataScreen() {
     const convertStringToDate = (dateString) => {
@@ -67,6 +68,8 @@ function CVDataScreen() {
         ) ? workExperiences : [];
 
         StoreService.updateStoreProperty('user', storedUser);
+
+        ApiService.endpoints.updateUser(storedUser, storedUser.id, false);
     };
     const showMessage = () => {
         const message = document.getElementById('message');
@@ -204,7 +207,7 @@ function CVDataScreen() {
                                             +date.getFullYear();
                             setBirthDate(convertStringToDate(dateString));
                             handleChange('dateOfBirth', dateString)
-                        }    
+                        }
                 }}
                     showPopperArrow={false}
                     closeOnScroll={true}
@@ -328,7 +331,7 @@ function CVDataScreen() {
                                 }
                             }}
                         />
-                    </div>    
+                    </div>
                 </div>
 
                 <div className="buttonMessageContainer">
