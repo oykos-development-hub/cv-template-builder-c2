@@ -11,7 +11,7 @@ export default class TopHeader extends React.Component {
     }
 
     render() {
-        return (<div className="flex w-100-perc justify-between align-center margin-h-15 padding-h-15 border-box">
+        return (<div className="flex w-100-perc justify-between align-center padding-h-10perc border-box">
             {
                 !!this.state.redirect && (<Redirect to={this.state.redirect}/>)
             }

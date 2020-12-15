@@ -183,7 +183,7 @@ h2 {
   margin-top: 20px;
   margin-left: 40px;
   padding: 13px 18px;
-  width: 80%;
+  width: 50%;
   border-radius: 4px;
 
 }
@@ -196,31 +196,6 @@ h2 {
 
 }
 /* CV DATA SCREEN end */
-
-@media only screen and (max-width: 650px) {
-  .background-image {
-    display: none;
-  }
-  .left-side {
-    flex: 1 1 100%;
-    padding: 0px 50px 0px 50px;
-  }
-  .right-side {
-    display: none;
-  }
-  .cv-data-screen .left-side {
-    padding: 0px 0px 0px 0px;
-    min-width: 500px;
-  }
-}
-
-@media only screen and (min-width: 650px) {
-  .login-screen,
-  .signup-screen {
-    min-width: 1000px;
-  }
-}
-
 
 .flex, .row {
   display: flex;
@@ -317,6 +292,36 @@ h2 {
   padding-right: 15px;
 }
 
+.padding-h-10perc {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
 .border-box {
   box-sizing: border-box;
+}
+
+
+@media only screen and (max-width: 650px) {
+  .background-image {
+    display: none;
+  }
+  .left-side {
+    flex: 1 1 100%;
+    padding: 0px 50px 0px 50px;
+  }
+  .right-side {
+    display: none;
+  }
+  .cv-data-screen .left-side {
+    padding: 0px 0px 0px 0px;
+    min-width: 500px;
+  }
+}
+
+@media only screen and (min-width: 650px) {
+  .login-screen,
+  .signup-screen {
+    min-width: 1000px;
+  }
 }
