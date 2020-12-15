@@ -16,8 +16,8 @@ function CVDataScreen() {
     const getWorkExperienceEmptyState = () => {
         const date = new Date();
         let dateString = ('0' + date.getDate()).slice(-2) + '/'
-                        +('0' + (date.getMonth()+1)).slice(-2) + '/'
-                        +date.getFullYear();
+            + ('0' + (date.getMonth() + 1)).slice(-2) + '/'
+            + date.getFullYear();
         return {
             company: "",
             jobTitle: "",
@@ -26,16 +26,16 @@ function CVDataScreen() {
             workEndDate: dateString
         };
     };
+    const storedUserData = StoreService.getStoreProperty('user').cv_data;
     const [redirect, setRedirect] = useState('');
     const [forceRefresh, setForceRefresh] = useState(false);
     const [workExperiences, setWorkExperiences] = useState(
         StoreService.getStoreProperty('user').cv_data ?
             StoreService.getStoreProperty('user').cv_data.experience ?
                 StoreService.getStoreProperty('user').cv_data.experience :
-                [getWorkExperienceEmptyState()]:
-            [getWorkExperienceEmptyState()]
+                [getWorkExperienceEmptyState()] : [getWorkExperienceEmptyState()]
     );
-    const [userData, setUserData] = useState(StoreService.getStoreProperty('user').cv_data);
+    const [userData, setUserData] = useState(storedUserData ? storedUserData : {});
     const [birthDate, setBirthDate] = useState(
         userData && typeof userData === 'object' &&
         userData.dateOfBirth ? convertStringToDate(userData.dateOfBirth) : new Date()
@@ -126,10 +126,10 @@ function CVDataScreen() {
                 dropdownMode="select"
                 selected={convertStringToDate(workExperience.workStartDate)}
                 onChange={(date) => {
-                    if(date){
+                    if (date) {
                         let dateString = ('0' + date.getDate()).slice(-2) + '/'
-                                        +('0' + (date.getMonth()+1)).slice(-2) + '/'
-                                        +date.getFullYear();
+                            + ('0' + (date.getMonth() + 1)).slice(-2) + '/'
+                            + date.getFullYear();
                         handleExperienceChange('workStartDate', dateString, index);
                     }
                 }}
@@ -149,10 +149,10 @@ function CVDataScreen() {
 
                 selected={convertStringToDate(workExperience.workEndDate)}
                 onChange={(date) => {
-                    if(date){
+                    if (date) {
                         let dateString = ('0' + date.getDate()).slice(-2) + '/'
-                                        +('0' + (date.getMonth()+1)).slice(-2) + '/'
-                                        +date.getFullYear();
+                            + ('0' + (date.getMonth() + 1)).slice(-2) + '/'
+                            + date.getFullYear();
                         handleExperienceChange('workEndDate', dateString, index);
                     }
                 }}
@@ -203,14 +203,14 @@ function CVDataScreen() {
                     dropdownMode="select"
                     selected={birthDate}
                     onChange={(date) => {
-                        if(date){
+                        if (date) {
                             let dateString = ('0' + date.getDate()).slice(-2) + '/'
-                                            +('0' + (date.getMonth()+1)).slice(-2) + '/'
-                                            +date.getFullYear();
+                                + ('0' + (date.getMonth() + 1)).slice(-2) + '/'
+                                + date.getFullYear();
                             setBirthDate(convertStringToDate(dateString));
                             handleChange('dateOfBirth', dateString)
                         }
-                }}
+                    }}
                     showPopperArrow={false}
                     closeOnScroll={true}
                 />
@@ -297,7 +297,7 @@ function CVDataScreen() {
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         e.preventDefault();
-                                        if (workExperiences.length != 1){
+                                        if (workExperiences.length != 1) {
                                             workExperiences.splice(index, 1);
                                         }
                                         setWorkExperiences(workExperiences);
