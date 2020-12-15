@@ -2,7 +2,6 @@ import React from "react";
 import {Redirect} from "react-router-dom";
 import TopHeader from "../components/topHeader";
 import asyncComponent from "../components/async-component";
-import MVTemplate from "../templates/mv-template";
 import {StoreService} from "../services/store.service";
 
 export default class TemplatesScreen extends React.Component {
@@ -12,21 +11,20 @@ export default class TemplatesScreen extends React.Component {
         this.state = {};
     }
 
-    renderTemplateAsync() {
-        const AsyncComponent = asyncComponent(() => {
-            return import('../templates/mv-template.js');
-        });
-    }
-
     renderPickedTemplate() {
         const pickedTemplate = Number(this.state.pickedTemplate);
         const userData = StoreService.getStoreProperty('user');
+        let AsyncTemplate = '';
         let template = '';
 
         if (pickedTemplate) {
             switch (pickedTemplate) {
                 case 1:
-                    template = (<MVTemplate data={userData}/>);
+                    AsyncTemplate = (asyncComponent(() => {
+                        return import('../templates/mv-template.js');
+                    }));
+
+                    template = (<AsyncTemplate data={userData}/>);
                     break;
                 case 2:
                     template = (<div>Drugi template</div>);
