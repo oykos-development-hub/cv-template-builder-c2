@@ -36,7 +36,7 @@ export default class TemplatesScreen extends React.Component {
     }
 
     render() {
-        return (<div className="cv-data-screen column">
+        return (<div className="cv-data-screen templates-screen column">
             <TopHeader/>
 
             {

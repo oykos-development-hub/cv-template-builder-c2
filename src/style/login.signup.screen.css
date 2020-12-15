@@ -311,7 +311,6 @@ h2 {
   box-sizing: border-box;
 }
 
-
 @media only screen and (max-width: 650px) {
   .background-image {
     display: none;
@@ -326,6 +325,13 @@ h2 {
   .cv-data-screen .left-side {
     padding: 0px 0px 0px 0px;
     min-width: 500px;
+  }
+  .templates-screen .left-side {
+    display: block;
+  }
+  .templates-screen .sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
