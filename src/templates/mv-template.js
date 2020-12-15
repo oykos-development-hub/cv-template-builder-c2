@@ -1,14 +1,13 @@
 import React from "react";
 import {StoreService} from "../services/store.service";
 import '../style/mv_template.css';
-import '../../node_modules/font-awesome/css/font-awesome.min.css'; 
-
-
-
+import '../../node_modules/font-awesome/css/font-awesome.min.css';
 export default class MVTemplate extends React.Component {
     constructor(props) {
         super(props);
-        let userData = StoreService.getStoreProperty('user');
+
+        let userData = this.props.data ? this.props.data :
+            StoreService.getStoreProperty('user');
 
         this.state = {
             fullName: userData && userData.fullName ? userData.fullName : '[Name]',
@@ -25,7 +24,7 @@ export default class MVTemplate extends React.Component {
             education: userData && userData.cv_data && userData.cv_data.education ? userData.cv_data.education : '',
         };
     }
-    
+
     renderExperience = (workExperience) => {
         const getDate = (oldDate) =>{
             let startDate = new Date(oldDate);
@@ -34,9 +33,9 @@ export default class MVTemplate extends React.Component {
             let newStartDate = startMonth + '/' + startYear;
             return newStartDate;
         }
- 
+
         return [
-            <div className="mv-item"> 
+            <div className="mv-item">
                 <div className="mv-dates">
                     <div className="mv-date mv-start">
                         {!!workExperience.workStartDate && getDate(workExperience.workStartDate)}
@@ -59,7 +58,7 @@ export default class MVTemplate extends React.Component {
                         {!!workExperience.jobDescription && workExperience.jobDescription}
                     </div>
                 </div>
-            </div> 
+            </div>
         ]
     }
 
@@ -100,19 +99,16 @@ export default class MVTemplate extends React.Component {
         ]
     }
 
-
     render() {
-        
         const{experience} = this.state;
         const{education} = this.state;
 
-        return (
-            <div className="mv-wrapper">
+        return (<div className="mv-wrapper">
                 <div className="mv-layout">
                     <div className="mv-left">
                         <div className="mv-name-box">
                             <div className="mv-name">
-                                {this.state.fullName} 
+                                {this.state.fullName}
                             </div>
                         </div>
                         <div className="mv-info">
@@ -135,7 +131,7 @@ export default class MVTemplate extends React.Component {
                             {!!this.state.ig && this.state.ig !== "" ? <div className="mv-info-item"><i className="fa fa-instagram"> </i> {this.state.ig} </div> : ""}
                             {!!this.state.skype && this.state.skype !== "" ? <div className="mv-info-item"><i className="fa fa-skype"> </i> {this.state.skype} </div> : ""}
 
-                        
+
                         </div>
                     </div>
 
@@ -144,9 +140,9 @@ export default class MVTemplate extends React.Component {
                             <div className="mv-section-title">
                                 Work Experience
                             </div>
-                            
+
                             {!!experience && experience !== '' && experience.map((workExperience) => this.renderExperience(workExperience))}
-            
+
                             <div className="mv-section-title">
                                 Education
                             </div>
@@ -156,12 +152,10 @@ export default class MVTemplate extends React.Component {
                         </div>
 
                     </div>
-            
+
                 </div>
 
-            </div>
-            
-        );
+            </div>);
     }
 }
 
