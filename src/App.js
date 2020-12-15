@@ -20,7 +20,8 @@ export default class App extends React.Component {
 
         this.state = {
             initialValidation: false,
-            loggedIn: false
+            loggedIn: false,
+            defaultUri: '/cv-data'
         };
 
         StoreService.initialize();
@@ -38,7 +39,7 @@ export default class App extends React.Component {
             ) {
                 component.setState({
                     loggedIn: true,
-                    redirect: '/cv-data'
+                    redirect: this.state.defaultUri
                 });
             }
             if (
@@ -78,7 +79,7 @@ export default class App extends React.Component {
 
                             this.setState({
                                 loggedIn: true,
-                                redirect: '/cv-data'
+                                redirect: this.state.defaultUri
                             });
                         } else {
                             alert('There was a problem Logging you into our application. Please try again!');
@@ -98,24 +99,21 @@ export default class App extends React.Component {
             }
 
             <Switch>
-                {/* {
+                {
                     !!this.state.loggedIn && [
                         <Route path="/cv-data">
                             <CVDataScreen/>
+                        </Route>,
+                        <Route path="/mv-template">
+                            <MVTemplate/>
                         </Route>
                     ]
-                } */}
-                <Route path="/cv-data">
-                    <CVDataScreen/>
-                </Route>
+                }
                 <Route path="/signup">
                     <SignupScreen />
                 </Route>
                 <Route path="/login">
                     <LoginScreen/>
-                </Route>
-                <Route path="/mv-template">
-                    <MVTemplate/>
                 </Route>
                 <Route path="/">
                     <LoginScreen/>
