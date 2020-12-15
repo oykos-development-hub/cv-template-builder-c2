@@ -26,12 +26,31 @@ function CVDataScreen() {
             workEndDate: dateString
         };
     };
+    const getEducationEmptyState = () => {
+        const date = new Date();
+        let dateString = ('0' + date.getDate()).slice(-2) + '/'
+                        +('0' + (date.getMonth()+1)).slice(-2) + '/'
+                        +date.getFullYear();
+        return {
+            school: '',
+            degree: '',
+            educationDescription: '',
+            educationStartDate: dateString,
+            educationEndDate: dateString,
+        };
+    };
     const [redirect, setRedirect] = useState('');
     const [forceRefresh, setForceRefresh] = useState(false);
+
     const [workExperiences, setWorkExperiences] = useState(
         StoreService.getStoreProperty('user').cv_data.experience ?
             StoreService.getStoreProperty('user').cv_data.experience :
             [getWorkExperienceEmptyState()]
+    );
+    const [education, setEducation] = useState(
+        StoreService.getStoreProperty('user').cv_data.education ?
+            StoreService.getStoreProperty('user').cv_data.education :
+            [getEducationEmptyState()]
     );
     const [userData, setUserData] = useState(StoreService.getStoreProperty('user').cv_data);
     const [birthDate, setBirthDate] = useState(
@@ -40,12 +59,16 @@ function CVDataScreen() {
     );
     const handleExperienceChange = (name, value, index) => {
         let currentWorkExperience = workExperiences[index];
-
         currentWorkExperience[name] = value;
-
         workExperiences[index] = currentWorkExperience;
-
         setWorkExperiences(workExperiences);
+        setForceRefresh(!forceRefresh);
+    };
+    const handleEducationChange = (name, value, index) => {
+        let currentEducation = education[index];
+        currentEducation[name] = value;
+        education[index] = currentEducation;
+        setEducation(education);
         setForceRefresh(!forceRefresh);
     };
     const handleChange = (name, value) => {
@@ -66,6 +89,9 @@ function CVDataScreen() {
         storedUser.cv_data.experience = workExperiences && (
             workExperiences.length > 1 || workExperiences[0] !== getWorkExperienceEmptyState()
         ) ? workExperiences : [];
+        storedUser.cv_data.education = education && (
+            education.length > 1 || education[0] !== getEducationEmptyState()
+        ) ? education : [];
 
         StoreService.updateStoreProperty('user', storedUser);
 
@@ -152,6 +178,86 @@ function CVDataScreen() {
                                         +('0' + (date.getMonth()+1)).slice(-2) + '/'
                                         +date.getFullYear();
                         handleExperienceChange('workEndDate', dateString, index);
+                    }
+                }}
+                showPopperArrow={false}
+                closeOnScroll={true}
+            />
+        ];
+    };
+
+    const renderEducationElements = (educationInstance, index) => {
+        return [
+            <InputField
+                name="school"
+                type="text"
+                value={educationInstance.school}
+                label="School"
+                placeholder="School"
+                onChange={(name, value) => {
+                    handleEducationChange(name, value, index);
+                }}
+            />,
+            <InputField
+                name="degree"
+                type="text"
+                value={educationInstance.degree}
+                label="Degree"
+                placeholder="Degree"
+                onChange={(name, value) => {
+                    handleEducationChange(name, value, index);
+                }}
+            />,
+            <InputField
+                name="educationDescription"
+                type="text"
+                value={educationInstance.educationDescription}
+                label="Education Description"
+                placeholder="Education Description"
+                onChange={(name, value) => {
+                    handleEducationChange(name, value, index);
+                }}
+            />,
+            <p className='label'>Education start</p>,
+            <DatePicker
+                placeholderText="Education start"
+                label="Education start"
+                dateFormat="MM/yyyy"
+                name='educationStartDate'
+                type='date'
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
+                selected={convertStringToDate(educationInstance.educationStartDate)}
+                onChange={(date) => {
+                    if(date){
+                        let dateString = ('0' + date.getDate()).slice(-2) + '/'
+                                        +('0' + (date.getMonth()+1)).slice(-2) + '/'
+                                        +date.getFullYear();
+                        handleEducationChange('educationStartDate', dateString, index);
+                    }
+                }}
+                showPopperArrow={false}
+                closeOnScroll={true}
+            />,
+            <p className='label'>Education end</p>,
+            <DatePicker
+                placeholderText="Education end"
+                label="Education end"
+                dateFormat="MM/yyyy"
+                name='educationEndDate'
+                type='date'
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
+
+                selected={convertStringToDate(educationInstance.educationEndDate)}
+                onChange={(date) => {
+                    if(date){
+                        let dateString = ('0' + date.getDate()).slice(-2) + '/'
+                                        +('0' + (date.getMonth()+1)).slice(-2) + '/'
+                                        +date.getFullYear();
+                        handleEducationChange('educationEndDate', dateString, index);
                     }
                 }}
                 showPopperArrow={false}
@@ -328,6 +434,77 @@ function CVDataScreen() {
                                     setForceRefresh(!forceRefresh);
                                 } else {
                                     alert('Please fill your previous work experience before adding new one!');
+                                }
+                            }}
+                        />
+                    </div>
+                </div>
+                <div className="education-div">
+                    <h2 className="flex justify-between align-center margin-t-50">
+                        <span>Education</span>
+                    </h2>
+
+                    {
+                        !!education && !!education.length && education.map((educationInstance, index) => {
+                            return (<div className="margin-v-15" style={{
+                                borderBottom: '2px dotted rgb(62 148 228)',
+                                paddingBottom: '15px',
+                                position: 'relative',
+                                paddingTop: "30px"
+                            }}>
+                                {renderEducationElements(educationInstance, index)}
+
+                                <div
+                                    className="flex align-center justify-center"
+                                    style={{
+                                        position: 'absolute',
+                                        top: '5px',
+                                        right: '5px',
+                                        width: '35px',
+                                        height: '35px',
+                                        borderRadius: '50%',
+                                        cursor: 'pointer',
+                                        backgroundColor: 'red',
+                                        fontSize: '30px',
+                                        color: "white",
+                                        fontWeight: 'bold'
+                                    }}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        e.preventDefault();
+                                        if (education.length != 1){
+                                            education.splice(index, 1);
+                                        }
+                                        setEducation(education);
+                                        setForceRefresh(!forceRefresh);
+                                    }}
+                                >
+                                    X
+                                </div>
+                            </div>);
+                        })
+                    }
+                    <div className="row justify-end">
+                        <Button
+                            content="Add new education"
+                            onclick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+
+                                const lastItemInArray = education[education.length - 1];
+
+                                if (
+                                    lastItemInArray && lastItemInArray.school &&
+                                    lastItemInArray.degree
+                                ) {
+                                    let newEducation = education;
+
+                                    newEducation.push(getEducationEmptyState());
+
+                                    setEducation(newEducation);
+                                    setForceRefresh(!forceRefresh);
+                                } else {
+                                    alert('Please fill your previous education before adding new one!');
                                 }
                             }}
                         />
