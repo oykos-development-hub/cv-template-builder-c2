@@ -437,5 +437,20 @@ export const UtilService = {
 
         return parts.pop();
     },
-
+	compareObjects : (object1, object2) => {
+		if (Object.keys(object1).length !== Object.keys(object2).length)
+			return false;
+		for (const key in object1) {
+			if (typeof object1[key] === 'object') {
+				if (UtilService.compareObjects(object1[key], object2[key]) === false) {
+					return false;
+				}
+			} else {
+				if (object1[key] !== object2[key]) {
+					return false;
+				}
+			}
+		}
+		return true;
+	},
 };
