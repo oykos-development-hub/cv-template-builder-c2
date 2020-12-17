@@ -27,7 +27,11 @@ export default class TemplatesScreen extends React.Component {
                     template = (<AsyncTemplate data={userData}/>);
                     break;
                 case 2:
-                    template = (<div>Drugi template</div>);
+                    AsyncTemplate = (asyncComponent(() => {
+                        return import('../templates/ng-template.js');
+                    }));
+
+                    template = (<AsyncTemplate data={userData}/>);
                     break;
             }
         }

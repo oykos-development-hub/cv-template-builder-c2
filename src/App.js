@@ -13,6 +13,7 @@ import {ApiService} from "./services/api.service";
 import './style/login.signup.screen.css';
 import './style/react-datepicker.css';
 import MVTemplate from "./templates/mv-template";
+import NGTemplate from "./templates/ng-template";
 import TemplatesScreen from "./pages/templates.screen";
 
 export default class App extends React.Component {
@@ -110,6 +111,9 @@ export default class App extends React.Component {
                         </Route>,
                         <Route path="/mv-template">
                             <MVTemplate/>
+                        </Route>,
+                        <Route path="/ng-template">
+                            <NGTemplate/>
                         </Route>
                     ]
                 }
