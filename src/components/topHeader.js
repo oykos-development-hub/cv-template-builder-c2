@@ -11,6 +11,18 @@ export default class TopHeader extends React.Component {
     }
 
     render() {
+        let menuStyle = "padding-10 pointer border-box";
+        let cvData = menuStyle;
+        let myTemplates = menuStyle;
+        switch(this.props.active) {
+            case "cvData":
+                cvData += ' menu-active';
+                break;
+            case "myTemplates":
+                myTemplates += ' menu-active';  
+              break;
+          }
+    
         return (<div className="flex w-100-perc justify-between align-center padding-h-10perc border-box">
             {
                 !!this.state.redirect && (<Redirect to={this.state.redirect}/>)
@@ -28,7 +40,7 @@ export default class TopHeader extends React.Component {
 
             <div className="grow-1 flex align-center justify-start margin-h-15">
                 <div
-                    className="padding-10 pointer"
+                    className={myTemplates}
                     onClick={() => {
                         this.setState({
                             redirect: '/templates'
@@ -38,7 +50,7 @@ export default class TopHeader extends React.Component {
                     My templates
                 </div>
                 <div
-                    className="padding-10 pointer"
+                    className={cvData}
                     onClick={() => {
                         this.setState({
                             redirect: '/cv-data'

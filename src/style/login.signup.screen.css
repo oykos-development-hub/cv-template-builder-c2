@@ -311,6 +311,12 @@ h2 {
   box-sizing: border-box;
 }
 
+.menu-active {
+  border-bottom: 3px solid rgb(62, 148, 228) ;
+  border-top: 3px solid rgba(255, 255, 255, 0) ;
+
+}
+
 @media only screen and (max-width: 650px) {
   .background-image {
     display: none;

@@ -37,7 +37,7 @@ export default class TemplatesScreen extends React.Component {
 
     render() {
         return (<div className="cv-data-screen templates-screen column">
-            <TopHeader/>
+            <TopHeader active="myTemplates"/>
 
             {
                 !!this.state.redirect && <Redirect to={this.state.redirect}/>
