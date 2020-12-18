@@ -137,7 +137,7 @@ h2 {
 	border-radius: 8px;
 	background-color: rgb(255, 255, 255);
 	box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 15px 0px;
-	padding: 50px 8.333%;
+	padding: 40px 8.333%;
 	margin-bottom: 20px;
 }
 
@@ -157,6 +157,7 @@ h2 {
 .cv-data-screen .left-side .text-content {
 	margin: 40px 0px;
 	max-width: 1000px;
+	padding-top: 45px;
 }
 
 .cv-data-screen h1 {
@@ -201,11 +202,13 @@ h2 {
 }
 /* CV DATA SCREEN end */
 
-.flex,
-.row {
+.flex {
 	display: flex;
 }
-
+.row {
+	display: flex;
+	flex-direction: row;
+}
 .column {
 	display: flex;
 	flex-direction: column;
@@ -229,6 +232,10 @@ h2 {
 
 .self-stretch {
 	align-self: stretch;
+}
+
+.self-center {
+	align-self: center;
 }
 
 .justify-start {
@@ -275,6 +282,14 @@ h2 {
 	flex-grow: 4;
 }
 
+.flex-0-1 {
+	flex: 0 1 auto;
+}
+
+.flex-1-0 {
+	flex: 1 0 auto;
+}
+
 .margin-t-20 {
 	margin-top: 20px;
 }
@@ -317,10 +332,24 @@ h2 {
 	padding-right: 10%;
 }
 
+.padding-h-50 {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
 .border-box {
 	box-sizing: border-box;
 }
 
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background-color: white;
+	border-bottom: 2px solid #eee;
+	height: 64px;
+}
 @media only screen and (max-width: 650px) {
 	.background-image {
 		display: none;

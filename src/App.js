@@ -14,6 +14,7 @@ import './style/login.signup.screen.css';
 import './style/react-datepicker.css';
 import MVTemplate from './templates/mv-template';
 import TemplatesScreen from './pages/templates.screen';
+import FVTemplate from './templates/fv-template/fv-template';
 
 export default class App extends React.Component {
 	constructor(props) {
@@ -120,7 +121,7 @@ export default class App extends React.Component {
 	render() {
 		return (
 			<Router>
-				{!!this.state.redirect && <Redirect to={this.state.redirect} />}
+				{/* {!!this.state.redirect && <Redirect to={this.state.redirect} />} */}
 
 				<Switch>
 					{!!this.state.loggedIn && [
@@ -132,6 +133,9 @@ export default class App extends React.Component {
 						</Route>,
 						<Route path="/mv-template">
 							<MVTemplate />
+						</Route>,
+						<Route path="/fv-template">
+							<FVTemplate />
 						</Route>,
 					]}
 					<Route path="/signup">

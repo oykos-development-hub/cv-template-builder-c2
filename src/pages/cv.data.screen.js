@@ -431,7 +431,7 @@ function CVDataScreen() {
 						/>
 					</div>
 					<div className="experience-div section">
-						<h2 className="flex justify-between align-center margin-t-50">
+						<h2 className="flex justify-between align-center">
 							<span>Work experience</span>
 						</h2>
 
@@ -518,7 +518,7 @@ function CVDataScreen() {
 						</div>
 					</div>
 					<div className="education-div section">
-						<h2 className="flex justify-between align-center margin-t-50">
+						<h2 className="flex justify-between align-center">
 							<span>Education</span>
 						</h2>
 

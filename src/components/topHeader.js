@@ -14,7 +14,7 @@ export default class TopHeader extends React.Component {
 	render() {
 		const iconSignOut = <FontAwesomeIcon icon={faSignOutAlt} size={'1x'} />;
 		return (
-			<div className="flex w-100-perc justify-between align-center padding-h-10perc border-box">
+			<div className="flex w-100-perc justify-between align-center padding-h-10perc border-box navbar">
 				{!!this.state.redirect && <Redirect to={this.state.redirect} />}
 
 				<div
