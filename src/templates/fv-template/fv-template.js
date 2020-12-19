@@ -10,13 +10,24 @@ import {
 	faTrophy,
 	faLanguage,
 	faGamepad,
+	faPhoneAlt,
+	faEnvelope,
+	faMapMarkedAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { faAddressCard } from '@fortawesome/free-regular-svg-icons';
 import InformationRow from './information-row';
+import ContactRow from './contact-row';
+import SkillsRow from './skills-row';
+import image from './profilephoto500x500.png';
+
 function FVTemplate() {
 	const userData = StoreService.getStoreProperty('user');
-	const userEdu = userData.cv_data.education;
-	const userExp = userData.cv_data.experience;
+	const cvData = userData.cv_data ? userData.cv_data : {};
+	const userEdu = cvData.education ? cvData.education : {};
+	const userExp = cvData.experience ? cvData.experience : {};
+	let nameArray = userData.fullName.split(' ');
+	let firstName = nameArray[0];
+	let lastName = nameArray[1];
 
 	function generateEducation(data) {
 		return (
@@ -44,13 +55,37 @@ function FVTemplate() {
 		<div className="fv-container">
 			<div className="fv-template row">
 				<div className="l-side column justify-around align-center">
-					<div className="personal-photo"></div>
-					<div>{userData.fullName}</div>
+					<div>
+						<img src={image} className="personal-photo" />
+					</div>
+					<div className="column align-center">
+						<div
+							style={{
+								fontSize: '42px',
+							}}
+						>
+							<span>{firstName} </span>
+							<span className="font-bold">{lastName}</span>
+						</div>
+						<div>
+							<span className="font-size-20">{cvData.title}</span>
+						</div>
+					</div>
 					<div className="left-side-containers w-100-perc align-center column">
 						<div className="left-side-labels w-100-perc">
 							<FontAwesomeIcon icon={faAddressCard} /> Contact
 						</div>
-						<div>Contact data</div>
+						<div className="column align-start w-100-perc padding-h-10perc margin-v-15 border-box ">
+							<ContactRow icon={faPhoneAlt} value={cvData.tel} />
+							<ContactRow
+								icon={faEnvelope}
+								value={userData.email}
+							/>
+							<ContactRow
+								icon={faMapMarkedAlt}
+								value={cvData.address}
+							/>
+						</div>
 					</div>
 					<div className="left-side-containers w-100-perc align-center column">
 						<div className="left-side-labels w-100-perc">
@@ -130,7 +165,13 @@ function FVTemplate() {
 						>
 							Skills
 						</div>
-						<div className="flex padding-h-50">Skills data</div>
+						<div className="padding-h-50 column justify-center">
+							<SkillsRow name="HTML" percent="80" />
+							<SkillsRow name="CSS" percent="70" />
+							<SkillsRow name="JS" percent="70" />
+							<SkillsRow name="React" percent="60" />
+							<SkillsRow name="MS Office" percent="90" />
+						</div>
 						<div
 							className="flex justify-center"
 							style={{ minWidth: '60px', marginLeft: 'auto' }}
@@ -186,7 +227,7 @@ function FVTemplate() {
 								second data
 							</div>
 							<div className="row">
-								First data
+								First data dsfg sdfg sdfg sdfg sdfg sdfg
 								<div className="timeline">
 									<div className="line"></div>
 									<div className="point"></div>

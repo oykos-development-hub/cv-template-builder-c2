@@ -93,13 +93,11 @@ function CVDataScreen() {
 	};
 	const handleChange = (name, value) => {
 		let cachedUserData = userData;
-
 		cachedUserData =
 			typeof cachedUserData === 'object' ? cachedUserData : {};
-
 		cachedUserData[name] = value;
-
 		setUserData(cachedUserData);
+		setForceRefresh(!forceRefresh);
 	};
 	const submitForm = (e) => {
 		e.preventDefault();
@@ -381,6 +379,14 @@ function CVDataScreen() {
 							closeOnScroll={true}
 						/>
 						<p className="error"></p>
+						<InputField
+							name="title"
+							type="text"
+							value={userData.title}
+							label="Title"
+							placeholder="Title"
+							onChange={handleChange}
+						/>
 						<InputField
 							name="fbURL"
 							type="text"
