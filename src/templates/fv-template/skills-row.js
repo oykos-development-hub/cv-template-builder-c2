@@ -69,7 +69,12 @@ export default function SkillsRow(props) {
 		}
 	};
 	return (
-		<div className="content-item row justify-between w-100-perc border-box margin-v-5">
+		<div
+			className="content-item row justify-between w-100-perc border-box margin-v-2"
+			style={{
+				width: '75%',
+			}}
+		>
 			<span
 				style={{
 					minWidth: '150px',

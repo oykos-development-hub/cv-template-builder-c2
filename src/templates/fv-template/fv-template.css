@@ -2,7 +2,8 @@ html,
 body,
 #root {
 	height: 100%;
-	background-color: rgba(180, 178, 178, 0.253);
+	min-height: 900px;
+	background-color: rgb(209, 209, 209);
 }
 
 .fv-container {
@@ -17,6 +18,7 @@ body,
 	height: 100%;
 	box-sizing: border-box;
 	padding: 20px 50px;
+	background-color: rgb(209, 209, 209);
 }
 
 .fv-template .l-side {
@@ -42,13 +44,14 @@ body,
 }
 .left-side-containers {
 	min-height: 150px;
+	min-width: 330px;
 }
 
 .vertical-label {
 	display: flex;
 	writing-mode: vertical-lr;
 	padding: 15px 10px;
-	height: 100%;
+	height: 120px;
 	text-transform: uppercase;
 	color: white;
 	max-width: 20px;
@@ -63,6 +66,7 @@ body,
 	box-sizing: border-box;
 	padding: 5% 0px;
 }
+
 .bottom-border {
 	width: 100%;
 }
@@ -82,6 +86,15 @@ body,
 	border-width: 4px;
 	border-radius: 50%;
 	background-color: black;
+	-webkit-transition: -webkit-transform 1.5s ease-in-out;
+	transition: transform 1.5s ease-in-out;
+}
+
+.personal-photo:hover {
+	-webkit-transform: rotate(360deg);
+	transform: rotate(360deg);
+	/* -webkit-transform: scaleX(-1);
+	transform: scaleX(-1); */
 }
 
 .timeline {
@@ -137,6 +150,30 @@ body,
 	display: flex;
 	align-items: flex-start;
 }
+.scroll-auto {
+	min-height: 100%;
+	max-height: 132%;
+	width: 90%;
+	overflow-y: auto;
+	margin-right: 40px;
+	border: 2px solid black;
+}
+
+.scroll-auto::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+.scroll-auto::-webkit-scrollbar-thumb {
+	background: #bfbbbb;
+	border-radius: 15px;
+}
+.scroll-auto::-webkit-scrollbar-thumb:hover {
+	background: #d1d1d1;
+}
+.scroll-auto::-webkit-scrollbar-track {
+	background: #ffffff;
+	border-radius: 10px;
+}
 
 @media only screen and (max-width: 650px) {
 	.fv-container {
@@ -151,7 +188,11 @@ body,
 		padding: 0px 0px;
 	}
 
-	/* .vertical-label {
-		height: 40%;
-	} */
+	.scroll-auto {
+		height: 100%;
+	}
+
+	.icon {
+		font-size: 10px;
+	}
 }

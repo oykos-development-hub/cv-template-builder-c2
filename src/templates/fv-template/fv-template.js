@@ -9,16 +9,22 @@ import {
 	faFileAlt,
 	faTrophy,
 	faLanguage,
-	faGamepad,
 	faPhoneAlt,
 	faEnvelope,
 	faMapMarkedAlt,
+	faUsers,
 } from '@fortawesome/free-solid-svg-icons';
 import { faAddressCard } from '@fortawesome/free-regular-svg-icons';
 import InformationRow from './information-row';
-import ContactRow from './contact-row';
+import ContactLanguageSocialRow from './contact-row';
 import SkillsRow from './skills-row';
 import image from './profilephoto500x500.png';
+import {
+	faFacebookF,
+	faGithub,
+	faInstagram,
+	faLinkedinIn,
+} from '@fortawesome/free-brands-svg-icons';
 
 function FVTemplate() {
 	const userData = StoreService.getStoreProperty('user');
@@ -55,8 +61,12 @@ function FVTemplate() {
 		<div className="fv-container">
 			<div className="fv-template row">
 				<div className="l-side column justify-around align-center">
-					<div>
-						<img src={image} className="personal-photo" />
+					<div
+						style={{
+							paddingTop: '20px',
+						}}
+					>
+						<img src={image} alt="" className="personal-photo" />
 					</div>
 					<div className="column align-center">
 						<div
@@ -76,12 +86,15 @@ function FVTemplate() {
 							<FontAwesomeIcon icon={faAddressCard} /> Contact
 						</div>
 						<div className="column align-start w-100-perc padding-h-10perc margin-v-15 border-box ">
-							<ContactRow icon={faPhoneAlt} value={cvData.tel} />
-							<ContactRow
+							<ContactLanguageSocialRow
+								icon={faPhoneAlt}
+								value={cvData.tel}
+							/>
+							<ContactLanguageSocialRow
 								icon={faEnvelope}
 								value={userData.email}
 							/>
-							<ContactRow
+							<ContactLanguageSocialRow
 								icon={faMapMarkedAlt}
 								value={cvData.address}
 							/>
@@ -91,13 +104,44 @@ function FVTemplate() {
 						<div className="left-side-labels w-100-perc">
 							<FontAwesomeIcon icon={faLanguage} /> Language
 						</div>
-						<div>Language data</div>
+						<div className="column align-start w-100-perc padding-h-10perc margin-v-15 border-box ">
+							<ContactLanguageSocialRow
+								language="Montenegrin"
+								level="Native"
+							/>
+							<ContactLanguageSocialRow
+								language="English"
+								level="Excellent"
+							/>
+							<ContactLanguageSocialRow
+								language="Italian"
+								level="Basic"
+							/>
+						</div>
 					</div>
 					<div className="left-side-containers w-100-perc align-center column">
 						<div className="left-side-labels w-100-perc">
-							<FontAwesomeIcon icon={faGamepad} /> Hobbies
+							<FontAwesomeIcon icon={faUsers} /> Social
 						</div>
-						<div>Hobbies data</div>
+						<div className="column align-start w-100-perc padding-h-10perc margin-v-15 border-box ">
+							<ContactLanguageSocialRow icon={faFacebookF} />
+							<ContactLanguageSocialRow
+								icon={faInstagram}
+								value="instagram.com/user123"
+							/>
+							<ContactLanguageSocialRow
+								icon={faGithub}
+								value={cvData.githubURL}
+							/>
+							<ContactLanguageSocialRow
+								icon={faFacebookF}
+								value="facebook.com/user123"
+							/>
+							<ContactLanguageSocialRow
+								icon={faLinkedinIn}
+								value="Linkedin.com/user123"
+							/>
+						</div>
 					</div>
 				</div>
 				<div className="r-side column justify-around align-center">
@@ -111,15 +155,29 @@ function FVTemplate() {
 							Education
 						</div>
 
-						<div className="column padding-h-50">
+						<div className="column padding-h-50 scroll-auto ">
 							{!!userEdu &&
 								!!userEdu.length &&
 								userEdu.map((educationInstance) =>
 									generateEducation(educationInstance)
 								)}
+							{/* Test data start */}
+							<InformationRow
+								startDate="2012"
+								endDate="2013"
+								name="Aroma market"
+								description="Salesman"
+							/>
+							<InformationRow
+								startDate="2001"
+								endDate="2013"
+								name="Telekom"
+								// description="Call center operater Call center operater Call center operater Call center operater "
+							/>
+							{/* Test data end */}
 						</div>
 						<div
-							className="flex justify-center"
+							className="flex justify-center icon"
 							style={{ minWidth: '60px', marginLeft: 'auto' }}
 						>
 							<FontAwesomeIcon
@@ -138,7 +196,7 @@ function FVTemplate() {
 						>
 							Experience
 						</div>
-						<div className="flex padding-h-50">
+						<div className="flex padding-h-50 scroll-auto">
 							{!!userExp &&
 								!!userExp.length &&
 								userExp.map((experienceInstance) =>
@@ -165,7 +223,12 @@ function FVTemplate() {
 						>
 							Skills
 						</div>
-						<div className="padding-h-50 column justify-center">
+						<div className="padding-h-50 column justify-center scroll-auto">
+							<SkillsRow name="HTML" percent="80" />
+							<SkillsRow name="CSS" percent="70" />
+							<SkillsRow name="JS" percent="70" />
+							<SkillsRow name="React" percent="60" />
+							<SkillsRow name="MS Office" percent="90" />
 							<SkillsRow name="HTML" percent="80" />
 							<SkillsRow name="CSS" percent="70" />
 							<SkillsRow name="JS" percent="70" />
@@ -192,7 +255,7 @@ function FVTemplate() {
 						>
 							Certification
 						</div>
-						<div className="flex padding-h-50">
+						<div className="flex padding-h-50 scroll-auto">
 							Certification data
 						</div>
 
@@ -217,7 +280,7 @@ function FVTemplate() {
 							Achievements
 						</div>
 
-						<div className="flex padding-h-50 column">
+						<div className="flex padding-h-50 column scroll-auto">
 							<div className="row">
 								First data
 								<div className="timeline">

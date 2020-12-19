@@ -1,7 +1,11 @@
 export default function InformationRow(props) {
 	return (
 		<div className="content-item">
-			<span>
+			<span
+				style={{
+					minWidth: '90px',
+				}}
+			>
 				{props.startDate.slice(-4)} -{props.endDate.slice(-4)}
 			</span>
 			<div className="timeline">
