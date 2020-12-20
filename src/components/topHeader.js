@@ -47,6 +47,16 @@ export default class TopHeader extends React.Component {
                 >
                     CV data
                 </div>
+                <div
+                    className="padding-10 pointer"
+                    onClick={() => {
+                        this.setState({
+                            redirect: '/personal-info'
+                        });
+                    }}
+                >
+                    Personal info
+                </div>
             </div>
 
             <div className="flex justify-between">

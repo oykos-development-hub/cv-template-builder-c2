@@ -14,6 +14,7 @@ import './style/login.signup.screen.css';
 import './style/react-datepicker.css';
 import MVTemplate from "./templates/mv-template";
 import NGTemplate from "./templates/ng-template";
+import PersonalInfo from "./pages/PersonalInfo";
 import TemplatesScreen from "./pages/templates.screen";
 
 export default class App extends React.Component {
@@ -114,6 +115,9 @@ export default class App extends React.Component {
                         </Route>,
                         <Route path="/ng-template">
                             <NGTemplate/>
+                        </Route>,
+                         <Route path="/personal-info">
+                            <PersonalInfo/>
                         </Route>
                     ]
                 }
