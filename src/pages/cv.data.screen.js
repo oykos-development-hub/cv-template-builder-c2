@@ -52,6 +52,7 @@ function CVDataScreen() {
 			educationEndDate: dateString,
 		};
 	};
+
 	const [redirect, setRedirect] = useState('');
 	const [forceRefresh, setForceRefresh] = useState(false);
 	const [workExperiences, setWorkExperiences] = useState(
@@ -62,9 +63,11 @@ function CVDataScreen() {
 			: [getWorkExperienceEmptyState()]
 	);
 	const [education, setEducation] = useState(
-		StoreService.getStoreProperty('user').cv_data.education
+		StoreService.getStoreProperty('user').cv_data
 			? StoreService.getStoreProperty('user').cv_data.education
-			: [getEducationEmptyState()]
+				? StoreService.getStoreProperty('user').cv_data.education
+				: [getEducationEmptyState()]
+			: [getWorkExperienceEmptyState()]
 	);
 	const [userData, setUserData] = useState(
 		storedUserData ? storedUserData : {}
