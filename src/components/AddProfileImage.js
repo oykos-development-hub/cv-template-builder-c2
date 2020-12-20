@@ -6,6 +6,7 @@ export default class AddProfileImage extends React.Component{
     render() {
         return(
             <input 
+            name = {this.props.name}
             id = {this.props.id}
             type = {this.props.type}
             className = {this.props.classses}

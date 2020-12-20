@@ -3,6 +3,7 @@ import Input from '../components/Input'
 import SaveButton from '../components/SaveButton'
 import AddProfileImage from '../components/AddProfileImage'
 import Reset from '../components/Reset'
+import '../style/personalinfo.css';
 import {StoreService} from "../services/store.service";
 export default class Form2 extends React.Component{
     constructor(props){
@@ -93,6 +94,7 @@ export default class Form2 extends React.Component{
                     <label className = "label-image">PROFILE IMAGE</label>
                     <img src = {profileImage} className = "profile-image"/>
                     <AddProfileImage
+                    name = "image"
                     id = "profileimg"
                     classses = "file-input"
                     type = "file"
