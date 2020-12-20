@@ -4,6 +4,7 @@ import '../style/ngCVtemplate.css';
 import '../style/mv_template.css';
 import email from '../images/email.png';
 import phone from '../images/phone.png';
+import instagram from '../images/instagram.png';
 import facebook from '../images/facebook.png';
 export default class NGTemplate extends React.Component{
     constructor(props) {
@@ -39,26 +40,23 @@ export default class NGTemplate extends React.Component{
     renderExperience = (workExperience) => {
 
         return [
-            <div className="mv-item">
-                <div className="mv-dates">
-                    <div className="mv-date mv-start">
+            <div className="expertise">
+                <div className="col-3">
+                    <span className = "fontsize">Work Experiance</span>
+                    <div className= "padding-1">
                         {!!workExperience.workStartDate && this.getDate(workExperience.workStartDate)}
-                    </div>
-                    <div className="mv-slash">
                         -
-                    </div>
-                    <div className="mv-date mv-end">
                         {!!workExperience.workEndDate && this.getDate(workExperience.workEndDate)}
                     </div>
                 </div>
-                <div className="mv-section-data">
-                    <div className="mv-item-title">
+                <div className="col-4">
+                    <div className="row-3">
                         {!!workExperience.jobTitle && workExperience.jobTitle}
                     </div>
-                    <div className="mv-item-subtitle">
+                    <div className="row-3">
                         {!!workExperience.company && workExperience.company}
                     </div>
-                    <div className="mv-item-description">
+                    <div className="row-3">
                         {!!workExperience.jobDescription && workExperience.jobDescription}
                     </div>
                 </div>
@@ -100,27 +98,31 @@ export default class NGTemplate extends React.Component{
         <div className = "bodi">
         <div id="wrapper">
             <div className="profile">
-                <img className = "image" src = "" alt =""/>
-                <div id = "references-item"className="about">
-                    <h1>Profile</h1>
+                <div className = "column-1">
+                    <img className = "image" src = "" alt =""/>
+                </div>
+                <div className="column-2">
+                    <h1 className = "margin-profile">Profile</h1>
                     <ul>
                        <li>
                            <h3 className = "no-margin">Adress:</h3> 
-                           <h5 className = "no-margin">{this.state.adress}</h5>
+                           <h5 className = "no-margin text-decoration fontsize">{this.state.address}</h5>
                         </li>   
                         <li>
-                           <h3 className = "no-margin">Date of birth:</h3> 
-                           <h5 className = "no-margin"></h5>
+                           <h3 className = "no-margin ">Date of birth:</h3> 
+                           <h5 className = "no-margin text-decoration fontsize">22.12.1998.</h5>
                         </li>   
                     </ul>   
                 </div>
             </div>
             <div className="names">
                 <div className="job">
-                    <span id = "job-name "className = "jobName">Zanimanje</span>
+                    <span id = "job-name "className = "jobName">
+                        Web Devloper
+                    </span>
                 </div>
                 <div id = "full-name"className="name">
-                    <h1 id = "name" className = "padding">{this.state.fullname}</h1>
+                    <h1 id = "name" className = "fullname">{this.state.fullName}</h1>
                 </div>
             </div>
             <div className="wraperrow">
@@ -133,21 +135,30 @@ export default class NGTemplate extends React.Component{
                         </div>
                         <div className="row">
                             <img className = "phone-icon"src = {email}/>
-                            <span className = "padding">gluscevicnikola33@gmail.com</span>
+                            <span className = "padding">{this.state.email}</span>
                         </div>
                         <div className="row">
                             <img className = "phone-icon"src = {facebook}/>
                             <span className = "padding">
                             {!!this.state.fb && this.state.fb !== "" ? 
-                                <div className="mv-info-item"><i className="fa fa-facebook mv-i"> </i> {this.state.fb} </div> : ""}
+                                <div className="mv-info-item">{this.state.fb}</div> : ""}
                             </span>
+                        <div/>     
                         </div>
+                        <div className = "row">
+                            <img className = "phone-icon" src = {instagram}/>
+                            <span className = "padding">
+                            {!!this.state.ig && this.state.ig !== "" ? 
+                                <div className="mv-info-item">{this.state.ig} </div> : ""}
+                            </span>
+                        </div>   
                     </div>
                     <div className = "education">
                         {!!education && education !== '' && education.map((degree) => this.renderEducation(degree))}
                     </div>
                     <div className = "expertise">
 
+                        {!!experience && experience !== '' && experience.map((workExperience) => this.renderExperience(workExperience))}
                     </div>
                 </div>
             </div>
