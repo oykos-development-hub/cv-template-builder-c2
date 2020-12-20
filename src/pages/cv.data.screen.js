@@ -19,14 +19,10 @@ function CVDataScreen() {
 		);
 		return dateObject;
 	};
+	const storedUserData = StoreService.getStoreProperty('user').cv_data;
 	const getWorkExperienceEmptyState = () => {
 		const date = new Date();
-		let dateString =
-			('0' + date.getDate()).slice(-2) +
-			'/' +
-			('0' + (date.getMonth() + 1)).slice(-2) +
-			'/' +
-			date.getFullYear();
+		let dateString = date.toLocaleDateString('en-GB');
 		return {
 			company: '',
 			jobTitle: '',
@@ -35,15 +31,9 @@ function CVDataScreen() {
 			workEndDate: dateString,
 		};
 	};
-	const storedUserData = StoreService.getStoreProperty('user').cv_data;
 	const getEducationEmptyState = () => {
 		const date = new Date();
-		let dateString =
-			('0' + date.getDate()).slice(-2) +
-			'/' +
-			('0' + (date.getMonth() + 1)).slice(-2) +
-			'/' +
-			date.getFullYear();
+		let dateString = date.toLocaleDateString('en-GB');
 		return {
 			school: '',
 			degree: '',
@@ -52,7 +42,34 @@ function CVDataScreen() {
 			educationEndDate: dateString,
 		};
 	};
-
+	const getCertificationEmptyState = () => {
+		return {
+			certificate: '',
+			expertise: '',
+			issuedBy: '',
+		};
+	};
+	const getAchievementsEmptyState = () => {
+		const date = new Date();
+		let dateString = date.toLocaleDateString('en-GB');
+		return {
+			awardName: '',
+			awardType: '',
+			awardYear: dateString,
+		};
+	};
+	const getSkillsEmptyState = () => {
+		return {
+			skillName: '',
+			skillLevel: '',
+		};
+	};
+	const getLanguagesEmptyState = () => {
+		return {
+			languageName: '',
+			languageLevel: '',
+		};
+	};
 	const [redirect, setRedirect] = useState('');
 	const [forceRefresh, setForceRefresh] = useState(false);
 	const [workExperiences, setWorkExperiences] = useState(
@@ -68,6 +85,34 @@ function CVDataScreen() {
 				? StoreService.getStoreProperty('user').cv_data.education
 				: [getEducationEmptyState()]
 			: [getWorkExperienceEmptyState()]
+	);
+	const [certification, setCertification] = useState(
+		StoreService.getStoreProperty('user').cv_data
+			? StoreService.getStoreProperty('user').cv_data.certification
+				? StoreService.getStoreProperty('user').cv_data.certification
+				: [getCertificationEmptyState()]
+			: [getCertificationEmptyState()]
+	);
+	const [achievements, setAchievements] = useState(
+		StoreService.getStoreProperty('user').cv_data
+			? StoreService.getStoreProperty('user').cv_data.achievements
+				? StoreService.getStoreProperty('user').cv_data.achievements
+				: [getAchievementsEmptyState()]
+			: [getAchievementsEmptyState()]
+	);
+	const [skills, setSkills] = useState(
+		StoreService.getStoreProperty('user').cv_data
+			? StoreService.getStoreProperty('user').cv_data.skills
+				? StoreService.getStoreProperty('user').cv_data.skills
+				: [getSkillsEmptyState()]
+			: [getSkillsEmptyState()]
+	);
+	const [languages, setLanguages] = useState(
+		StoreService.getStoreProperty('user').cv_data
+			? StoreService.getStoreProperty('user').cv_data.languages
+				? StoreService.getStoreProperty('user').cv_data.languages
+				: [getLanguagesEmptyState()]
+			: [getLanguagesEmptyState()]
 	);
 	const [userData, setUserData] = useState(
 		storedUserData ? storedUserData : {}
@@ -92,6 +137,34 @@ function CVDataScreen() {
 		currentEducation[name] = value;
 		education[index] = currentEducation;
 		setEducation(education);
+		setForceRefresh(!forceRefresh);
+	};
+	const handleCertificationChange = (name, value, index) => {
+		let currentCertification = certification[index];
+		currentCertification[name] = value;
+		certification[index] = currentCertification;
+		setCertification(certification);
+		setForceRefresh(!forceRefresh);
+	};
+	const handleAchievementsChange = (name, value, index) => {
+		let currentAchievements = achievements[index];
+		currentAchievements[name] = value;
+		achievements[index] = currentAchievements;
+		setAchievements(achievements);
+		setForceRefresh(!forceRefresh);
+	};
+	const handleSkillsChange = (name, value, index) => {
+		let currentSkills = skills[index];
+		currentSkills[name] = value;
+		skills[index] = currentSkills;
+		setSkills(skills);
+		setForceRefresh(!forceRefresh);
+	};
+	const handleLanguagesChange = (name, value, index) => {
+		let currentLanguages = languages[index];
+		currentLanguages[name] = value;
+		languages[index] = currentLanguages;
+		setLanguages(languages);
 		setForceRefresh(!forceRefresh);
 	};
 	const handleChange = (name, value) => {
@@ -119,7 +192,27 @@ function CVDataScreen() {
 			(education.length > 1 || education[0] !== getEducationEmptyState())
 				? education
 				: [];
-
+		storedUser.cv_data.certification =
+			certification &&
+			(certification.length > 1 ||
+				certification[0] !== getCertificationEmptyState())
+				? certification
+				: [];
+		storedUser.cv_data.achievements =
+			achievements &&
+			(achievements.length > 1 ||
+				achievements[0] !== getAchievementsEmptyState())
+				? achievements
+				: [];
+		storedUser.cv_data.skills =
+			skills && (skills.length > 1 || skills[0] !== getSkillsEmptyState())
+				? skills
+				: [];
+		storedUser.cv_data.languages =
+			languages &&
+			(languages.length > 1 || languages[0] !== getLanguagesEmptyState())
+				? languages
+				: [];
 		StoreService.updateStoreProperty('user', storedUser);
 
 		ApiService.endpoints.updateUser(storedUser, storedUser.id, false);
@@ -178,12 +271,7 @@ function CVDataScreen() {
 				selected={convertStringToDate(workExperience.workStartDate)}
 				onChange={(date) => {
 					if (date) {
-						let dateString =
-							('0' + date.getDate()).slice(-2) +
-							'/' +
-							('0' + (date.getMonth() + 1)).slice(-2) +
-							'/' +
-							date.getFullYear();
+						let dateString = date.toLocaleDateString('en-GB');
 						handleExperienceChange(
 							'workStartDate',
 							dateString,
@@ -207,12 +295,7 @@ function CVDataScreen() {
 				selected={convertStringToDate(workExperience.workEndDate)}
 				onChange={(date) => {
 					if (date) {
-						let dateString =
-							('0' + date.getDate()).slice(-2) +
-							'/' +
-							('0' + (date.getMonth() + 1)).slice(-2) +
-							'/' +
-							date.getFullYear();
+						let dateString = date.toLocaleDateString('en-GB');
 						handleExperienceChange(
 							'workEndDate',
 							dateString,
@@ -273,12 +356,7 @@ function CVDataScreen() {
 				)}
 				onChange={(date) => {
 					if (date) {
-						let dateString =
-							('0' + date.getDate()).slice(-2) +
-							'/' +
-							('0' + (date.getMonth() + 1)).slice(-2) +
-							'/' +
-							date.getFullYear();
+						let dateString = date.toLocaleDateString('en-GB');
 						handleEducationChange(
 							'educationStartDate',
 							dateString,
@@ -304,12 +382,7 @@ function CVDataScreen() {
 				)}
 				onChange={(date) => {
 					if (date) {
-						let dateString =
-							('0' + date.getDate()).slice(-2) +
-							'/' +
-							('0' + (date.getMonth() + 1)).slice(-2) +
-							'/' +
-							date.getFullYear();
+						let dateString = date.toLocaleDateString('en-GB');
 						handleEducationChange(
 							'educationEndDate',
 							dateString,
@@ -323,6 +396,139 @@ function CVDataScreen() {
 		];
 	};
 
+	const renderCertificationElements = (certificationInstance, index) => {
+		return [
+			<InputField
+				name="certificate"
+				label="Certificate"
+				placeholder="Certificate"
+				type="text"
+				value={certificationInstance.certificate}
+				onChange={(name, value) => {
+					handleCertificationChange(name, value, index);
+				}}
+			/>,
+			<InputField
+				name="expertise"
+				label="Expertise"
+				placeholder="Expertise"
+				type="text"
+				value={certificationInstance.expertise}
+				onChange={(name, value) => {
+					handleCertificationChange(name, value, index);
+				}}
+			/>,
+			<InputField
+				name="issuedBy"
+				label="Issued by"
+				placeholder="Issued by"
+				type="text"
+				value={certificationInstance.issuedBy}
+				onChange={(name, value) => {
+					handleCertificationChange(name, value, index);
+				}}
+			/>,
+		];
+	};
+
+	const renderAchievementsElements = (achievementsInstance, index) => {
+		return [
+			<InputField
+				name="awardName"
+				label="Award name"
+				placeholder="Award name"
+				type="text"
+				value={achievementsInstance.awardName}
+				onChange={(name, value) => {
+					handleAchievementsChange(name, value, index);
+				}}
+			/>,
+			<InputField
+				name="awardType"
+				label="Award type"
+				placeholder="Award type"
+				type="text"
+				value={achievementsInstance.awardType}
+				onChange={(name, value) => {
+					handleAchievementsChange(name, value, index);
+				}}
+			/>,
+			<p className="label">Award year</p>,
+			<DatePicker
+				placeholderText="Award date"
+				label="Award date"
+				dateFormat="yyyy"
+				name="awardYear"
+				type="date"
+				showMonthDropdown
+				showYearDropdown
+				dropdownMode="select"
+				selected={convertStringToDate(achievementsInstance.awardYear)}
+				onChange={(date) => {
+					if (date) {
+						let dateString = date.toLocaleDateString('en-GB');
+						handleAchievementsChange(
+							'awardYear',
+							dateString,
+							index
+						);
+					}
+				}}
+				showPopperArrow={false}
+				closeOnScroll={true}
+			/>,
+		];
+	};
+
+	const renderSkillsElements = (skillsInstance, index) => {
+		return [
+			<InputField
+				name="skillName"
+				label="Skill name"
+				placeholder="Skill name"
+				type="text"
+				value={skillsInstance.skillName}
+				onChange={(name, value) => {
+					handleSkillsChange(name, value, index);
+				}}
+			/>,
+			<InputField
+				name="skillLevel"
+				label="Skill level"
+				placeholder="Enter value between 0 and 100"
+				type="text"
+				value={skillsInstance.skillLevel}
+				onChange={(name, value) => {
+					handleSkillsChange(name, value, index);
+				}}
+			/>,
+		];
+	};
+
+	const renderLanguagesElements = (languagesInstance, index) => {
+		return [
+			<InputField
+				name="languageName"
+				label="Language"
+				placeholder="Language"
+				type="text"
+				value={languagesInstance.languageName}
+				onChange={(name, value) => {
+					handleLanguagesChange(name, value, index);
+				}}
+			/>,
+			<InputField
+				name="languageLevel"
+				label="Language level"
+				placeholder="Language level"
+				type="text"
+				value={languagesInstance.languageLevel}
+				onChange={(name, value) => {
+					handleLanguagesChange(name, value, index);
+				}}
+			/>,
+		];
+	};
 	return (
 		<div className="cv-data-screen column">
 			<TopHeader />
@@ -364,14 +570,9 @@ function CVDataScreen() {
 							selected={birthDate}
 							onChange={(date) => {
 								if (date) {
-									let dateString =
-										('0' + date.getDate()).slice(-2) +
-										'/' +
-										('0' + (date.getMonth() + 1)).slice(
-											-2
-										) +
-										'/' +
-										date.getFullYear();
+									let dateString = date.toLocaleDateString(
+										'en-GB'
+									);
 									setBirthDate(
 										convertStringToDate(dateString)
 									);
@@ -597,6 +798,329 @@ function CVDataScreen() {
 									} else {
 										alert(
 											'Please fill your previous education before adding new one!'
+										);
+									}
+								}}
+							/>
+						</div>
+					</div>
+					<div className="certification-div section">
+						<h2 className="flex justify-between align-center">
+							<span>Certification</span>
+						</h2>
+
+						{!!certification &&
+							!!certification.length &&
+							certification.map(
+								(certificationInstance, index) => {
+									return (
+										<div
+											className="margin-v-15"
+											style={{
+												paddingBottom: '15px',
+												position: 'relative',
+												paddingTop: '30px',
+											}}
+										>
+											{renderCertificationElements(
+												certificationInstance,
+												index
+											)}
+
+											<div
+												className="flex align-center justify-center"
+												style={{
+													position: 'absolute',
+													top: '5px',
+													right: '5px',
+													cursor: 'pointer',
+												}}
+												onClick={(e) => {
+													e.stopPropagation();
+													e.preventDefault();
+													if (
+														certification.length !=
+														1
+													) {
+														certification.splice(
+															index,
+															1
+														);
+													}
+													setCertification(
+														certification
+													);
+													setForceRefresh(
+														!forceRefresh
+													);
+												}}
+											>
+												{iconTrash}
+											</div>
+										</div>
+									);
+								}
+							)}
+						<div className="row justify-end">
+							<Button
+								content="Add new certification"
+								onclick={(e) => {
+									e.preventDefault();
+									e.stopPropagation();
+
+									const lastItemInArray =
+										certification[certification.length - 1];
+
+									if (
+										lastItemInArray &&
+										lastItemInArray.certificate &&
+										lastItemInArray.expertise &&
+										lastItemInArray.issuedBy
+									) {
+										let newCertification = certification;
+
+										newCertification.push(
+											getCertificationEmptyState()
+										);
+
+										setCertification(newCertification);
+										setForceRefresh(!forceRefresh);
+									} else {
+										alert(
+											'Please fill your previous certification before adding new one!'
+										);
+									}
+								}}
+							/>
+						</div>
+					</div>
+					<div className="achievements-div section">
+						<h2 className="flex justify-between align-center">
+							<span>Achievements</span>
+						</h2>
+
+						{!!achievements &&
+							!!achievements.length &&
+							achievements.map((achievementsInstance, index) => {
+								return (
+									<div
+										className="margin-v-15"
+										style={{
+											paddingBottom: '15px',
+											position: 'relative',
+											paddingTop: '30px',
+										}}
+									>
+										{renderAchievementsElements(
+											achievementsInstance,
+											index
+										)}
+
+										<div
+											className="flex align-center justify-center"
+											style={{
+												position: 'absolute',
+												top: '5px',
+												right: '5px',
+												cursor: 'pointer',
+											}}
+											onClick={(e) => {
+												e.stopPropagation();
+												e.preventDefault();
+												if (achievements.length != 1) {
+													achievements.splice(
+														index,
+														1
+													);
+												}
+												setAchievements(achievements);
+												setForceRefresh(!forceRefresh);
+											}}
+										>
+											{iconTrash}
+										</div>
+									</div>
+								);
+							})}
+						<div className="row justify-end">
+							<Button
+								content="Add new achievements"
+								onclick={(e) => {
+									e.preventDefault();
+									e.stopPropagation();
+
+									const lastItemInArray =
+										achievements[achievements.length - 1];
+
+									if (
+										lastItemInArray &&
+										lastItemInArray.awardName &&
+										lastItemInArray.awardType &&
+										lastItemInArray.awardYear
+									) {
+										let newAchievements = achievements;
+
+										newAchievements.push(
+											getAchievementsEmptyState()
+										);
+
+										setAchievements(newAchievements);
+										setForceRefresh(!forceRefresh);
+									} else {
+										alert(
+											'Please fill your previous achievements before adding new one!'
+										);
+									}
+								}}
+							/>
+						</div>
+					</div>
+					<div className="skills-div section">
+						<h2 className="flex justify-between align-center">
+							<span>Skills</span>
+						</h2>
+
+						{!!skills &&
+							!!skills.length &&
+							skills.map((skillsInstance, index) => {
+								return (
+									<div
+										className="margin-v-15"
+										style={{
+											paddingBottom: '15px',
+											position: 'relative',
+											paddingTop: '30px',
+										}}
+									>
+										{renderSkillsElements(
+											skillsInstance,
+											index
+										)}
+
+										<div
+											className="flex align-center justify-center"
+											style={{
+												position: 'absolute',
+												top: '5px',
+												right: '5px',
+												cursor: 'pointer',
+											}}
+											onClick={(e) => {
+												e.stopPropagation();
+												e.preventDefault();
+												if (skills.length != 1) {
+													skills.splice(index, 1);
+												}
+												setSkills(skills);
+												setForceRefresh(!forceRefresh);
+											}}
+										>
+											{iconTrash}
+										</div>
+									</div>
+								);
+							})}
+						<div className="row justify-end">
+							<Button
+								content="Add new skills"
+								onclick={(e) => {
+									e.preventDefault();
+									e.stopPropagation();
+
+									const lastItemInArray =
+										skills[skills.length - 1];
+
+									if (
+										lastItemInArray &&
+										lastItemInArray.skillName &&
+										lastItemInArray.skillLevel
+									) {
+										let newSkills = skills;
+
+										newSkills.push(getSkillsEmptyState());
+
+										setSkills(newSkills);
+										setForceRefresh(!forceRefresh);
+									} else {
+										alert(
+											'Please fill your previous skills before adding new one!'
+										);
+									}
+								}}
+							/>
+						</div>
+					</div>
+					<div className="languages-div section">
+						<h2 className="flex justify-between align-center">
+							<span>Languages</span>
+						</h2>
+
+						{!!languages &&
+							!!languages.length &&
+							languages.map((languagesInstance, index) => {
+								return (
+									<div
+										className="margin-v-15"
+										style={{
+											paddingBottom: '15px',
+											position: 'relative',
+											paddingTop: '30px',
+										}}
+									>
+										{renderLanguagesElements(
+											languagesInstance,
+											index
+										)}
+
+										<div
+											className="flex align-center justify-center"
+											style={{
+												position: 'absolute',
+												top: '5px',
+												right: '5px',
+												cursor: 'pointer',
+											}}
+											onClick={(e) => {
+												e.stopPropagation();
+												e.preventDefault();
+												if (languages.length != 1) {
+													languages.splice(index, 1);
+												}
+												setLanguages(languages);
+												setForceRefresh(!forceRefresh);
+											}}
+										>
+											{iconTrash}
+										</div>
+									</div>
+								);
+							})}
+						<div className="row justify-end">
+							<Button
+								content="Add new languages"
+								onclick={(e) => {
+									e.preventDefault();
+									e.stopPropagation();
+
+									const lastItemInArray =
+										languages[languages.length - 1];
+
+									if (
+										lastItemInArray &&
+										lastItemInArray.languageName &&
+										lastItemInArray.languageLevel
+									) {
+										let newLanguages = languages;
+
+										newLanguages.push(
+											getLanguagesEmptyState()
+										);
+
+										setLanguages(newLanguages);
+										setForceRefresh(!forceRefresh);
+									} else {
+										alert(
+											'Please fill your previous languages before adding new one!'
 										);
 									}
 								}}

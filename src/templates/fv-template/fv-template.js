@@ -196,7 +196,7 @@ function FVTemplate() {
 						>
 							Experience
 						</div>
-						<div className="flex padding-h-50 scroll-auto">
+						<div className="column padding-h-50 scroll-auto">
 							{!!userExp &&
 								!!userExp.length &&
 								userExp.map((experienceInstance) =>
@@ -204,7 +204,7 @@ function FVTemplate() {
 								)}
 						</div>
 						<div
-							className="flex justify-center"
+							className="flex justify-center icon"
 							style={{ minWidth: '60px', marginLeft: 'auto' }}
 						>
 							<FontAwesomeIcon
@@ -229,14 +229,9 @@ function FVTemplate() {
 							<SkillsRow name="JS" percent="70" />
 							<SkillsRow name="React" percent="60" />
 							<SkillsRow name="MS Office" percent="90" />
-							<SkillsRow name="HTML" percent="80" />
-							<SkillsRow name="CSS" percent="70" />
-							<SkillsRow name="JS" percent="70" />
-							<SkillsRow name="React" percent="60" />
-							<SkillsRow name="MS Office" percent="90" />
 						</div>
 						<div
-							className="flex justify-center"
+							className="flex justify-center icon"
 							style={{ minWidth: '60px', marginLeft: 'auto' }}
 						>
 							<FontAwesomeIcon
@@ -260,7 +255,7 @@ function FVTemplate() {
 						</div>
 
 						<div
-							className="flex justify-center"
+							className="flex justify-center icon"
 							style={{ minWidth: '60px', marginLeft: 'auto' }}
 						>
 							<FontAwesomeIcon
@@ -299,7 +294,7 @@ function FVTemplate() {
 							</div>
 						</div>
 						<div
-							className="flex justify-center"
+							className="flex justify-center icon"
 							style={{ minWidth: '60px', marginLeft: 'auto' }}
 						>
 							<FontAwesomeIcon
