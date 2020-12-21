@@ -11,7 +11,7 @@ import CVDataScreen from "./pages/cv.data.screen";
 import AccountInfo from "./pages/account.info.screen";
 import {StoreService} from "./services/store.service";
 import {ApiService} from "./services/api.service";
-import './style/login.signup.screen.css';
+import './style/login.signup.screen.scss';
 import './style/react-datepicker.css';
 import MVTemplate from "./templates/mv-template";
 import TemplatesScreen from "./pages/templates.screen";

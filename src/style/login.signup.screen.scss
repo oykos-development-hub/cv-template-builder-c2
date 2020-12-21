@@ -1,3 +1,5 @@
+@import "variables";
+
 body {
 	font-family: Avenir, Calibri, Segoe, “Segoe UI”, Optima, Arial, sans-serif;
 }
@@ -32,6 +34,16 @@ body {
 .background-image {
 	width: 90%;
 	margin: 20px;
+
+	.image {
+
+	}
+	&.hidden {
+
+	}
+	&:hover {
+
+	}
 }
 
 .login-screen input,
@@ -112,7 +124,7 @@ h2 {
 	width: 100%;
 	cursor: pointer;
 	text-align: center;
-	background-color: rgb(62, 148, 228);
+	background-color: $buttonColor;
 	transition: all 0.3s ease 0s;
 	color: white;
 	box-sizing: border-box;
@@ -124,8 +136,8 @@ h2 {
 }
 
 .button:hover {
-	background-color: rgb(37, 134, 225);
-	border-color: rgb(37, 134, 225);
+	background-color: $buttonHoverColor;
+	border-color: $buttonHoverColor;
 }
 
 /* CV DATA SCREEN start */
@@ -203,7 +215,7 @@ h2 {
 }
 
 .cv-data-screen .fa-trash-alt:hover {
-	color: rgb(72 72 72);
+	color: rgb(72, 72, 72);
 }
 /* Language radio buttons */
 
@@ -216,7 +228,6 @@ h2 {
 
 .rb-component .radio-label {
 	color: rgb(100, 100, 100);
-	font-size: 15px;
 	margin: 10px 0 10px 0;
 	height: 22px;
 	padding-top: 6px;
@@ -226,7 +237,7 @@ h2 {
 
 .rb-component .radio-group label {
 	font-size: 1.2rem;
-	color: rgb(72 72 72);
+	color: rgb(72, 72, 72);
 }
 
 /* CV DATA SCREEN end */
