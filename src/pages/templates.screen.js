@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import TopHeader from '../components/topHeader';
 import asyncComponent from '../components/async-component';
 import { StoreService } from '../services/store.service';
+import PdfTemplate from "../components/pdf-template";
 
 export default class TemplatesScreen extends React.Component {
 	constructor(props) {
@@ -66,6 +67,7 @@ export default class TemplatesScreen extends React.Component {
 							onClick={() => {
 								this.setState({
 									pickedTemplate: 1,
+									downloadPdf: true
 								});
 							}}
 						>
@@ -82,6 +84,7 @@ export default class TemplatesScreen extends React.Component {
 							onClick={() => {
 								this.setState({
 									pickedTemplate: 2,
+									downloadPdf: true
 								});
 							}}
 						>
@@ -90,6 +93,12 @@ export default class TemplatesScreen extends React.Component {
 					</div>
 
 					<div className="template-wrapper grow-1 padding-10 self-stretch">
+						{
+							!!this.state.downloadPdf && <PdfTemplate
+								templateNumber={this.state.pickedTemplate}
+							/>
+						}
+
 						{this.renderPickedTemplate()}
 					</div>
 				</div>
