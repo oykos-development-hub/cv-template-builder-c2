@@ -15,6 +15,7 @@ import './style/login.signup.screen.css';
 import './style/react-datepicker.css';
 import MVTemplate from "./templates/mv-template";
 import TemplatesScreen from "./pages/templates.screen";
+import FVTemplate from './templates/fv-template/fv-template';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -114,7 +115,10 @@ export default class App extends React.Component {
                         </Route>,
                         <Route path="/account">
                             <AccountInfo />
-                        </Route>
+                        </Route>,
+                        <Route path="/fv-template">
+                            <FVTemplate />
+                        </Route>,
                     ]
                 }
                 <Route path="/signup">
