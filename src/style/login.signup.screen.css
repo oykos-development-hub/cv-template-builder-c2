@@ -35,20 +35,20 @@ body {
 }
 
 .login-screen input,
-.signup-screen input {
-  box-sizing: border-box;
-  appearance: none;
-  background-color: #fefefe;
-  border: 1px solid rgb(204, 204, 204);
-  border-radius: 4px;
-  box-shadow: rgba(62, 148, 228, 0.15) 0px 2px 4px;
-  font-size: 16px;
-  line-height: 1.4em;
-  padding: 13px 18px;
-  width: 100%;
-  color: rgb(49, 49, 49);
+.signup-screen input,
+.cv-data-screen input {
+	box-sizing: border-box;
+	appearance: none;
+	background-color: #fefefe;
+	border: 1px solid rgb(204, 204, 204);
+	border-radius: 4px;
+	box-shadow: rgba(62, 148, 228, 0.15) 0px 2px 4px;
+	font-size: 16px;
+	line-height: 1.4em;
+	padding: 13px 18px;
+	width: 100%;
+	color: rgb(49, 49, 49);
 }
-
 ::placeholder {
 	color: rgb(170, 170, 170);
 	opacity: 1;
@@ -374,9 +374,8 @@ h2 {
 }
 
 .menu-active {
-    border-bottom: 3px solid rgb(62, 148, 228) ;
-    border-top: 3px solid rgba(255, 255, 255, 0) ;
-
+	border-bottom: 3px solid rgb(62, 148, 228);
+	border-top: 3px solid rgba(255, 255, 255, 0);
 }
 
 .font-size-3 {
@@ -419,13 +418,13 @@ h2 {
 		padding: 0px 0px 0px 0px;
 		min-width: 500px;
 	}
-    .templates-screen .left-side {
-        display: block;
-    }
-    .templates-screen .sidebar {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
+	.templates-screen .left-side {
+		display: block;
+	}
+	.templates-screen .sidebar {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
 }
 
 @media only screen and (min-width: 650px) {
