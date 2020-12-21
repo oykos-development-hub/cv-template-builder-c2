@@ -8,6 +8,7 @@ import {
 import LoginScreen from "./pages/login.screen";
 import SignupScreen from "./pages/signup.screen";
 import CVDataScreen from "./pages/cv.data.screen";
+import AccountInfo from "./pages/account.info.screen";
 import {StoreService} from "./services/store.service";
 import {ApiService} from "./services/api.service";
 import './style/login.signup.screen.css';
@@ -110,6 +111,9 @@ export default class App extends React.Component {
                         </Route>,
                         <Route path="/mv-template">
                             <MVTemplate/>
+                        </Route>,
+                        <Route path="/account">
+                            <AccountInfo />
                         </Route>
                     ]
                 }

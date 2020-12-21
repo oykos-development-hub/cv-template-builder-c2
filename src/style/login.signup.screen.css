@@ -34,7 +34,8 @@ body {
   margin: 20px;
 }
 
-input {
+.login-screen input,
+.signup-screen input {
   box-sizing: border-box;
   appearance: none;
   background-color: #fefefe;
