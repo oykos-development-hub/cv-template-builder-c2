@@ -21,10 +21,12 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
 
+        const uri = window.location.pathname;
+
         this.state = {
             initialValidation: false,
             loggedIn: false,
-            defaultUri: '/cv-data'
+            defaultUri: uri ? uri : '/cv-data'
         };
 
         StoreService.initialize();
