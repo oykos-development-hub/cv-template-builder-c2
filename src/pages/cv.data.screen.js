@@ -457,12 +457,11 @@ function CVDataScreen() {
 			<DatePicker
 				placeholderText="Award date"
 				label="Award date"
-				dateFormat="yyyy"
 				name="awardYear"
 				type="date"
-				showMonthDropdown
-				showYearDropdown
-				dropdownMode="select"
+				showYearPicker
+				dateFormat="yyyy"
+				yearItemNumber={12}
 				selected={convertStringToDate(achievementsInstance.awardYear)}
 				onChange={(date) => {
 					if (date) {
