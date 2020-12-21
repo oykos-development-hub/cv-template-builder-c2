@@ -680,10 +680,23 @@ function CVDataScreen() {
 														index,
 														1
 													);
+													setWorkExperiences(
+														workExperiences
+													);
+												} else {
+													let newWorkExperiences = workExperiences;
+													workExperiences.splice(
+														index,
+														1
+													);
+													newWorkExperiences.push(
+														getWorkExperienceEmptyState()
+													);
+
+													setWorkExperiences(
+														newWorkExperiences
+													);
 												}
-												setWorkExperiences(
-													workExperiences
-												);
 												setForceRefresh(!forceRefresh);
 											}}
 										>
@@ -762,8 +775,16 @@ function CVDataScreen() {
 												e.preventDefault();
 												if (education.length != 1) {
 													education.splice(index, 1);
+													setEducation(education);
+												} else {
+													let newEducation = education;
+													education.splice(index, 1);
+													newEducation.push(
+														getEducationEmptyState()
+													);
+
+													setEducation(newEducation);
 												}
-												setEducation(education);
 												setForceRefresh(!forceRefresh);
 											}}
 										>
@@ -846,10 +867,23 @@ function CVDataScreen() {
 															index,
 															1
 														);
+														setCertification(
+															certification
+														);
+													} else {
+														let newCertification = certification;
+														certification.splice(
+															index,
+															1
+														);
+														newCertification.push(
+															getCertificationEmptyState()
+														);
+
+														setCertification(
+															newCertification
+														);
 													}
-													setCertification(
-														certification
-													);
 													setForceRefresh(
 														!forceRefresh
 													);
@@ -932,8 +966,23 @@ function CVDataScreen() {
 														index,
 														1
 													);
+													setAchievements(
+														achievements
+													);
+												} else {
+													let newAchievements = achievements;
+													achievements.splice(
+														index,
+														1
+													);
+													newAchievements.push(
+														getAchievementsEmptyState()
+													);
+
+													setAchievements(
+														newAchievements
+													);
 												}
-												setAchievements(achievements);
 												setForceRefresh(!forceRefresh);
 											}}
 										>
@@ -1010,8 +1059,16 @@ function CVDataScreen() {
 												e.preventDefault();
 												if (skills.length != 1) {
 													skills.splice(index, 1);
+													setSkills(skills);
+												} else {
+													let newSkills = skills;
+													skills.splice(index, 1);
+													newSkills.push(
+														getSkillsEmptyState()
+													);
+
+													setSkills(newSkills);
 												}
-												setSkills(skills);
 												setForceRefresh(!forceRefresh);
 											}}
 										>
@@ -1085,8 +1142,16 @@ function CVDataScreen() {
 												e.preventDefault();
 												if (languages.length != 1) {
 													languages.splice(index, 1);
+													setLanguages(languages);
+												} else {
+													let newLanguages = languages;
+													languages.splice(index, 1);
+													newLanguages.push(
+														getLanguagesEmptyState()
+													);
+
+													setLanguages(newLanguages);
 												}
-												setLanguages(languages);
 												setForceRefresh(!forceRefresh);
 											}}
 										>
