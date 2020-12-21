@@ -200,6 +200,34 @@ h2 {
 	align-items: baseline;
 	justify-content: flex-start;
 }
+
+.cv-data-screen .fa-trash-alt:hover {
+	color: rgb(72 72 72);
+}
+/* Language radio buttons */
+
+.rb-component .language-radio-button {
+	height: 30px;
+	width: 30px;
+	margin-right: 10px;
+	appearance: radio;
+}
+
+.rb-component .radio-label {
+	color: rgb(100, 100, 100);
+	font-size: 15px;
+	margin: 10px 0 10px 0;
+	height: 22px;
+	padding-top: 6px;
+	padding-left: 5px;
+	font-size: 1.2rem;
+}
+
+.rb-component .radio-group label {
+	font-size: 1.2rem;
+	color: rgb(72 72 72);
+}
+
 /* CV DATA SCREEN end */
 
 .flex {

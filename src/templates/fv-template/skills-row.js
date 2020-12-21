@@ -78,6 +78,8 @@ export default function SkillsRow(props) {
 			<span
 				style={{
 					minWidth: '150px',
+					// fontWeight: 'bold',
+					// letterSpacing: '1px',
 				}}
 			>
 				{props.name}

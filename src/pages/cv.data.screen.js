@@ -5,6 +5,7 @@ import Button from '../components/button';
 import { StoreService } from '../services/store.service';
 import DatePicker from 'react-datepicker';
 import TopHeader from '../components/topHeader';
+import LangRBcomponent from '../components/langRBcomponent';
 import { ApiService } from '../services/api.service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
@@ -495,7 +496,7 @@ function CVDataScreen() {
 				name="skillLevel"
 				label="Skill level"
 				placeholder="Enter value between 0 and 100"
-				type="text"
+				type="number"
 				value={skillsInstance.skillLevel}
 				onChange={(name, value) => {
 					handleSkillsChange(name, value, index);
@@ -516,14 +517,16 @@ function CVDataScreen() {
 					handleLanguagesChange(name, value, index);
 				}}
 			/>,
-			<InputField
+			<LangRBcomponent
 				name="languageLevel"
-				label="Language level"
-				placeholder="Language level"
-				type="text"
+				label="Language proficiency level"
 				value={languagesInstance.languageLevel}
-				onChange={(name, value) => {
-					handleLanguagesChange(name, value, index);
+				onChange={(e) => {
+					let currentLanguages = languages[index];
+					currentLanguages.languageLevel = e.target.value;
+					languages[index] = currentLanguages;
+					setLanguages(languages);
+					setForceRefresh(!forceRefresh);
 				}}
 			/>,
 		];

@@ -18,12 +18,14 @@ import { faAddressCard } from '@fortawesome/free-regular-svg-icons';
 import InformationRow from './information-row';
 import ContactLanguageSocialRow from './contact-row';
 import SkillsRow from './skills-row';
-import image from './profilephoto500x500.png';
+import CertificationRow from './certification-row';
 import {
 	faFacebookF,
 	faGithub,
 	faInstagram,
 	faLinkedinIn,
+	faSkype,
+	faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 
 function FVTemplate() {
@@ -31,6 +33,10 @@ function FVTemplate() {
 	const cvData = userData.cv_data ? userData.cv_data : {};
 	const userEdu = cvData.education ? cvData.education : {};
 	const userExp = cvData.experience ? cvData.experience : {};
+	const userAch = cvData.achievements ? cvData.achievements : {};
+	const userCert = cvData.certification ? cvData.certification : {};
+	const userLang = cvData.languages ? cvData.languages : {};
+	const userSkill = cvData.skills ? cvData.skills : {};
 	let nameArray = userData.fullName.split(' ');
 	let firstName = nameArray[0];
 	let lastName = nameArray[1];
@@ -57,6 +63,68 @@ function FVTemplate() {
 		);
 	}
 
+	function generateAchievement(data) {
+		if (data.awardName !== '' && data.awardType !== '') {
+			return (
+				<InformationRow
+					startDate={data.awardYear}
+					name={data.awardName}
+					description={data.awardType}
+				/>
+			);
+		} else {
+			return null;
+		}
+	}
+
+	function generateCertification(data) {
+		return (
+			<CertificationRow
+				certificate={data.certificate}
+				expertise={data.expertise}
+				issuedBy={data.issuedBy}
+			/>
+		);
+	}
+	function generateLanguages(data) {
+		return (
+			<ContactLanguageSocialRow
+				language={data.languageName}
+				level={data.languageLevel}
+			/>
+		);
+	}
+	function generateSkills(data) {
+		return <SkillsRow name={data.skillName} percent={data.skillLevel} />;
+	}
+	let achievementsRow =
+		!!userAch && userAch[0].awardName !== '' ? (
+			<div className="flex w-100-perc row-container align-center">
+				<div
+					className="vertical-label"
+					style={{
+						backgroundColor: '#5b9fef',
+					}}
+				>
+					Achievements
+				</div>
+
+				<div className="column padding-h-50 scroll-auto">
+					{!!userAch &&
+						!!userAch.length &&
+						userAch.map((achievementsInstance) =>
+							generateAchievement(achievementsInstance)
+						)}
+				</div>
+				<div className="flex justify-center icon">
+					<FontAwesomeIcon
+						icon={faTrophy}
+						size={'3x'}
+						color="#5b9fef"
+					/>
+				</div>
+			</div>
+		) : null;
 	return (
 		<div className="fv-container">
 			<div className="fv-template row">
@@ -66,7 +134,7 @@ function FVTemplate() {
 							paddingTop: '20px',
 						}}
 					>
-						<img src={image} alt="" className="personal-photo" />
+						<img className="personal-photo" />
 					</div>
 					<div className="column align-center">
 						<div
@@ -102,21 +170,14 @@ function FVTemplate() {
 					</div>
 					<div className="left-side-containers w-100-perc align-center column">
 						<div className="left-side-labels w-100-perc">
-							<FontAwesomeIcon icon={faLanguage} /> Language
+							<FontAwesomeIcon icon={faLanguage} /> Languages
 						</div>
 						<div className="column align-start w-100-perc padding-h-10perc margin-v-15 border-box ">
-							<ContactLanguageSocialRow
-								language="Montenegrin"
-								level="Native"
-							/>
-							<ContactLanguageSocialRow
-								language="English"
-								level="Excellent"
-							/>
-							<ContactLanguageSocialRow
-								language="Italian"
-								level="Basic"
-							/>
+							{!!userLang &&
+								!!userLang.length &&
+								userLang.map((languagesInstance) =>
+									generateLanguages(languagesInstance)
+								)}
 						</div>
 					</div>
 					<div className="left-side-containers w-100-perc align-center column">
@@ -124,28 +185,41 @@ function FVTemplate() {
 							<FontAwesomeIcon icon={faUsers} /> Social
 						</div>
 						<div className="column align-start w-100-perc padding-h-10perc margin-v-15 border-box ">
-							<ContactLanguageSocialRow icon={faFacebookF} />
-							<ContactLanguageSocialRow
-								icon={faInstagram}
-								value="instagram.com/user123"
-							/>
 							<ContactLanguageSocialRow
 								icon={faGithub}
 								value={cvData.githubURL}
-							/>
-							<ContactLanguageSocialRow
-								icon={faFacebookF}
-								value="facebook.com/user123"
+								social={true}
 							/>
 							<ContactLanguageSocialRow
 								icon={faLinkedinIn}
-								value="Linkedin.com/user123"
+								value={cvData.linkedinURL}
+								social={true}
+							/>
+							<ContactLanguageSocialRow
+								icon={faFacebookF}
+								value={cvData.fbURL}
+								social={true}
+							/>
+							<ContactLanguageSocialRow
+								icon={faInstagram}
+								value={cvData.instagramURL}
+								social={true}
+							/>
+							<ContactLanguageSocialRow
+								icon={faTwitter}
+								value={cvData.twitterURL}
+								social={true}
+							/>
+							<ContactLanguageSocialRow
+								icon={faSkype}
+								value={cvData.skypeURL}
+								social={true}
 							/>
 						</div>
 					</div>
 				</div>
 				<div className="r-side column justify-around align-center">
-					<div className="row w-100-perc row-container align-center">
+					<div className="flex w-100-perc row-container align-center">
 						<div
 							className="vertical-label"
 							style={{
@@ -161,25 +235,8 @@ function FVTemplate() {
 								userEdu.map((educationInstance) =>
 									generateEducation(educationInstance)
 								)}
-							{/* Test data start */}
-							<InformationRow
-								startDate="2012"
-								endDate="2013"
-								name="Aroma market"
-								description="Salesman"
-							/>
-							<InformationRow
-								startDate="2001"
-								endDate="2013"
-								name="Telekom"
-								// description="Call center operater Call center operater Call center operater Call center operater "
-							/>
-							{/* Test data end */}
 						</div>
-						<div
-							className="flex justify-center icon"
-							style={{ minWidth: '60px', marginLeft: 'auto' }}
-						>
+						<div className="flex justify-center icon">
 							<FontAwesomeIcon
 								icon={faGraduationCap}
 								size={'3x'}
@@ -187,11 +244,11 @@ function FVTemplate() {
 							/>
 						</div>
 					</div>
-					<div className="row w-100-perc row-container align-center">
+					<div className="flex w-100-perc row-container align-center">
 						<div
 							className="vertical-label"
 							style={{
-								backgroundColor: '#bfe843',
+								backgroundColor: '#00a236',
 							}}
 						>
 							Experience
@@ -203,18 +260,15 @@ function FVTemplate() {
 									generateExperience(experienceInstance)
 								)}
 						</div>
-						<div
-							className="flex justify-center icon"
-							style={{ minWidth: '60px', marginLeft: 'auto' }}
-						>
+						<div className="flex justify-center icon">
 							<FontAwesomeIcon
 								icon={faBriefcase}
 								size={'3x'}
-								color="#bfe843"
+								color="#00a236"
 							/>
 						</div>
 					</div>
-					<div className="row w-100-perc row-container align-center">
+					<div className="flex w-100-perc row-container align-center">
 						<div
 							className="vertical-label"
 							style={{
@@ -224,16 +278,13 @@ function FVTemplate() {
 							Skills
 						</div>
 						<div className="padding-h-50 column justify-center scroll-auto">
-							<SkillsRow name="HTML" percent="80" />
-							<SkillsRow name="CSS" percent="70" />
-							<SkillsRow name="JS" percent="70" />
-							<SkillsRow name="React" percent="60" />
-							<SkillsRow name="MS Office" percent="90" />
+							{!!userSkill &&
+								!!userSkill.length &&
+								userSkill.map((skillsInstance) =>
+									generateSkills(skillsInstance)
+								)}
 						</div>
-						<div
-							className="flex justify-center icon"
-							style={{ minWidth: '60px', marginLeft: 'auto' }}
-						>
+						<div className="flex justify-center icon">
 							<FontAwesomeIcon
 								icon={faLaptopCode}
 								size={'3x'}
@@ -241,7 +292,7 @@ function FVTemplate() {
 							/>
 						</div>
 					</div>
-					<div className="row w-100-perc row-container align-center">
+					<div className="flex w-100-perc row-container align-center">
 						<div
 							className="vertical-label"
 							style={{
@@ -250,14 +301,15 @@ function FVTemplate() {
 						>
 							Certification
 						</div>
-						<div className="flex padding-h-50 scroll-auto">
-							Certification data
+						<div className="column padding-h-50 scroll-auto">
+							{!!userCert &&
+								!!userCert.length &&
+								userCert.map((certificationInstance) =>
+									generateCertification(certificationInstance)
+								)}
 						</div>
 
-						<div
-							className="flex justify-center icon"
-							style={{ minWidth: '60px', marginLeft: 'auto' }}
-						>
+						<div className="flex justify-center icon">
 							<FontAwesomeIcon
 								icon={faFileAlt}
 								size={'3x'}
@@ -265,45 +317,7 @@ function FVTemplate() {
 							/>
 						</div>
 					</div>
-					<div className="row w-100-perc row-container align-center">
-						<div
-							className="vertical-label"
-							style={{
-								backgroundColor: '#5b9fef',
-							}}
-						>
-							Achievements
-						</div>
-
-						<div className="flex padding-h-50 column scroll-auto">
-							<div className="row">
-								First data
-								<div className="timeline">
-									<div className="line"></div>
-									<div className="point"></div>
-								</div>
-								second data
-							</div>
-							<div className="row">
-								First data dsfg sdfg sdfg sdfg sdfg sdfg
-								<div className="timeline">
-									<div className="line"></div>
-									<div className="point"></div>
-								</div>
-								second data
-							</div>
-						</div>
-						<div
-							className="flex justify-center icon"
-							style={{ minWidth: '60px', marginLeft: 'auto' }}
-						>
-							<FontAwesomeIcon
-								icon={faTrophy}
-								size={'3x'}
-								color="#5b9fef"
-							/>
-						</div>
-					</div>
+					{achievementsRow}
 				</div>
 			</div>
 		</div>

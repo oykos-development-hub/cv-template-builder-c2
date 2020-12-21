@@ -1,5 +1,23 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function ContactLanguageSocialRow(props) {
+	let link =
+		!!props.social && !!props.value && props.value.slice(0, 3) !== 'htt'
+			? 'https://' + props.value
+			: props.value;
+	let item = !!props.social ? (
+		<a
+			href={link}
+			style={{
+				textDecoration: 'none',
+				color: 'unset',
+			}}
+		>
+			{props.value}
+		</a>
+	) : (
+		<span>{props.value}</span>
+	);
+
 	if (!!props.value) {
 		return (
 			<div className="content-item">
@@ -22,7 +40,7 @@ export default function ContactLanguageSocialRow(props) {
 							marginLeft: '10px',
 						}}
 					>
-						{props.value}
+						{item}
 					</span>
 				</span>
 			</div>

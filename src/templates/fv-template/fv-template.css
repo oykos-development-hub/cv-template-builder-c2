@@ -2,34 +2,32 @@ html,
 body,
 #root {
 	height: 100%;
+	width: 100%;
 	min-height: 900px;
-	background-color: rgb(209, 209, 209);
 }
-
 .fv-container {
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	min-width: 1000px;
+	background-color: rgb(209, 209, 209);
+	min-height: 900px;
 }
 .fv-template {
 	display: flex;
 	width: 1200px;
 	height: 100%;
 	box-sizing: border-box;
-	padding: 20px 50px;
-	background-color: rgb(209, 209, 209);
+	padding: 0px 50px;
 }
 
 .fv-template .l-side {
-	/* flex: 1 0 30%; */
 	flex-grow: 1;
 	background-color: #1a283b;
 	color: white;
 }
 
 .fv-template .r-side {
-	/* flex: 1 0 60%; */
 	flex-grow: 2;
 	background-color: #fff;
 	padding-right: 30px;
@@ -38,7 +36,6 @@ body,
 .left-side-labels {
 	background-color: #0f1c2e;
 	font-size: 2em;
-	/* text-align: center; */
 	padding-left: 30px;
 	box-sizing: border-box;
 }
@@ -47,10 +44,18 @@ body,
 	min-width: 330px;
 }
 
+.left-side-containers .content-item {
+	width: 100%;
+	max-width: 330px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 .vertical-label {
 	display: flex;
 	writing-mode: vertical-lr;
-	padding: 15px 10px;
+	padding: 15px 10px 15px 13px;
 	height: 120px;
 	text-transform: uppercase;
 	color: white;
@@ -59,24 +64,13 @@ body,
 	letter-spacing: 1px;
 	font-weight: bold;
 	transform: rotate(180deg);
+	border-radius: 20px 0px 0px 20px;
 }
 
 .row-container {
 	height: 20%;
 	box-sizing: border-box;
 	padding: 5% 0px;
-}
-
-.bottom-border {
-	width: 100%;
-}
-.bottom-border::before {
-	content: ''; /* This is necessary for the pseudo element to work. */
-	display: block; /* This will put the pseudo element on its own line. */
-	margin: 0 auto; /* This will center the border. */
-	width: 50%; /* Change this to whatever width you want. */
-	padding-top: 20px; /* This creates some space between the element and the border. */
-	border-bottom: 1px solid black; /* This creates the border. Replace black with whatever color you want. */
 }
 
 .personal-photo {
@@ -91,10 +85,11 @@ body,
 }
 
 .personal-photo:hover {
-	-webkit-transform: rotate(360deg);
-	transform: rotate(360deg);
+	/* -webkit-transform: rotate(360deg);
+	transform: rotate(360deg); */
 	/* -webkit-transform: scaleX(-1);
 	transform: scaleX(-1); */
+	animation: bounce 1s;
 }
 
 .timeline {
@@ -140,10 +135,6 @@ body,
 	flex-direction: column;
 	flex-wrap: wrap;
 	height: 100%;
-	-webkit-transition: height 1.5s ease;
-	-moz-transition: height 0.5s ease;
-	-o-transition: height 0.5s ease;
-	transition: height 0.5s ease;
 }
 
 .content-item {
@@ -156,7 +147,6 @@ body,
 	width: 90%;
 	overflow-y: auto;
 	margin-right: 40px;
-	border: 2px solid black;
 }
 
 .scroll-auto::-webkit-scrollbar {
@@ -175,9 +165,35 @@ body,
 	border-radius: 10px;
 }
 
+.icon {
+	min-width: 60px;
+	margin-left: auto;
+}
+
+@keyframes bounce {
+	0%,
+	20%,
+	60%,
+	100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+
+	80% {
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
+}
+
 @media only screen and (max-width: 650px) {
 	.fv-container {
 		min-width: 300px;
+		width: 100%;
 	}
 	.fv-template {
 		display: flex;
@@ -186,13 +202,46 @@ body,
 		height: 100%;
 		box-sizing: border-box;
 		padding: 0px 0px;
+		padding: unset;
+	}
+
+	.fv-template .r-side {
+		padding-right: unset;
 	}
 
 	.scroll-auto {
 		height: 100%;
+		min-height: unset;
+		max-height: unset;
+		overflow-y: unset;
+		box-shadow: unset;
+		margin-right: unset;
+		margin-top: 50px;
+		margin-bottom: 10px;
 	}
 
 	.icon {
-		font-size: 10px;
+		/* font-size: 10px; */
+		margin-left: unset;
+		margin-top: 15px;
+	}
+
+	.row-container {
+		flex-direction: column;
+		padding: 0px 0px 10% 0px;
+		height: unset;
+	}
+	.row-container .padding-h-50 {
+		padding-left: unset;
+		padding-right: unset;
+	}
+	.vertical-label {
+		writing-mode: unset;
+		padding: 15px 0px;
+		transform: unset;
+		max-width: unset;
+		width: 100%;
+		height: unset;
+		border-radius: unset;
 	}
 }
