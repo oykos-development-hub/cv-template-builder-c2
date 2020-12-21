@@ -533,7 +533,7 @@ function CVDataScreen() {
 	};
 	return (
 		<div className="cv-data-screen column">
-			<TopHeader />
+            <TopHeader active="cvData"/>
 
 			{!!redirect && <Redirect to={redirect} />}
 

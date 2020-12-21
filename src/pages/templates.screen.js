@@ -37,12 +37,12 @@ export default class TemplatesScreen extends React.Component {
 		return template;
 	}
 
-	render() {
-		return (
-			<div className="cv-data-screen column">
-				<TopHeader />
+    render() {
+        return (<div className="cv-data-screen column">
+                <TopHeader active="myTemplates"/>
 
-				{!!this.state.redirect && <Redirect to={this.state.redirect} />}
+
+                {!!this.state.redirect && <Redirect to={this.state.redirect} />}
 
 				<div
 					className="left-side flex padding-h-10perc margin-v-15"

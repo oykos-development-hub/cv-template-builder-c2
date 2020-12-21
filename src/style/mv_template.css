@@ -1,32 +1,47 @@
-.mv-layout {
-  font-family: Avenir;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
+.mv-wrapper {
+  /* min-height: 297mm; */
   /* A4 Format */
   /* height: 297mm;
   width: 210mm; */
+}
+
+.mv-layout {
+  font-family: Avenir, Calibri, Segoe, “Segoe UI”, Optima, Arial, sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
   font-size: 12pt;
 }
 
 .mv-left {
   width: 35%;
-  background-color: #C8E0D3;
+  background-color: #273F55;
   display: flex;
   flex-direction: column;
+  color: white;
+  max-width: 300px;
 }
 
 .mv-name-box {
-  padding: 5%;
+  padding: 20px;
 }
 
 .mv-name {
   text-transform:uppercase;
   text-align: center;
-  padding: 20px;
+  padding: 20px 0px;
   font-size: 18pt;
-  font-weight: bold;
-  border: 1px white solid;
+  font-weight: 700;
+}
+
+.mv-gradient-border {
+  height: 6px;
+  background-image: 
+    linear-gradient(
+      to right, 
+      #314d66, 
+      rgb(110, 144, 196)
+    );
 }
 
 .mv-info {
@@ -46,6 +61,7 @@
 .mv-info-item {
   font-size: 12pt;
   margin-bottom:15px;
+  margin-left: 5px;
 }
 
 .mv-right {
@@ -53,6 +69,7 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  background-color: whitesmoke;
 }
 
 .mv-section {
@@ -67,10 +84,17 @@
 .mv-section-title {
   margin-top: 50px;
   padding-left: 10px;
-  padding-top: 2px;
   font-weight: 700;
   font-size: 14pt;
-  border-left: 6px #C8E0D3 solid;
+  border-left: 6px #273F55 solid;
+  border-left-width: 6px;
+  border-left-style: solid;
+  border-image: 
+    linear-gradient(
+      to bottom, 
+      #273F55,    
+      rgb(151, 175, 211)    
+    ) 1 100%;
 }
 
 .mv-item {
@@ -85,8 +109,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 30%;
+  max-width: 200px;
   padding: 0px 20px 0px 16px;
-  opacity: 60%;
+  color: #444e57;
   font-size: 11pt;
 }
 
@@ -98,15 +123,20 @@
   text-transform: uppercase;
   font-weight: 700;
   padding-bottom: 5px;
+  
 }
 
 .mv-item-subtitle {
-  font-weight: 700;
+  font-weight: 500;
   padding-bottom: 5px;
 }
 
-i {
+.mv-item-description {
+  font-size: 11pt;
+}
+
+.mv-i {
   padding-right: 3px;
   width: 16px;
-  opacity: 40%;
+  opacity: 60%;
 }
