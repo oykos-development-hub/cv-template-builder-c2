@@ -25,19 +25,19 @@ const AccountInfo = () => {
 	});
 	const [modalStatus, toggleModal] = useState(false);
 	console.log(modalStatus);
-	const didMountRef = useRef(false);
+	// const didMountRef = useRef(false);
 	const root = document.getElementById('root');
 
 	const onClose = () => {
 		toggleModal(false);
-		didMountRef.current = false;
+		// didMountRef.current = false;
 		// root.classList.toggle('active');
 	};
 
 	const submitImgForm = (url) => {
 		setData((prev) => ({ ...prev, imgUrl: url }));
 		toggleModal(false);
-		didMountRef.current = false;
+		// didMountRef.current = false;
 		// root.classList.toggle('active');
 	};
 
@@ -46,15 +46,15 @@ const AccountInfo = () => {
 		toggleModal(false);
 	};
 
-	useEffect(() => {
-		if (didMountRef.current) {
-			// root.classList.toggle('active');
-			window.addEventListener('keydown', onEscKeyDown);
-		} else didMountRef.current = true;
-		return () => {
-			window.removeEventListener('keydown', onEscKeyDown);
-		};
-	}, [modalStatus]);
+	// useEffect(() => {
+	// 	if (didMountRef.current) {
+	// 		// root.classList.toggle('active');
+	// 		window.addEventListener('keydown', onEscKeyDown);
+	// 	} else didMountRef.current = true;
+	// 	return () => {
+	// 		window.removeEventListener('keydown', onEscKeyDown);
+	// 	};
+	// }, [modalStatus]);
 
 	const handleChange = (e) => {
 		const { name, value, checked, type } = e.target;
@@ -100,6 +100,7 @@ const AccountInfo = () => {
 			StoreService.updateStoreProperty('user', cachedUserData);
 		}
 	};
+	// console.log(modalStatus);
 
 	return (
 		<>
@@ -140,9 +141,7 @@ const AccountInfo = () => {
 							<Avatar
 								avatarSrc={data.imgUrl}
 								content="PROFILE IMAGE"
-								openImgChangeModal={() => {
-									toggleModal(true);
-								}}
+								openImgChangeModal={() => toggleModal(true)}
 								resetImg={() => {
 									const confirmation = window.confirm(
 										'Reseting will remove your current profile picture and replace it with an empty avatar. Are you sure you want to proceed?'

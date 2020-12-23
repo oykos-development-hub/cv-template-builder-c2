@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from './button';
 
 const Avatar = ({ openImgChangeModal, resetImg, content, avatarSrc }) => {
