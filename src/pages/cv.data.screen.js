@@ -16,7 +16,7 @@ function CVDataScreen() {
 		let dateObject = new Date(
 			+dateParts[2],
 			dateParts[1] - 1,
-			+dateParts[0]
+			+dateParts[0],
 		);
 		return dateObject;
 	};
@@ -78,50 +78,50 @@ function CVDataScreen() {
 			? StoreService.getStoreProperty('user').cv_data.experience
 				? StoreService.getStoreProperty('user').cv_data.experience
 				: [getWorkExperienceEmptyState()]
-			: [getWorkExperienceEmptyState()]
+			: [getWorkExperienceEmptyState()],
 	);
 	const [education, setEducation] = useState(
 		StoreService.getStoreProperty('user').cv_data
 			? StoreService.getStoreProperty('user').cv_data.education
 				? StoreService.getStoreProperty('user').cv_data.education
 				: [getEducationEmptyState()]
-			: [getWorkExperienceEmptyState()]
+			: [getWorkExperienceEmptyState()],
 	);
 	const [certification, setCertification] = useState(
 		StoreService.getStoreProperty('user').cv_data
 			? StoreService.getStoreProperty('user').cv_data.certification
 				? StoreService.getStoreProperty('user').cv_data.certification
 				: [getCertificationEmptyState()]
-			: [getCertificationEmptyState()]
+			: [getCertificationEmptyState()],
 	);
 	const [achievements, setAchievements] = useState(
 		StoreService.getStoreProperty('user').cv_data
 			? StoreService.getStoreProperty('user').cv_data.achievements
 				? StoreService.getStoreProperty('user').cv_data.achievements
 				: [getAchievementsEmptyState()]
-			: [getAchievementsEmptyState()]
+			: [getAchievementsEmptyState()],
 	);
 	const [skills, setSkills] = useState(
 		StoreService.getStoreProperty('user').cv_data
 			? StoreService.getStoreProperty('user').cv_data.skills
 				? StoreService.getStoreProperty('user').cv_data.skills
 				: [getSkillsEmptyState()]
-			: [getSkillsEmptyState()]
+			: [getSkillsEmptyState()],
 	);
 	const [languages, setLanguages] = useState(
 		StoreService.getStoreProperty('user').cv_data
 			? StoreService.getStoreProperty('user').cv_data.languages
 				? StoreService.getStoreProperty('user').cv_data.languages
 				: [getLanguagesEmptyState()]
-			: [getLanguagesEmptyState()]
+			: [getLanguagesEmptyState()],
 	);
 	const [userData, setUserData] = useState(
-		storedUserData ? storedUserData : {}
+		storedUserData ? storedUserData : {},
 	);
 	const [birthDate, setBirthDate] = useState(
 		userData && typeof userData === 'object' && userData.dateOfBirth
 			? convertStringToDate(userData.dateOfBirth)
-			: new Date()
+			: new Date(),
 	);
 	const handleExperienceChange = (name, value, index) => {
 		let currentWorkExperience = workExperiences[index];
@@ -276,7 +276,7 @@ function CVDataScreen() {
 						handleExperienceChange(
 							'workStartDate',
 							dateString,
-							index
+							index,
 						);
 					}
 				}}
@@ -300,7 +300,7 @@ function CVDataScreen() {
 						handleExperienceChange(
 							'workEndDate',
 							dateString,
-							index
+							index,
 						);
 					}
 				}}
@@ -353,7 +353,7 @@ function CVDataScreen() {
 				showYearDropdown
 				dropdownMode="select"
 				selected={convertStringToDate(
-					educationInstance.educationStartDate
+					educationInstance.educationStartDate,
 				)}
 				onChange={(date) => {
 					if (date) {
@@ -361,7 +361,7 @@ function CVDataScreen() {
 						handleEducationChange(
 							'educationStartDate',
 							dateString,
-							index
+							index,
 						);
 					}
 				}}
@@ -379,7 +379,7 @@ function CVDataScreen() {
 				showYearDropdown
 				dropdownMode="select"
 				selected={convertStringToDate(
-					educationInstance.educationEndDate
+					educationInstance.educationEndDate,
 				)}
 				onChange={(date) => {
 					if (date) {
@@ -387,7 +387,7 @@ function CVDataScreen() {
 						handleEducationChange(
 							'educationEndDate',
 							dateString,
-							index
+							index,
 						);
 					}
 				}}
@@ -470,7 +470,7 @@ function CVDataScreen() {
 						handleAchievementsChange(
 							'awardYear',
 							dateString,
-							index
+							index,
 						);
 					}
 				}}
@@ -533,7 +533,7 @@ function CVDataScreen() {
 	};
 	return (
 		<div className="cv-data-screen column">
-            <TopHeader active="cvData"/>
+			<TopHeader active="cvData" />
 
 			{!!redirect && <Redirect to={redirect} />}
 
@@ -573,10 +573,10 @@ function CVDataScreen() {
 							onChange={(date) => {
 								if (date) {
 									let dateString = date.toLocaleDateString(
-										'en-GB'
+										'en-GB',
 									);
 									setBirthDate(
-										convertStringToDate(dateString)
+										convertStringToDate(dateString),
 									);
 									handleChange('dateOfBirth', dateString);
 								}
@@ -661,7 +661,7 @@ function CVDataScreen() {
 									>
 										{renderWorkExperienceElements(
 											workExperience,
-											index
+											index,
 										)}
 
 										<div
@@ -680,23 +680,23 @@ function CVDataScreen() {
 												) {
 													workExperiences.splice(
 														index,
-														1
+														1,
 													);
 													setWorkExperiences(
-														workExperiences
+														workExperiences,
 													);
 												} else {
 													let newWorkExperiences = workExperiences;
 													workExperiences.splice(
 														index,
-														1
+														1,
 													);
 													newWorkExperiences.push(
-														getWorkExperienceEmptyState()
+														getWorkExperienceEmptyState(),
 													);
 
 													setWorkExperiences(
-														newWorkExperiences
+														newWorkExperiences,
 													);
 												}
 												setForceRefresh(!forceRefresh);
@@ -728,14 +728,14 @@ function CVDataScreen() {
 										let newWorkExperiences = workExperiences;
 
 										newWorkExperiences.push(
-											getWorkExperienceEmptyState()
+											getWorkExperienceEmptyState(),
 										);
 
 										setWorkExperiences(newWorkExperiences);
 										setForceRefresh(!forceRefresh);
 									} else {
 										alert(
-											'Please fill your previous work experience before adding new one!'
+											'Please fill your previous work experience before adding new one!',
 										);
 									}
 								}}
@@ -761,7 +761,7 @@ function CVDataScreen() {
 									>
 										{renderEducationElements(
 											educationInstance,
-											index
+											index,
 										)}
 
 										<div
@@ -782,7 +782,7 @@ function CVDataScreen() {
 													let newEducation = education;
 													education.splice(index, 1);
 													newEducation.push(
-														getEducationEmptyState()
+														getEducationEmptyState(),
 													);
 
 													setEducation(newEducation);
@@ -813,14 +813,14 @@ function CVDataScreen() {
 										let newEducation = education;
 
 										newEducation.push(
-											getEducationEmptyState()
+											getEducationEmptyState(),
 										);
 
 										setEducation(newEducation);
 										setForceRefresh(!forceRefresh);
 									} else {
 										alert(
-											'Please fill your previous education before adding new one!'
+											'Please fill your previous education before adding new one!',
 										);
 									}
 								}}
@@ -847,7 +847,7 @@ function CVDataScreen() {
 										>
 											{renderCertificationElements(
 												certificationInstance,
-												index
+												index,
 											)}
 
 											<div
@@ -867,27 +867,27 @@ function CVDataScreen() {
 													) {
 														certification.splice(
 															index,
-															1
+															1,
 														);
 														setCertification(
-															certification
+															certification,
 														);
 													} else {
 														let newCertification = certification;
 														certification.splice(
 															index,
-															1
+															1,
 														);
 														newCertification.push(
-															getCertificationEmptyState()
+															getCertificationEmptyState(),
 														);
 
 														setCertification(
-															newCertification
+															newCertification,
 														);
 													}
 													setForceRefresh(
-														!forceRefresh
+														!forceRefresh,
 													);
 												}}
 											>
@@ -895,7 +895,7 @@ function CVDataScreen() {
 											</div>
 										</div>
 									);
-								}
+								},
 							)}
 						<div className="row justify-end">
 							<Button
@@ -916,14 +916,14 @@ function CVDataScreen() {
 										let newCertification = certification;
 
 										newCertification.push(
-											getCertificationEmptyState()
+											getCertificationEmptyState(),
 										);
 
 										setCertification(newCertification);
 										setForceRefresh(!forceRefresh);
 									} else {
 										alert(
-											'Please fill your previous certification before adding new one!'
+											'Please fill your previous certification before adding new one!',
 										);
 									}
 								}}
@@ -949,7 +949,7 @@ function CVDataScreen() {
 									>
 										{renderAchievementsElements(
 											achievementsInstance,
-											index
+											index,
 										)}
 
 										<div
@@ -966,23 +966,23 @@ function CVDataScreen() {
 												if (achievements.length != 1) {
 													achievements.splice(
 														index,
-														1
+														1,
 													);
 													setAchievements(
-														achievements
+														achievements,
 													);
 												} else {
 													let newAchievements = achievements;
 													achievements.splice(
 														index,
-														1
+														1,
 													);
 													newAchievements.push(
-														getAchievementsEmptyState()
+														getAchievementsEmptyState(),
 													);
 
 													setAchievements(
-														newAchievements
+														newAchievements,
 													);
 												}
 												setForceRefresh(!forceRefresh);
@@ -1012,14 +1012,14 @@ function CVDataScreen() {
 										let newAchievements = achievements;
 
 										newAchievements.push(
-											getAchievementsEmptyState()
+											getAchievementsEmptyState(),
 										);
 
 										setAchievements(newAchievements);
 										setForceRefresh(!forceRefresh);
 									} else {
 										alert(
-											'Please fill your previous achievements before adding new one!'
+											'Please fill your previous achievements before adding new one!',
 										);
 									}
 								}}
@@ -1045,7 +1045,7 @@ function CVDataScreen() {
 									>
 										{renderSkillsElements(
 											skillsInstance,
-											index
+											index,
 										)}
 
 										<div
@@ -1066,7 +1066,7 @@ function CVDataScreen() {
 													let newSkills = skills;
 													skills.splice(index, 1);
 													newSkills.push(
-														getSkillsEmptyState()
+														getSkillsEmptyState(),
 													);
 
 													setSkills(newSkills);
@@ -1102,7 +1102,7 @@ function CVDataScreen() {
 										setForceRefresh(!forceRefresh);
 									} else {
 										alert(
-											'Please fill your previous skills before adding new one!'
+											'Please fill your previous skills before adding new one!',
 										);
 									}
 								}}
@@ -1128,7 +1128,7 @@ function CVDataScreen() {
 									>
 										{renderLanguagesElements(
 											languagesInstance,
-											index
+											index,
 										)}
 
 										<div
@@ -1149,7 +1149,7 @@ function CVDataScreen() {
 													let newLanguages = languages;
 													languages.splice(index, 1);
 													newLanguages.push(
-														getLanguagesEmptyState()
+														getLanguagesEmptyState(),
 													);
 
 													setLanguages(newLanguages);
@@ -1180,14 +1180,14 @@ function CVDataScreen() {
 										let newLanguages = languages;
 
 										newLanguages.push(
-											getLanguagesEmptyState()
+											getLanguagesEmptyState(),
 										);
 
 										setLanguages(newLanguages);
 										setForceRefresh(!forceRefresh);
 									} else {
 										alert(
-											'Please fill your previous languages before adding new one!'
+											'Please fill your previous languages before adding new one!',
 										);
 									}
 								}}
