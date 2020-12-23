@@ -1,14 +1,14 @@
 import React from 'react';
 import Button from './button';
 
-const Avatar = ({ openImgChangeModal, resetImg, content, avatarSrc }) => {
+const Avatar = ({ onClick, resetImg, content, avatarSrc }) => {
 	return (
 		<div className="avatar-wrapper">
 			<p className="input-heading">{content}</p>
 			<img className="acc-avatar" src={avatarSrc}></img>
 			<Button
 				type="button"
-				onClick={openImgChangeModal}
+				onClick={onClick}
 				content="Change Image"
 			></Button>
 
