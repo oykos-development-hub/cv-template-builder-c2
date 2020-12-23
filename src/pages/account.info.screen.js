@@ -27,19 +27,18 @@ const AccountInfo = () => {
 	console.log(modalStatus);
 	const didMountRef = useRef(false);
 	const root = document.getElementById('root');
-	const modal = document.getElementById('modal-root');
 
 	const onClose = () => {
 		toggleModal(false);
 		didMountRef.current = false;
-		root.classList.toggle('active');
+		// root.classList.toggle('active');
 	};
 
 	const submitImgForm = (url) => {
 		setData((prev) => ({ ...prev, imgUrl: url }));
 		toggleModal(false);
 		didMountRef.current = false;
-		root.classList.toggle('active');
+		// root.classList.toggle('active');
 	};
 
 	const onEscKeyDown = (e) => {
@@ -49,7 +48,7 @@ const AccountInfo = () => {
 
 	useEffect(() => {
 		if (didMountRef.current) {
-			root.classList.toggle('active');
+			// root.classList.toggle('active');
 			window.addEventListener('keydown', onEscKeyDown);
 		} else didMountRef.current = true;
 		return () => {
