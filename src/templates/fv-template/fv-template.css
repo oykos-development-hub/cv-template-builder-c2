@@ -1,12 +1,5 @@
-html,
-body,
-#root {
-	height: 100%;
-	width: 100%;
-	min-height: 900px;
-}
 .fv-container {
-	height: 100%;
+	height: 100vh;
 	display: flex;
 	justify-content: center;
 	min-width: 1000px;

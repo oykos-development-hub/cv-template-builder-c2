@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 body {
 	font-family: Avenir, Calibri, Segoe, “Segoe UI”, Optima, Arial, sans-serif;
@@ -34,16 +34,6 @@ body {
 .background-image {
 	width: 90%;
 	margin: 20px;
-
-	.image {
-
-	}
-	&.hidden {
-
-	}
-	&:hover {
-
-	}
 }
 
 .login-screen input,
@@ -224,6 +214,7 @@ h2 {
 	width: 30px;
 	margin-right: 10px;
 	appearance: radio;
+	box-shadow: unset;
 }
 
 .rb-component .radio-label {
@@ -239,7 +230,9 @@ h2 {
 	font-size: 1.2rem;
 	color: rgb(72, 72, 72);
 }
-
+.rb-component .radio-button-form {
+	flex-wrap: wrap;
+}
 /* CV DATA SCREEN end */
 
 .flex {
@@ -435,6 +428,9 @@ h2 {
 	.templates-screen .sidebar {
 		flex-direction: row;
 		flex-wrap: wrap;
+	}
+	.rb-component .radio-button-form {
+		flex-direction: column;
 	}
 }
 

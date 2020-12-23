@@ -126,7 +126,7 @@ function LoginScreen() {
 				<img
 					src={background}
 					alt="background"
-					class="background-image"
+					className="background-image"
 				/>
 			</div>
 		</div>

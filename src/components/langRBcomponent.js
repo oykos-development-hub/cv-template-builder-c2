@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
 const LangRBcomponent = (props) => {
-	console.log(props.value);
 	return (
 		<div className="radio-button-group-container rb-component">
 			<p className="radio-label"> {props.label} </p>
-			<form className="column radio-button-form">
+			<form className="flex radio-button-form">
 				<div className="radio-group flex padding-10 align-center">
 					<input
 						type="radio"
