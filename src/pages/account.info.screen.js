@@ -101,8 +101,6 @@ const AccountInfo = () => {
 		}
 	};
 
-	// console.log(modalStatus);
-
 	return (
 		<>
 			{modalStatus && (
@@ -113,7 +111,7 @@ const AccountInfo = () => {
 					onClose={onClose}
 				></ImageModal>
 			)}
-			<TopHeader></TopHeader>
+			<TopHeader active="account" />
 			<div className="acc-page-wrapper">
 				<form onSubmit={formSubmit}>
 					<h2>Profile Info</h2>
@@ -168,14 +166,6 @@ const AccountInfo = () => {
 							<p className="input-heading">PASSWORD</p>
 						</InputComponent>
 
-						<div className="checkbox-wrapper">
-							<input
-								type="checkbox"
-								onChange={handleChange}
-								checked={data.showOnStarting}
-							></input>
-							<label>Show Getting Started</label>
-						</div>
 						<div className="flex justify-between align-center">
 							<Button content="Save"></Button>
 							<p id="message" className="action-message">

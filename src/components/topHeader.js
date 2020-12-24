@@ -25,7 +25,7 @@ export default class TopHeader extends React.Component {
 				myTemplates += ' menu-active';
 				break;
 			case 'account':
-				account += 'menu-active';
+				account += ' menu-active';
 				break;
 		}
 
@@ -43,7 +43,7 @@ export default class TopHeader extends React.Component {
 					CV builder
 				</div>
 
-				<div className="grow-1 flex align-center justify-start margin-h-15">
+				<div className="grow-1 flex align-center justify-between margin-h-15">
 					<div
 						className={myTemplates}
 						onClick={() => {
@@ -55,28 +55,33 @@ export default class TopHeader extends React.Component {
 						My templates
 					</div>
 					<div
-						className={cvData}
-						onClick={() => {
-							this.setState({
-								redirect: '/cv-data',
-							});
-						}}
+						className="flex align-center"
+						style={{ paddingRight: '30px' }}
 					>
-						CV data
-					</div>
-					<div
-						className={account}
-						onClick={() => {
-							this.setState({
-								redirect: '/account',
-							});
-						}}
-					>
-						Account
+						<div
+							className={cvData}
+							onClick={() => {
+								this.setState({
+									redirect: '/cv-data',
+								});
+							}}
+						>
+							CV data
+						</div>
+						<div
+							className={account}
+							onClick={() => {
+								this.setState({
+									redirect: '/account',
+								});
+							}}
+						>
+							Account
+						</div>
 					</div>
 				</div>
 
-				<div className="flex justify-between padding-b-20">
+				<div className="header-button flex justify-between padding-b-20">
 					<Button
 						content={iconSignOut}
 						onclick={() => {
