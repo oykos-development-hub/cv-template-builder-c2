@@ -21,8 +21,6 @@ const PetarTemplate = () => {
 	const achievements = cv_data.achievements ? cv_data.achievements : [];
 	const bioText =
 		'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum, quae. In, expedita! Aut praesentium omnis fugiat iure minus eius quas rerum iste numquam perspiciatis reprehenderit aspernatur ut placeat soluta deserunt ratione, quibusdam alias ad possimus corporis. Modi qui nam, quam repellendus, quisquam iure totam molestiae, voluptate illum doloribus eius! Perspiciatis.';
-	console.log(skills);
-	console.log(cv_data);
 
 	return (
 		<div className="petar-temp--wrp column">

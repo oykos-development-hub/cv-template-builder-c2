@@ -3,8 +3,6 @@ import React from 'react';
 const SkillComponent = (props) => {
 	let skillStyle;
 
-	console.log(props.percent);
-
 	if (isNaN(Number(props.percent[0]))) {
 		switch (props.percent) {
 			case 'Beginner':
