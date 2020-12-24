@@ -1,0 +1,18 @@
+.name-comp-letter:hover {
+	color: #fff;
+	text-align: center;
+	-webkit-animation: glow 1s ease-in-out infinite alternate;
+	-moz-animation: glow 1s ease-in-out infinite alternate;
+	animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+	from {
+		text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #2ec055,
+			0 0 40px #2ec055, 0 0 50px #2ec055, 0 0 60px #2ec055;
+	}
+	to {
+		text-shadow: 0 0 20px #fff, 0 0 30px #1c9c3f, 0 0 40px #1c9c3f,
+			0 0 50px #1c9c3f, 0 0 60px #1c9c3f, 0 0 70px #1c9c3f;
+	}
+}

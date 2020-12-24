@@ -1,0 +1,48 @@
+.banner-component {
+	position: relative;
+	width: 295px;
+	height: 35px;
+}
+
+.cv-banner-heading {
+	background-color: #333;
+	width: 295px;
+	height: 35px;
+}
+
+.cv-banner-heading p {
+	color: white;
+	font-size: 1.6rem;
+	margin-left: 100px;
+	height: 100%;
+	background-color: #333;
+	z-index: 2;
+}
+
+.skewed-banner-element {
+	position: absolute;
+	top: 0;
+	left: 280px;
+	background-color: #333;
+	width: 20px;
+	height: 35px;
+	transform: skew(-30deg);
+	z-index: 1;
+}
+
+.skew-reverse {
+	transform: skew(30deg);
+}
+
+.cv-banner-icon-wrp {
+	position: absolute;
+	top: -20px;
+	left: 15px;
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: #333;
+	display: grid;
+	place-items: center;
+	color: white;
+}

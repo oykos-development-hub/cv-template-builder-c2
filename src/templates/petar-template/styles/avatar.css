@@ -1,0 +1,46 @@
+.cv-avatar-wrp {
+	width: 33%;
+	min-width: 330px;
+}
+
+.cv-avatar-img {
+	width: 260px;
+	height: 260px;
+	border-radius: 50%;
+	position: relative;
+	overflow: hidden;
+	transition: 0.5s;
+	border: 5px solid rgb(31, 31, 31);
+}
+
+.cv-avatar-img::after {
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: -60%;
+	width: 40%;
+	height: 200%;
+	opacity: 0;
+	transform: rotate(30deg);
+
+	background: rgba(255, 255, 255, 0.13);
+	background: linear-gradient(
+		to right,
+		rgba(255, 255, 255, 0.13) 0%,
+		rgba(255, 255, 255, 0.13) 70%,
+		rgba(255, 255, 255, 0.5) 92%,
+		rgba(255, 255, 255, 0) 100%
+	);
+}
+
+.cv-avatar-img:hover:after {
+	opacity: 1;
+	left: 130%;
+	transition-property: left, top, opacity;
+	transition-duration: 0.7s, 0.7s, 0.15s;
+	transition-timing-function: ease;
+}
+
+.cv-avatar-img:active:after {
+	opacity: 0;
+}
