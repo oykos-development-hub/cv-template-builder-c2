@@ -113,7 +113,7 @@ function FVTemplate() {
 					{!!userAch &&
 						!!userAch.length &&
 						userAch.map((achievementsInstance) =>
-							generateAchievement(achievementsInstance),
+							generateAchievement(achievementsInstance)
 						)}
 				</div>
 				<div className="flex justify-center icon">
@@ -176,7 +176,7 @@ function FVTemplate() {
 							{!!userLang &&
 								!!userLang.length &&
 								userLang.map((languagesInstance) =>
-									generateLanguages(languagesInstance),
+									generateLanguages(languagesInstance)
 								)}
 						</div>
 					</div>
@@ -233,7 +233,7 @@ function FVTemplate() {
 							{!!userEdu &&
 								!!userEdu.length &&
 								userEdu.map((educationInstance) =>
-									generateEducation(educationInstance),
+									generateEducation(educationInstance)
 								)}
 						</div>
 						<div className="flex justify-center icon">
@@ -257,7 +257,7 @@ function FVTemplate() {
 							{!!userExp &&
 								!!userExp.length &&
 								userExp.map((experienceInstance) =>
-									generateExperience(experienceInstance),
+									generateExperience(experienceInstance)
 								)}
 						</div>
 						<div className="flex justify-center icon">
@@ -281,7 +281,7 @@ function FVTemplate() {
 							{!!userSkill &&
 								!!userSkill.length &&
 								userSkill.map((skillsInstance) =>
-									generateSkills(skillsInstance),
+									generateSkills(skillsInstance)
 								)}
 						</div>
 						<div className="flex justify-center icon">
@@ -305,9 +305,7 @@ function FVTemplate() {
 							{!!userCert &&
 								!!userCert.length &&
 								userCert.map((certificationInstance) =>
-									generateCertification(
-										certificationInstance,
-									),
+									generateCertification(certificationInstance)
 								)}
 						</div>
 
