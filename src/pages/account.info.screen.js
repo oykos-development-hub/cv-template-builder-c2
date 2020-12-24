@@ -6,6 +6,7 @@ import ImageModal from '../components/imageModal';
 import '../style/account-page.css';
 import '../style/image.modal.css';
 import defaultAvatar from '../images/default-profile.png';
+import TopHeader from '../components/topHeader';
 import { StoreService } from '../services/store.service';
 import { appearAnimation } from '../components/appearAnimation';
 
@@ -100,9 +101,6 @@ const AccountInfo = () => {
 		}
 	};
 
-	const memoizedCallback = useCallback(() => {
-		toggleModal(true);
-	}, [modalStatus]);
 	// console.log(modalStatus);
 
 	return (
@@ -115,10 +113,8 @@ const AccountInfo = () => {
 					onClose={onClose}
 				></ImageModal>
 			)}
+			<TopHeader></TopHeader>
 			<div className="acc-page-wrapper">
-				<p id="message" className="action-message">
-					Account info changes saved successfully!
-				</p>
 				<form onSubmit={formSubmit}>
 					<h2>Profile Info</h2>
 					<section className="acc-top-section">
@@ -144,7 +140,9 @@ const AccountInfo = () => {
 							<Avatar
 								avatarSrc={data.imgUrl}
 								content="PROFILE IMAGE"
-								onClick={memoizedCallback}
+								onClick={() => {
+									toggleModal(true);
+								}}
 								resetImg={() => {
 									const confirmation = window.confirm(
 										'Reseting will remove your current profile picture and replace it with an empty avatar. Are you sure you want to proceed?'
@@ -178,8 +176,12 @@ const AccountInfo = () => {
 							></input>
 							<label>Show Getting Started</label>
 						</div>
-
-						<Button content="Save"></Button>
+						<div className="flex justify-between align-center">
+							<Button content="Save"></Button>
+							<p id="message" className="action-message">
+								Account info changes saved successfully!
+							</p>
+						</div>
 					</section>
 				</form>
 			</div>

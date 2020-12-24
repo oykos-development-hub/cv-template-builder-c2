@@ -94,7 +94,7 @@ hr {
 	font-size: 1.1rem;
 }
 
-/* #root.active {
+#root.active {
 	filter: blur(2px) contrast(60%);
 	pointer-events: none;
-} */
+}

@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 body {
 	font-family: Avenir, Calibri, Segoe, “Segoe UI”, Optima, Arial, sans-serif;
@@ -36,13 +36,10 @@ body {
 	margin: 20px;
 
 	.image {
-
 	}
 	&.hidden {
-
 	}
 	&:hover {
-
 	}
 }
 

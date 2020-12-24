@@ -1,18 +1,22 @@
 import React from 'react';
 import Button from './button';
 
-const Avatar = ({ onClick, resetImg, content, avatarSrc }) => {
+const Avatar = (props) => {
 	return (
 		<div className="avatar-wrapper">
-			<p className="input-heading">{content}</p>
-			<img className="acc-avatar" src={avatarSrc}></img>
+			<p className="input-heading">{props.content}</p>
+			<img className="acc-avatar" src={props.avatarSrc}></img>
 			<Button
 				type="button"
-				onClick={onClick}
+				onclick={props.onClick}
 				content="Change Image"
 			></Button>
 
-			<Button type="button" onClick={resetImg} content="Reset"></Button>
+			<Button
+				type="button"
+				onclick={props.resetImg}
+				content="Reset"
+			></Button>
 		</div>
 	);
 };

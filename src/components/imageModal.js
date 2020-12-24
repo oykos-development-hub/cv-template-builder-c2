@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import Button from './button';
 
 const ImageModal = (props) => {
@@ -15,7 +16,7 @@ const ImageModal = (props) => {
 		};
 	};
 
-	return (
+	return ReactDOM.createPortal(
 		<div>
 			<div id="modal" className="img-modal-wrapper">
 				<h1>Add a new profile picture</h1>
@@ -48,14 +49,15 @@ const ImageModal = (props) => {
 							type="button"
 							content="Cancel"
 							id="cancel-btn"
-							onClick={() => {
+							onclick={(e) => {
 								props.onClose();
 							}}
 						></Button>
 					</div>
 				</form>
 			</div>
-		</div>
+		</div>,
+		document.getElementById('modal-root')
 	);
 };
 
