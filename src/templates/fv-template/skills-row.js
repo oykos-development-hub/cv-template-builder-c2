@@ -50,22 +50,16 @@ export default function SkillsRow(props) {
 		switch (true) {
 			case 0 < percentage && percentage <= 20:
 				return [oneCircle];
-				break;
 			case 20 < percentage && percentage <= 40:
 				return [twoCircles];
-				break;
 			case 40 < percentage && percentage <= 60:
 				return [threeCircles];
-				break;
 			case 60 < percentage && percentage <= 80:
 				return [fourCircles];
-				break;
 			case 80 < percentage && percentage <= 100:
 				return [fiveCircles];
-				break;
 			default:
 				return [oneCircle];
-				break;
 		}
 	};
 	return (
