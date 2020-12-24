@@ -20,7 +20,8 @@
 
 .petar-temp--wrp {
 	min-height: 100vh;
-	margin: 50px auto;
+	margin: 0 auto;
+	margin-bottom: 50px;
 	background-color: var(--gray);
 	width: 55%;
 	min-width: 1000px;
@@ -112,7 +113,7 @@
 
 .cv-info-section {
 	padding: 50px 20px 20px 20px;
-	background-color: rgb(197, 181, 123);
+	background-color: rgb(189, 189, 189);
 }
 
 .cv-contact-section {
