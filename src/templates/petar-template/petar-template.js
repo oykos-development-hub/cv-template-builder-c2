@@ -8,6 +8,7 @@ import NameComponent from './components/NameComponent';
 import AchieveCertsComp from './components/AchieveCertsComp';
 import { StoreService } from '../../services/store.service';
 import './styles/petar-template.css';
+import defaultImg from './styles/default-profile-icon-16.jpg';
 
 const PetarTemplate = () => {
 	const userData = StoreService.getStoreProperty('user');
@@ -18,8 +19,10 @@ const PetarTemplate = () => {
 	const languages = cv_data.languages ? cv_data.languages : [];
 	const certification = cv_data.certification ? cv_data.certification : [];
 	const achievements = cv_data.achievements ? cv_data.achievements : [];
+	const image = userData.imgUrl ? userData.imgUrl : defaultImg;
 	const bioText =
 		'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum, quae. In, expedita! Aut praesentium omnis fugiat iure minus eius quas rerum iste numquam perspiciatis reprehenderit aspernatur ut placeat soluta deserunt ratione, quibusdam alias ad possimus corporis. Modi qui nam, quam repellendus, quisquam iure totam molestiae, voluptate illum doloribus eius! Perspiciatis.';
+	console.log(userData);
 
 	return (
 		<div className="petar-temp--wrp column">
@@ -27,7 +30,7 @@ const PetarTemplate = () => {
 				<div className="cv-avatar-wrp">
 					<div
 						style={{
-							backgroundImage: `user.imgUrl`,
+							backgroundImage: `url(${image})`,
 							backgroundSize: 'cover',
 						}}
 						className="cv-avatar-img"
