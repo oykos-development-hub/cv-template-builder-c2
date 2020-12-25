@@ -8,7 +8,6 @@ import NameComponent from './components/NameComponent';
 import AchieveCertsComp from './components/AchieveCertsComp';
 import { StoreService } from '../../services/store.service';
 import './styles/petar-template.css';
-// import Thumbnail from './imgs/thumbnail.jpg';
 
 const PetarTemplate = () => {
 	const userData = StoreService.getStoreProperty('user');
@@ -28,7 +27,7 @@ const PetarTemplate = () => {
 				<div className="cv-avatar-wrp">
 					<div
 						style={{
-							// backgroundImage: `url(${Thumbnail})`,
+							backgroundImage: `user.imgUrl`,
 							backgroundSize: 'cover',
 						}}
 						className="cv-avatar-img"
